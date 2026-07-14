@@ -13,19 +13,19 @@ const trackEvent = (eventName, detail = {}) => {
 const normalizeHeaderNavigation = () => {
   if (nav) {
     nav.innerHTML = `
-      <a href="/#product">Продукт</a>
-      <a href="/how-it-works/">Как это работает</a>
-      <a href="/for-personal-trainers/">Для персональных тренеров</a>
-      <a href="/pricing/">Цены</a>
-      <a href="/about/">О проекте</a>
-      <a href="/support/">Поддержка</a>
+      <a href="/fitfreakpro-website-ru/#product">Продукт</a>
+      <a href="/fitfreakpro-website-ru/how-it-works/">Как это работает</a>
+      <a href="/fitfreakpro-website-ru/for-personal-trainers/">Для персональных тренеров</a>
+      <a href="/fitfreakpro-website-ru/pricing/">Цены</a>
+      <a href="/fitfreakpro-website-ru/about/">О проекте</a>
+      <a href="/fitfreakpro-website-ru/support/">Поддержка</a>
     `;
   }
 
   const headerCta = document.querySelector('.header-actions .btn-primary');
   if (headerCta) {
     headerCta.textContent = 'Скачать бесплатное приложение тренера';
-    headerCta.setAttribute('href', '/#download');
+    headerCta.setAttribute('href', '/fitfreakpro-website-ru/#download');
     headerCta.setAttribute('data-track', 'header_app_download_cta');
   }
 };

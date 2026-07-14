@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "audit:site": "node scripts/audit-site.mjs"
+  }
+}

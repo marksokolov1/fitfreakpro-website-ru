@@ -3,34 +3,15 @@ const toggle = document.querySelector('.mobile-toggle');
 const nav = document.querySelector('.main-nav');
 let lastFocusedBeforeNav = null;
 
+// Integration point only: the repository does not send these events to an
+// analytics provider. A site owner can listen for this event after choosing a
+// privacy-reviewed analytics setup.
 const trackEvent = (eventName, detail = {}) => {
   if (!eventName) return;
   window.dispatchEvent(new CustomEvent('fitfreakpro:analytics', {
     detail: { eventName, ...detail }
   }));
 };
-
-const normalizeHeaderNavigation = () => {
-  if (nav) {
-    nav.innerHTML = `
-      <a href="/fitfreakpro-website-ru/#product">Продукт</a>
-      <a href="/fitfreakpro-website-ru/how-it-works/">Как это работает</a>
-      <a href="/fitfreakpro-website-ru/for-personal-trainers/">Для персональных тренеров</a>
-      <a href="/fitfreakpro-website-ru/pricing/">Цены</a>
-      <a href="/fitfreakpro-website-ru/about/">О проекте</a>
-      <a href="/fitfreakpro-website-ru/support/">Поддержка</a>
-    `;
-  }
-
-  const headerCta = document.querySelector('.header-actions .btn-primary');
-  if (headerCta) {
-    headerCta.textContent = 'Скачать бесплатное приложение тренера';
-    headerCta.setAttribute('href', '/fitfreakpro-website-ru/#download');
-    headerCta.setAttribute('data-track', 'header_app_download_cta');
-  }
-};
-
-normalizeHeaderNavigation();
 
 const closeNavigation = () => {
   const wasOpen = header && header.classList.contains('nav-open');

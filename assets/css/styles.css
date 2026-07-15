@@ -2324,28 +2324,36 @@ body::after,
 }
 
 .workflow-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
   gap: 24px;
   margin-top: 0;
 }
 
 .workflow-list .workflow-step {
-  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(22px, 2.6vw, 36px);
-  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(18px, 2vw, 26px);
+  min-height: 0;
   padding: clamp(22px, 2.4vw, 34px);
-  overflow: hidden;
+  overflow: visible;
   background:
     radial-gradient(circle at 12% 0%, rgba(201,255,31,.11), transparent 34%),
     linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.022));
   box-shadow: 0 24px 80px rgba(0,0,0,.26);
 }
 
+.workflow-list .workflow-step > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 .workflow-list .workflow-step img {
   width: 100%;
   height: auto;
-  max-height: 440px;
+  max-height: none;
   aspect-ratio: 619 / 1100;
   object-fit: cover;
   object-position: top center;
@@ -2359,14 +2367,21 @@ body::after,
 .workflow-step h2,
 .workflow-step h3 {
   margin: 10px 0 12px;
-  font-size: clamp(1.55rem, 2.1vw, 2.35rem);
+  font-size: clamp(1.45rem, 1.72vw, 2.05rem);
   line-height: 1.05;
   letter-spacing: -.045em;
+  overflow-wrap: anywhere;
 }
 
 .workflow-step p {
-  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  font-size: clamp(1rem, 1.03vw, 1.1rem);
   line-height: 1.52;
+}
+
+@media (max-width: 1280px) {
+  .workflow-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1100px) {
@@ -2381,12 +2396,7 @@ body::after,
     max-height: none;
   }
 
-  .workflow-list {
-    grid-template-columns: 1fr;
-  }
-
   .workflow-list .workflow-step {
-    grid-template-columns: minmax(230px, 320px) minmax(0, 1fr);
     min-height: auto;
   }
 }
@@ -2402,11 +2412,15 @@ body::after,
   }
 
   .workflow-list .workflow-step {
+    padding: 20px;
+  }
+
+  .workflow-list {
     grid-template-columns: 1fr;
   }
 
   .workflow-list .workflow-step img {
-    justify-self: center;
+    align-self: center;
     width: min(100%, 340px);
     max-height: none;
   }

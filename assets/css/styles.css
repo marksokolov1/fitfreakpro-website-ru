@@ -2323,6 +2323,42 @@ body::after,
   font-size: clamp(1.08rem, 1.35vw, 1.28rem);
 }
 
+.feature-split .pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 720px;
+}
+
+.feature-split .pill-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 11px 16px;
+  border: 1px solid rgba(201, 255, 31, .24);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(201,255,31,.16), transparent 42%),
+    rgba(255,255,255,.035);
+  color: rgba(255,255,255,.88);
+  font-size: clamp(.92rem, 1.02vw, 1.02rem);
+  font-weight: 850;
+  line-height: 1.22;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+.feature-split .pill-row span::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 999px;
+  background: var(--lime);
+  box-shadow: 0 0 16px rgba(201,255,31,.55);
+}
+
 .workflow-list {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: stretch;
@@ -2506,6 +2542,20 @@ body::after,
 
   .workflow-list .workflow-step {
     overflow: hidden;
+  }
+
+  .feature-split .pill-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .feature-split .pill-row span {
+    width: 100%;
+    border-radius: 18px;
+    padding: 13px 14px;
+    font-size: .96rem;
   }
 
   .workflow-step h2,

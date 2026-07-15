@@ -96,7 +96,7 @@ if (pricingSection && 'IntersectionObserver' in window) {
     entries.forEach((entry) => {
       if (!pricingViewed && entry.isIntersecting) {
         pricingViewed = true;
-        trackEvent('pricing_section_view');
+        trackEvent('pricing_view');
         observer.disconnect();
       }
     });

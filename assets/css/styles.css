@@ -179,6 +179,11 @@ button:focus-visible {
   background: rgba(255,255,255,0.07);
 }
 
+.main-nav a[aria-current="page"] {
+  color: var(--lime);
+  background: rgba(201,255,31,0.09);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -1943,6 +1948,27 @@ body::after,
   font-size: 0.98rem;
 }
 
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.breadcrumbs a {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.breadcrumbs span:last-child {
+  color: var(--lime);
+}
+
 .not-found-hero .cta-actions {
   margin-top: 28px;
 }
@@ -2017,6 +2043,15 @@ body::after,
     min-height: 470px;
   }
 
+  .site-header {
+    backdrop-filter: none;
+  }
+
+  body::before,
+  body::after {
+    opacity: 0.10;
+  }
+
   .phone-shot-primary {
     width: min(80%, 285px);
   }
@@ -2024,6 +2059,18 @@ body::after,
   .phone-shot-secondary {
     width: min(48%, 190px);
     right: 4%;
+  }
+
+  .phone-shot,
+  .feature-card,
+  .pricing-card,
+  .cta-panel,
+  .split-panel,
+  .contact-card,
+  .route-card,
+  .policy-card,
+  .terms-card {
+    box-shadow: 0 16px 44px rgba(0,0,0,.30);
   }
 
   .split-panel {
@@ -2041,6 +2088,19 @@ body::after,
 
   .page-image-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-data: reduce) {
+  body::before,
+  body::after,
+  .glow-orb,
+  .phone-shot-secondary {
+    display: none;
+  }
+
+  .site-header {
+    backdrop-filter: none;
   }
 }
 

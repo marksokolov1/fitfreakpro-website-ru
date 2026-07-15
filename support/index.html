@@ -70,28 +70,30 @@
           <img class="brand-mark" src="/fitfreakpro-website-ru/assets/img/fitfreak-logo.webp" width="640" height="640" alt="" aria-hidden="true" />
           <span class="brand-word">FitFreak Pro</span>
         </a>
-        <nav class="main-nav" aria-label="Основная навигация">
+        <nav class="main-nav" id="primary-navigation" aria-label="Основная навигация">
           <a href="/fitfreakpro-website-ru/#product">Продукт</a>
           <a href="/fitfreakpro-website-ru/how-it-works/">Как это работает</a>
           <a href="/fitfreakpro-website-ru/for-personal-trainers/">Для персональных тренеров</a>
           <a href="/fitfreakpro-website-ru/pricing/">Цены</a>
           <a href="/fitfreakpro-website-ru/about/">О проекте</a>
-          <a href="/fitfreakpro-website-ru/support/">Поддержка</a>
+          <a href="/fitfreakpro-website-ru/support/" aria-current="page">Поддержка</a>
         </nav>
         <div class="header-actions">
-          <a class="btn btn-primary" href="/fitfreakpro-website-ru/#download" data-track="header_app_download_cta">Скачать приложение</a>
-          <button class="mobile-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+          <a class="btn btn-primary" href="/fitfreakpro-website-ru/#download" data-track="app_download_click">Скачать приложение</a>
+          <button class="mobile-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
         </div>
       </div>
     </header>
     <main id="main">
+
+      <nav class="breadcrumbs container" aria-label="Хлебные крошки"><a href="/fitfreakpro-website-ru/">Главная</a><span aria-hidden="true">/</span><span>Поддержка</span></nav>
 
       <section class="page-hero"><div class="container"><div class="eyebrow">Поддержка</div><h1>Чем мы можем помочь?</h1><p>Получите помощь по аккаунту тренера, доступу клиентов, подпискам, тренировкам, целям по питанию и отслеживанию прогресса.</p><p>FitFreak Pro создан для тренеров, фитнес-специалистов, студий и небольших фитнес-бизнесов, которым нужна организованная работа с клиентами.</p></div></section>
       <section class="section" style="padding-top:0;"><div class="container contact-grid"><div class="contact-card"><h2>Связаться с поддержкой</h2><p>По вопросам аккаунта, оплаты, технических проблем, доступа клиента или подписки напишите в поддержку FitFreak Pro.</p><p>Email: <a class="email-link" href="mailto:support@fitfreakpro.com" data-track="support_email_click">support@fitfreakpro.com</a></p><div><a class="btn btn-primary" href="mailto:support@fitfreakpro.com" data-track="support_email_click">Написать в поддержку</a></div></div><div class="contact-card"><h2>Скачать приложение</h2><p>FitFreak Pro доступен в App Store и Google Play.</p><div class="store-row" aria-label="Ссылки для скачивания приложения">
       <a class="store-badge" href="https://apps.apple.com/us/app/fit-freak-pro/id6742347988" target="_blank" rel="noopener noreferrer" data-track="app_store_click" aria-label="Скачать FitFreak Pro в App Store"><span>Скачать в<strong>App Store</strong></span></a>
       <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.duseca.fitfreak" target="_blank" rel="noopener noreferrer" data-track="google_play_click" aria-label="Скачать FitFreak Pro в Google Play"><span>Доступно в<strong>Google Play</strong></span></a>
     </div></div></div></section>
-      <section class="section support-categories"><div class="container"><div class="section-header"><div><div class="section-kicker">Разделы поддержки</div><h2 class="section-title">Найдите помощь по нужной части процесса.</h2></div></div><div class="support-grid"><article class="support-card"><div class="feature-icon" aria-hidden="true">👤</div><h3>Аккаунт тренера</h3><p>Поможем разобраться с началом работы и настройкой тренерского процесса.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">✉</div><h3>Приглашение клиентов</h3><p>Клиент появляется в панели тренера после приглашения и успешной оплаты.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">₽</div><h3>Подписки клиентов</h3><p>Клиенты платят 1490 ₽ в месяц после приглашения от тренера. По вопросам оплаты обращайтесь в поддержку.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">▤</div><h3>Библиотека упражнений</h3><p>Тренеры создают собственную библиотеку упражнений и используют свой контент.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">✓</div><h3>Планы тренировок</h3><p>Тренер назначает планы, чтобы клиент видел понятный порядок действий.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">◎</div><h3>Цели по питанию</h3><p>Тренер задает значения, а клиент видит их в приложении и отправляет информацию на проверку.</p></article></div></div></section>
+      <section class="section support-categories"><div class="container"><div class="section-header"><div><div class="section-kicker">Разделы поддержки</div><h2 class="section-title">Найдите помощь по нужной части продукта.</h2></div></div><div class="support-grid"><article class="support-card"><div class="feature-icon" aria-hidden="true">👤</div><h3>Аккаунт тренера</h3><p>Поможем разобраться с началом работы и первичной настройкой аккаунта тренера.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">✉</div><h3>Приглашение клиентов</h3><p>Клиент появляется в панели тренера после приглашения и успешной оплаты.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">₽</div><h3>Подписки клиентов</h3><p>Клиенты платят 1490 ₽ в месяц после приглашения от тренера. По вопросам оплаты обращайтесь в поддержку.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">▤</div><h3>Библиотека упражнений</h3><p>Тренеры создают собственную библиотеку упражнений и используют свой контент.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">✓</div><h3>Планы тренировок</h3><p>Тренер назначает планы, чтобы клиент видел назначенные упражнения, подходы и повторы.</p></article><article class="support-card"><div class="feature-icon" aria-hidden="true">◎</div><h3>Цели по питанию</h3><p>Тренер задает значения, а клиент видит их в приложении и отправляет данные на проверку.</p></article></div></div></section>
       <section class="section"><div class="container cta-panel"><h2>Нужна помощь?</h2><p>Напишите нам, и команда поддержки поможет с аккаунтом FitFreak Pro.</p><div class="cta-actions"><a class="btn btn-primary" href="mailto:support@fitfreakpro.com" data-track="support_email_click">Связаться с поддержкой</a></div></div></section>
 
     </main>
@@ -99,7 +101,7 @@
       <div class="container footer-grid">
         <div>
           <img class="footer-logo" src="/fitfreakpro-website-ru/assets/img/fitfreak-logo.webp" width="640" height="640" alt="" aria-hidden="true" loading="lazy" />
-          <p class="footer-tagline">Создано для тренеров. Все в одном приложении.</p>
+          <p class="footer-tagline">Создано для тренеров, которые ведут клиентов в мобильном приложении.</p>
         </div>
         <div>
           <p class="footer-heading">Навигация</p>
@@ -109,7 +111,7 @@
             <a href="/fitfreakpro-website-ru/for-personal-trainers/">Для тренеров</a>
             <a href="/fitfreakpro-website-ru/pricing/">Цены</a>
             <a href="/fitfreakpro-website-ru/about/">О проекте</a>
-            <a href="/fitfreakpro-website-ru/support/">Поддержка</a>
+            <a href="/fitfreakpro-website-ru/support/" aria-current="page">Поддержка</a>
             <a href="/fitfreakpro-website-ru/privacy/">Конфиденциальность</a>
             <a href="/fitfreakpro-website-ru/terms/">Условия</a>
           </nav>
@@ -126,7 +128,7 @@
       </div>
       <div class="container footer-legal">
         <span>© <span data-year></span> FitFreak Pro. Все права защищены.</span>
-        <span><a href="/fitfreakpro-website-ru/privacy/">Конфиденциальность</a> · <a href="/fitfreakpro-website-ru/terms/">Условия</a> · <a href="/fitfreakpro-website-ru/support/">Поддержка</a> · <a href="mailto:support@fitfreakpro.com" data-track="support_email_click">support@fitfreakpro.com</a></span>
+        <span><a href="/fitfreakpro-website-ru/privacy/">Конфиденциальность</a> · <a href="/fitfreakpro-website-ru/terms/">Условия</a> · <a href="/fitfreakpro-website-ru/support/" aria-current="page">Поддержка</a> · <a href="mailto:support@fitfreakpro.com" data-track="support_email_click">support@fitfreakpro.com</a></span>
       </div>
     </footer>
   </div>

@@ -1,5 +1,7 @@
 {
   "scripts": {
-    "audit:site": "node scripts/audit-site.mjs"
+    "audit:site": "node scripts/audit-site.mjs",
+    "audit:live": "node scripts/audit-live.mjs",
+    "test": "npm run audit:site"
   }
 }

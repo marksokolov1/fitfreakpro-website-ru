@@ -1739,6 +1739,28 @@ body::after,
   grid-template-columns: repeat(2, 1fr);
 }
 
+.coach-cards-section {
+  padding-top: 44px;
+  padding-bottom: 30px;
+}
+
+.coach-card-grid {
+  align-items: stretch;
+}
+
+.coach-card-grid .route-card {
+  min-height: 188px;
+}
+
+.coach-gallery-section {
+  padding-top: 24px;
+}
+
+.coach-screenshot-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .comparison-card,
 .outcome-card,
 .content-note,
@@ -1976,7 +1998,13 @@ body::after,
 }
 
 .page-image-row img {
+  width: 100%;
+  aspect-ratio: 619 / 1100;
+  object-fit: cover;
   border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: #050505;
+  box-shadow: 0 16px 54px rgba(0,0,0,.24);
 }
 
 .legal-note {
@@ -2035,6 +2063,11 @@ body::after,
   .workflow-list,
   .route-grid {
     grid-template-columns: 1fr;
+  }
+
+  .coach-card-grid,
+  .coach-screenshot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .workflow-step,
@@ -2136,6 +2169,11 @@ body::after,
   }
 
   .page-image-row {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-card-grid,
+  .coach-screenshot-grid {
     grid-template-columns: 1fr;
   }
 }

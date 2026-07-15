@@ -2601,3 +2601,135 @@ body::after,
     scroll-behavior: auto !important;
   }
 }
+
+/* Final Russian layout balance */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+  align-items: stretch;
+}
+
+.metric-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 132px;
+  padding: clamp(20px, 2.2vw, 28px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(201,255,31,.10), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.02));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.metric-card strong {
+  display: block;
+  color: var(--lime);
+  font-size: clamp(2rem, 3.1vw, 3.1rem);
+  font-weight: 950;
+  letter-spacing: -.045em;
+  line-height: .95;
+}
+
+.metric-card span {
+  display: block;
+  max-width: 18ch;
+  color: rgba(255,255,255,.82);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  font-weight: 850;
+  line-height: 1.28;
+}
+
+.pricing-page-section .pricing-grid {
+  gap: clamp(22px, 2.4vw, 34px);
+}
+
+.pricing-page-section .content-note,
+.pricing-page-section .cta-panel {
+  margin-top: clamp(22px, 2.5vw, 32px);
+}
+
+.pricing-page-section .content-note {
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: 28px;
+}
+
+.pricing-page-section .content-note h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 1.9vw, 1.85rem);
+  line-height: 1.18;
+  letter-spacing: -.04em;
+}
+
+.pricing-page-section .content-note p {
+  max-width: 1040px;
+  margin-top: 16px;
+  line-height: 1.66;
+}
+
+.pricing-page-section .cta-panel {
+  min-height: 0;
+  padding: clamp(34px, 5vw, 72px);
+  border-radius: 32px;
+}
+
+.pricing-page-section .cta-panel h2 {
+  max-width: 720px;
+  font-size: clamp(2.25rem, 4.4vw, 4.1rem);
+  line-height: 1.02;
+}
+
+.support-categories .support-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.support-categories .support-card {
+  min-height: 230px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.support-categories .support-card h3 {
+  margin-top: 16px;
+  font-size: clamp(1.08rem, 1.25vw, 1.22rem);
+  line-height: 1.15;
+}
+
+.support-categories .support-card p {
+  max-width: 30ch;
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
+@media (max-width: 1180px) {
+  .support-categories .support-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .metrics-row,
+  .support-categories .support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card,
+  .support-categories .support-card {
+    min-height: auto;
+  }
+
+  .metric-card span,
+  .support-categories .support-card p {
+    max-width: none;
+  }
+
+  .pricing-page-section .cta-panel {
+    padding: 28px;
+  }
+}

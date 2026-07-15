@@ -21,10 +21,10 @@ const expectedPages = {
 
 const expectedNav = [
   [`${basePath}/#product`, 'Продукт'],
-  [`${basePath}/how-it-works/`, 'Как это работает'],
-  [`${basePath}/for-personal-trainers/`, 'Для персональных тренеров'],
+  [`${basePath}/how-it-works/`, 'Как работает'],
+  [`${basePath}/for-personal-trainers/`, 'Для тренеров'],
   [`${basePath}/pricing/`, 'Цены'],
-  [`${basePath}/about/`, 'О проекте'],
+  [`${basePath}/about/`, 'О продукте'],
   [`${basePath}/support/`, 'Поддержка']
 ];
 

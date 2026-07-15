@@ -20,11 +20,11 @@ const expectedPages = {
 };
 
 const expectedNav = [
-  [`${basePath}/#product`, 'Продукт'],
-  [`${basePath}/how-it-works/`, 'Как работает'],
+  [`${basePath}/#product`, 'Возможности'],
+  [`${basePath}/how-it-works/`, 'Как это работает'],
   [`${basePath}/for-personal-trainers/`, 'Для тренеров'],
   [`${basePath}/pricing/`, 'Цены'],
-  [`${basePath}/about/`, 'О продукте'],
+  [`${basePath}/about/`, 'О FitFreak Pro'],
   [`${basePath}/support/`, 'Поддержка']
 ];
 

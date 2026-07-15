@@ -2015,8 +2015,7 @@ body::after,
   }
 
   .product-shot-grid {
-    min-height: 560px;
-    order: -1;
+    min-height: 500px;
   }
 
   .phone-shot-primary {
@@ -2057,11 +2056,11 @@ body::after,
   }
 
   .redesign-hero {
-    padding-top: 46px;
+    padding-top: 34px;
   }
 
   .hero h1 {
-    font-size: clamp(2.55rem, 13vw, 4.1rem);
+    font-size: clamp(2.35rem, 11vw, 3.45rem);
   }
 
   .download-strip-inner,
@@ -2080,7 +2079,9 @@ body::after,
   }
 
   .product-shot-grid {
-    min-height: 470px;
+    min-height: 360px;
+    margin-top: 6px;
+    overflow: hidden;
   }
 
   .site-header {
@@ -2093,12 +2094,12 @@ body::after,
   }
 
   .phone-shot-primary {
-    width: min(80%, 285px);
+    width: min(72vw, 255px);
+    border-radius: 26px;
   }
 
   .phone-shot-secondary {
-    width: min(48%, 190px);
-    right: 4%;
+    display: none;
   }
 
   .phone-shot,

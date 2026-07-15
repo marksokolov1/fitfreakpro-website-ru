@@ -1722,9 +1722,12 @@ body::after,
   grid-template-columns: 1fr 1fr;
 }
 
-.outcome-grid,
-.page-image-row {
+.outcome-grid {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.page-image-row {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .workflow-timeline {

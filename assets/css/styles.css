@@ -1016,6 +1016,7 @@ button:focus-visible {
   border-color: rgba(201,255,31,.42);
   background: rgba(201,255,31,.07);
 }
+.footer-bottom,
 .footer-legal {
   margin-top: 36px;
   padding-top: 22px;
@@ -1026,6 +1027,19 @@ button:focus-visible {
   flex-wrap:wrap;
   color: rgba(255,255,255,.52);
   font-size: .92rem;
+}
+
+.footer-bottom a,
+.footer-legal a {
+  color: rgba(255,255,255,.72);
+  transition: color 160ms ease;
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible,
+.footer-legal a:hover,
+.footer-legal a:focus-visible {
+  color: var(--lime);
 }
 
 .page-hero {
@@ -1205,6 +1219,7 @@ button:focus-visible {
   .benefit-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-links { grid-template-columns: 1fr; }
+  .footer-bottom,
   .footer-legal { display:grid; }
   .sidebar-nav { grid-template-columns: 1fr; }
   .page-hero { padding-top: 60px; }

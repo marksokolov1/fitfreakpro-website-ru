@@ -128,15 +128,15 @@ button:focus-visible {
 }
 
 .site-header .container {
-  width: min(1360px, calc(100% - 42px));
+  width: min(1420px, calc(100% - 42px));
 }
 
 .header-inner {
-  min-height: 78px;
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 18px;
+  gap: 16px;
 }
 
 .brand {
@@ -145,14 +145,14 @@ button:focus-visible {
   gap: 12px;
   font-weight: 900;
   letter-spacing: -0.04em;
-  font-size: 1.08rem;
+  font-size: 1rem;
   flex: 0 0 auto;
 }
 
 .brand-mark {
-  width: 46px;
-  height: 46px;
-  border-radius: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 0 28px rgba(201,255,31,0.24);
 }
@@ -168,17 +168,17 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 4px;
   flex: 0 1 auto;
   min-width: 0;
-  margin-left: clamp(12px, 2vw, 28px);
+  margin-left: clamp(10px, 1.7vw, 24px);
 }
 
 .main-nav a {
   color: rgba(255,255,255,0.76);
-  font-weight: 700;
-  font-size: 0.86rem;
-  padding: 10px 10px;
+  font-weight: 760;
+  font-size: 0.82rem;
+  padding: 9px 9px;
   border-radius: 999px;
   transition: 180ms ease;
   white-space: nowrap;
@@ -198,9 +198,16 @@ button:focus-visible {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex: 0 0 auto;
   margin-left: auto;
+}
+
+.header-actions .btn {
+  min-height: 44px;
+  padding: 11px 17px;
+  font-size: .86rem;
+  box-shadow: 0 14px 36px rgba(201,255,31,0.22), inset 0 -1px 0 rgba(0,0,0,0.18);
 }
 
 .mobile-toggle {
@@ -1638,10 +1645,6 @@ body::after,
   object-fit: contain;
 }
 
-.main-nav a {
-  font-size: .88rem;
-}
-
 .redesign-hero {
   padding: 82px 0 52px;
 }
@@ -2195,6 +2198,8 @@ body::after,
 
   .hero h1 {
     font-size: clamp(2.35rem, 11vw, 3.45rem);
+    line-height: 1.07;
+    letter-spacing: -0.04em;
   }
 
   .download-strip-inner,
@@ -2756,7 +2761,10 @@ body::after,
 }
 
 .tutorial-hero-grid {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: clamp(30px, 6vw, 90px);
+  align-items: center;
 }
 
 .tutorial-hero h1 {
@@ -2765,6 +2773,23 @@ body::after,
 
 .tutorial-hero p {
   max-width: 720px;
+}
+
+.tutorial-hero-shot {
+  justify-self: end;
+  width: min(100%, 330px);
+  margin: 0;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.13);
+  background: #050605;
+  box-shadow: 0 24px 80px rgba(0,0,0,.42), 0 0 70px rgba(201,255,31,.10);
+}
+
+.tutorial-hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .tutorial-switch {
@@ -2960,10 +2985,16 @@ body::after,
 }
 
 @media (max-width: 900px) {
+  .tutorial-hero-grid,
   .tutorial-step,
   .tutorial-step:nth-child(even),
   .tutorial-download-panel {
     grid-template-columns: 1fr;
+  }
+
+  .tutorial-hero-shot {
+    justify-self: start;
+    width: min(100%, 280px);
   }
 
   .tutorial-step,
@@ -3003,6 +3034,11 @@ body::after,
   .tutorial-step,
   .tutorial-download-panel {
     border-radius: 22px;
+  }
+
+  .tutorial-hero-shot {
+    width: min(100%, 240px);
+    border-radius: 26px;
   }
 
   .tutorial-step {

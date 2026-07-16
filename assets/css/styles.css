@@ -2733,3 +2733,325 @@ body::after,
     padding: 28px;
   }
 }
+
+
+/* Tutorial guide page */
+.tutorial-hero {
+  padding-bottom: 54px;
+}
+
+.tutorial-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: end;
+}
+
+.tutorial-hero h1 {
+  max-width: 900px;
+}
+
+.tutorial-hero p {
+  max-width: 720px;
+}
+
+.tutorial-note {
+  padding: 28px;
+  border: 1px solid rgba(201, 255, 31, 0.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(201,255,31,.14), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.018));
+  box-shadow: 0 22px 60px rgba(0,0,0,.26);
+}
+
+.tutorial-note span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--lime);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 900;
+}
+
+.tutorial-note p {
+  margin: 0;
+  color: rgba(255,255,255,.74);
+  line-height: 1.6;
+}
+
+.tutorial-switch {
+  position: sticky;
+  top: 88px;
+  z-index: 18;
+  padding: 0 0 14px;
+  pointer-events: none;
+}
+
+.tutorial-switch-inner {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tutorial-switch a {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid rgba(201,255,31,.24);
+  border-radius: 999px;
+  color: rgba(255,255,255,.84);
+  background: rgba(5,8,4,.84);
+  backdrop-filter: blur(16px);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.tutorial-switch a:hover,
+.tutorial-switch a:focus-visible {
+  color: #071003;
+  background: var(--lime);
+}
+
+.tutorial-guide {
+  padding-top: clamp(58px, 7vw, 104px);
+}
+
+.tutorial-guide-header {
+  max-width: 880px;
+  margin-bottom: clamp(24px, 4vw, 46px);
+}
+
+.tutorial-guide-header h2 {
+  margin: 16px 0 0;
+  max-width: 780px;
+  font-size: clamp(2.35rem, 5vw, 5.35rem);
+  line-height: .96;
+}
+
+.tutorial-guide-header p {
+  margin: 22px 0 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.35vw, 1.28rem);
+  line-height: 1.62;
+}
+
+.tutorial-steps {
+  display: grid;
+  gap: clamp(26px, 3.8vw, 48px);
+}
+
+.tutorial-step {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(300px, .66fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 78px);
+  min-height: 560px;
+  padding: clamp(24px, 3.4vw, 48px);
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 92% 14%, rgba(201,255,31,.10), transparent 36%),
+    linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
+  overflow: hidden;
+  box-shadow: 0 28px 90px rgba(0,0,0,.28);
+}
+
+.tutorial-step:nth-child(even) {
+  grid-template-columns: minmax(300px, .66fr) minmax(0, .92fr);
+}
+
+.tutorial-step:nth-child(even) .tutorial-step-copy {
+  order: 2;
+}
+
+.tutorial-step-number {
+  display: inline-grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(201,255,31,.32);
+  border-radius: 18px;
+  color: var(--lime);
+  background: rgba(201,255,31,.10);
+  font-weight: 950;
+  box-shadow: 0 0 30px rgba(201,255,31,.08);
+}
+
+.tutorial-step h3 {
+  margin: 28px 0 0;
+  max-width: 760px;
+  font-size: clamp(2.05rem, 3.3vw, 4.1rem);
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+.tutorial-step p {
+  margin: 22px 0 0;
+  max-width: 720px;
+  color: rgba(255,255,255,.72);
+  font-size: clamp(1.02rem, 1.24vw, 1.22rem);
+  line-height: 1.6;
+}
+
+.tutorial-shot-card {
+  justify-self: center;
+  width: min(100%, 360px);
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 30px;
+  background: #050605;
+  box-shadow: 0 22px 70px rgba(0,0,0,.38), 0 0 70px rgba(201,255,31,.08);
+}
+
+.tutorial-shot-card img {
+  display: block;
+  width: 100%;
+  max-height: min(76vh, 760px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 23px;
+}
+
+.tutorial-shot-wide {
+  width: min(100%, 520px);
+}
+
+.tutorial-shot-wide img {
+  max-height: 310px;
+}
+
+.tutorial-download-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  margin-top: clamp(30px, 4vw, 56px);
+  padding: clamp(24px, 3vw, 42px);
+  border: 1px solid rgba(201,255,31,.20);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 92% 18%, rgba(201,255,31,.16), transparent 38%),
+    linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
+}
+
+.tutorial-download-panel h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3.35rem);
+  line-height: 1;
+}
+
+.tutorial-download-panel p {
+  margin: 14px 0 0;
+  max-width: 780px;
+  color: rgba(255,255,255,.70);
+  line-height: 1.62;
+}
+
+.tutorial-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .tutorial-step,
+  .tutorial-step:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .52fr);
+    min-height: 500px;
+  }
+
+  .tutorial-step h3 {
+    font-size: clamp(1.9rem, 4.2vw, 3.35rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .tutorial-hero-grid,
+  .tutorial-step,
+  .tutorial-step:nth-child(even),
+  .tutorial-download-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-step,
+  .tutorial-step:nth-child(even) {
+    min-height: 0;
+  }
+
+  .tutorial-step:nth-child(even) .tutorial-step-copy {
+    order: 0;
+  }
+
+  .tutorial-download-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  .tutorial-hero {
+    padding-top: 42px;
+  }
+
+  .tutorial-switch {
+    top: 74px;
+  }
+
+  .tutorial-switch-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tutorial-switch a {
+    min-height: 42px;
+    padding: 0 12px;
+    font-size: .9rem;
+  }
+
+  .tutorial-note,
+  .tutorial-step,
+  .tutorial-download-panel {
+    border-radius: 22px;
+  }
+
+  .tutorial-step {
+    padding: 22px;
+  }
+
+  .tutorial-step h3 {
+    margin-top: 20px;
+    letter-spacing: -.045em;
+  }
+
+  .tutorial-step p {
+    font-size: 1rem;
+  }
+
+  .tutorial-shot-card {
+    width: min(100%, 320px);
+    border-radius: 24px;
+  }
+
+  .tutorial-shot-card img {
+    max-height: 620px;
+    border-radius: 18px;
+  }
+
+  .tutorial-shot-wide {
+    width: 100%;
+  }
+
+  .tutorial-shot-wide img {
+    max-height: 210px;
+  }
+
+  .tutorial-download-actions .btn {
+    width: 100%;
+  }
+}

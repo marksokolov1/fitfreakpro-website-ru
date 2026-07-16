@@ -10,6 +10,7 @@ const warnings = [];
 const expectedPages = {
   'index.html': { url: `${baseUrl}/`, indexable: true, navHref: null, schema: ['Organization', 'WebSite', 'SoftwareApplication', 'FAQPage'] },
   'how-it-works/index.html': { url: `${baseUrl}/how-it-works/`, indexable: true, navHref: `${basePath}/how-it-works/`, schema: ['WebPage', 'BreadcrumbList'] },
+  'tutorial/index.html': { url: `${baseUrl}/tutorial/`, indexable: true, navHref: `${basePath}/tutorial/`, schema: ['WebPage', 'BreadcrumbList'] },
   'for-personal-trainers/index.html': { url: `${baseUrl}/for-personal-trainers/`, indexable: true, navHref: `${basePath}/for-personal-trainers/`, schema: ['WebPage', 'BreadcrumbList'] },
   'pricing/index.html': { url: `${baseUrl}/pricing/`, indexable: true, navHref: `${basePath}/pricing/`, schema: ['WebPage', 'BreadcrumbList'] },
   'about/index.html': { url: `${baseUrl}/about/`, indexable: true, navHref: `${basePath}/about/`, schema: ['AboutPage', 'BreadcrumbList'] },
@@ -22,6 +23,7 @@ const expectedPages = {
 const expectedNav = [
   [`${basePath}/#product`, 'Возможности'],
   [`${basePath}/how-it-works/`, 'Как это работает'],
+  [`${basePath}/tutorial/`, 'Инструкция'],
   [`${basePath}/for-personal-trainers/`, 'Для тренеров'],
   [`${basePath}/pricing/`, 'Цены'],
   [`${basePath}/about/`, 'О FitFreak Pro'],

@@ -2762,8 +2762,8 @@ body::after,
 
 .tutorial-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
-  gap: clamp(28px, 5vw, 70px);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
+  gap: clamp(36px, 5vw, 80px);
   align-items: center;
 }
 
@@ -2777,7 +2777,7 @@ body::after,
 
 .tutorial-hero-shot {
   justify-self: end;
-  width: min(100%, 220px);
+  width: min(100%, 290px);
   margin: 0;
   border-radius: 24px;
   overflow: hidden;

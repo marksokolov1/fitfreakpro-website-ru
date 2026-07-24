@@ -31,13 +31,15 @@ npm run build
 
 ## Размещение
 
-Веб-сервер должен использовать каталог `public/` как document root. Для production задайте `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://fitfreakpro.ru` и выполните:
+Production-сайт публикуется через GitHub Pages на `https://fitfreakpro.ru`. Laravel остается источником страниц, а команда экспорта записывает готовые HTML-файлы и ассеты в корень репозитория:
 
 ```bash
-composer install --no-dev --optimize-autoloader
-npm ci
 npm run build
-php artisan optimize
+php artisan site:export
 ```
+
+Сгенерированные файлы необходимо коммитить вместе с изменениями Blade. GitHub Actions проверяет, что экспорт актуален, после чего существующий GitHub Pages deployment публикует ветку `main`.
+
+Для размещения Laravel как динамического PHP-приложения веб-сервер должен использовать каталог `public/` как document root.
 
 Сайт не требует базы данных. Клиентский доступ указан как `990 ₽ в месяц`, аккаунт тренера — `0 ₽`. Предварительные тексты политики конфиденциальности и условий закрыты от индексации до юридической проверки.

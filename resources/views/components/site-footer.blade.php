@@ -1,7 +1,15 @@
+@php
+    $pageUrl = function (string $route): string {
+        $path = route($route, absolute: false);
+
+        return $path === '/' ? $path : $path.'/';
+    };
+@endphp
+
 <footer class="site-footer">
     <div class="container footer-grid">
         <div>
-            <a href="{{ route('home') }}" aria-label="Главная FitFreak Pro">
+            <a href="{{ $pageUrl('home') }}" aria-label="Главная FitFreak Pro">
                 <x-logo footer />
             </a>
             <p class="footer-tagline">{{ __('footer.tagline') }}</p>
@@ -9,15 +17,15 @@
         <div>
             <p class="footer-heading">{{ __('footer.navigation') }}</p>
             <nav class="footer-links" aria-label="Навигация в подвале">
-                <a href="{{ route('home') }}#product">{{ __('navigation.features') }}</a>
-                <a href="{{ route('how-it-works') }}">{{ __('navigation.how_it_works') }}</a>
-                <a href="{{ route('tutorial') }}">{{ __('navigation.tutorial') }}</a>
-                <a href="{{ route('for-personal-trainers') }}">{{ __('navigation.for_trainers') }}</a>
-                <a href="{{ route('pricing') }}">{{ __('navigation.pricing') }}</a>
-                <a href="{{ route('about') }}">{{ __('navigation.about') }}</a>
-                <a href="{{ route('support') }}">{{ __('navigation.support') }}</a>
-                <a href="{{ route('privacy') }}">{{ __('navigation.privacy') }}</a>
-                <a href="{{ route('terms') }}">{{ __('navigation.terms') }}</a>
+                <a href="{{ $pageUrl('home') }}#product">{{ __('navigation.features') }}</a>
+                <a href="{{ $pageUrl('how-it-works') }}">{{ __('navigation.how_it_works') }}</a>
+                <a href="{{ $pageUrl('tutorial') }}">{{ __('navigation.tutorial') }}</a>
+                <a href="{{ $pageUrl('for-personal-trainers') }}">{{ __('navigation.for_trainers') }}</a>
+                <a href="{{ $pageUrl('pricing') }}">{{ __('navigation.pricing') }}</a>
+                <a href="{{ $pageUrl('about') }}">{{ __('navigation.about') }}</a>
+                <a href="{{ $pageUrl('support') }}">{{ __('navigation.support') }}</a>
+                <a href="{{ $pageUrl('privacy') }}">{{ __('navigation.privacy') }}</a>
+                <a href="{{ $pageUrl('terms') }}">{{ __('navigation.terms') }}</a>
             </nav>
         </div>
         <div>
@@ -32,6 +40,6 @@
     </div>
     <div class="container footer-legal">
         <span>© <span data-year>{{ now()->year }}</span> {{ __('footer.copyright') }}</span>
-        <span><a href="{{ route('privacy') }}">{{ __('navigation.privacy') }}</a> · <a href="{{ route('terms') }}">{{ __('navigation.terms') }}</a> · <a href="{{ route('support') }}">{{ __('navigation.support') }}</a> · <a href="mailto:support@fitfreakpro.com" data-track="support_email_click">support@fitfreakpro.com</a></span>
+        <span><a href="{{ $pageUrl('privacy') }}">{{ __('navigation.privacy') }}</a> · <a href="{{ $pageUrl('terms') }}">{{ __('navigation.terms') }}</a> · <a href="{{ $pageUrl('support') }}">{{ __('navigation.support') }}</a> · <a href="mailto:support@fitfreakpro.com" data-track="support_email_click">support@fitfreakpro.com</a></span>
     </div>
 </footer>

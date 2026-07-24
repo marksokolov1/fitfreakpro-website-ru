@@ -1,6 +1,6 @@
 <header class="site-header">
     <div class="container header-inner">
-        <a class="brand" href="{{ route('home') }}" aria-label="Главная FitFreak Pro">
+        <a class="brand" href="{{ route('home', absolute: false) }}" aria-label="Главная FitFreak Pro">
             <x-logo priority />
         </a>
         <nav class="main-nav" id="primary-navigation" aria-label="Основная навигация">
@@ -13,7 +13,7 @@
             <x-nav-link route="support" :label="__('navigation.support')" />
         </nav>
         <div class="header-actions">
-            <a class="btn btn-primary" href="{{ route('home') }}#download" data-track="app_download_click">{{ __('navigation.download') }}</a>
+            <a class="btn btn-primary" href="{{ route('home', absolute: false) }}#download" data-track="app_download_click">{{ __('navigation.download') }}</a>
             <button class="mobile-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-navigation">
                 <span></span><span></span><span></span>
             </button>

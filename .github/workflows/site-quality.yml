@@ -1,4 +1,4 @@
-name: Site quality
+name: Laravel site quality
 
 on:
   pull_request:
@@ -7,16 +7,46 @@ on:
       - main
 
 jobs:
-  audit:
+  test-and-export:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: npm
 
-      - name: Run static site audit
-        run: npm test
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Configure application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build production assets
+        run: npm run build
+
+      - name: Run tests
+        run: php artisan test
+
+      - name: Check PHP formatting
+        run: ./vendor/bin/pint --test
+
+      - name: Export GitHub Pages files
+        run: php artisan site:export
+
+      - name: Verify committed export is current
+        run: git diff --exit-code

@@ -40,7 +40,9 @@
     <meta name="twitter:image:alt" content="{{ $socialImageAlt }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{ $schema ?? '' }}
+@isset($schema)
+    {{ $schema }}
+@endisset
 </head>
 <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>

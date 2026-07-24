@@ -1,55 +1,43 @@
-# Сайт FitFreak Pro на русском языке
+# FitFreak Pro на русском языке
 
-Это статическая русская версия сайта FitFreak Pro для аудитории в Российской Федерации. Проект остается обычным HTML, CSS и vanilla JavaScript без сборки.
+Русский сайт FitFreak Pro работает на Laravel 12, Blade, Tailwind CSS 4 и Vite 6. Основной домен: `https://fitfreakpro.ru`.
 
-## Страницы
+## Локальный запуск
 
-- `/` Главная страница
-- `/how-it-works/` Как тренер начинает работу
-- `/for-personal-trainers/` Страница для персональных тренеров
-- `/pricing/` Цены
-- `/about/` О продукте и основателе
-- `/privacy/` Политика конфиденциальности
-- `/support/` Поддержка
-- `/terms/` Обзор условий, требующий юридической проверки
-- `/robots.txt` Инструкции для поисковых роботов
-- `/sitemap.xml` Карта публичных страниц
+Требуются PHP 8.2+, Composer, Node.js и npm.
 
-## Размещение
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+npm install
+npm run build
+php artisan serve
+```
 
-Сайт публикуется через GitHub Pages с пользовательским доменом: `https://fitfreakpro.ru/`.
+Для одновременного запуска Laravel и Vite:
 
-Ссылки и ассеты настроены для размещения в корне домена.
-
-Сайт не требует сборки и остается статическим HTML, CSS и JavaScript.
+```bash
+composer run dev
+```
 
 ## Проверка
 
-Перед публикацией запустите локальную проверку:
-
 ```bash
-npm run audit:site
+php artisan test
+./vendor/bin/pint --test
+npm run build
 ```
 
-Проверка ищет проблемы с canonical URL, sitemap, `noindex`, JSON-LD, внутренними ссылками, alt-текстами, общей навигацией и известными смешанными русско-английскими фрагментами.
+## Размещение
 
-После публикации можно выполнить сетевую проверку production-версии:
+Веб-сервер должен использовать каталог `public/` как document root. Для production задайте `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://fitfreakpro.ru` и выполните:
 
 ```bash
-npm run audit:live
+composer install --no-dev --optimize-autoloader
+npm ci
+npm run build
+php artisan optimize
 ```
 
-Эта проверка сравнивает production HTML с локальными файлами, проверяет HTTP-статусы, sitemap, robots, ассеты, внешние ссылки и 404-ответы. Она требует доступа к интернету и не входит в обычный локальный `npm test`.
-
-Дополнительные SEO-заметки и шаги после публикации находятся в `docs/seo-deployment.md`.
-
-## Ссылки на приложение
-
-- Apple App Store: https://apps.apple.com/us/app/fit-freak-pro/id6742347988
-- Google Play: https://play.google.com/store/apps/details?id=com.duseca.fitfreak
-
-## Заметки
-
-Цена клиентского доступа в этой версии указана как `990 ₽ в месяц`. Аккаунт тренера — `0 ₽`.
-
-Тексты политики конфиденциальности, условий, подписок, возвратов, удаления аккаунта и обработки персональных данных должны быть проверены квалифицированным юристом перед публикацией.
+Сайт не требует базы данных. Клиентский доступ указан как `990 ₽ в месяц`, аккаунт тренера — `0 ₽`. Предварительные тексты политики конфиденциальности и условий закрыты от индексации до юридической проверки.

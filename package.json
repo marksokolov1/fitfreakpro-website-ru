@@ -1,7 +1,16 @@
 {
-  "scripts": {
-    "audit:site": "node scripts/audit-site.mjs",
-    "audit:live": "node scripts/audit-live.mjs",
-    "test": "npm run audit:site"
-  }
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.0.7",
+        "concurrently": "^9.0.0",
+        "laravel-vite-plugin": "^1.0",
+        "tailwindcss": "^4.0.7",
+        "vite": "^6.0"
+    }
 }

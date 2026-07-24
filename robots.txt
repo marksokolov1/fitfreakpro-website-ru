@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /fitfreakpro-website-ru/
+Allow: /
 
-Sitemap: https://marksokolov1.github.io/fitfreakpro-website-ru/sitemap.xml
+Sitemap: https://fitfreakpro.ru/sitemap.xml

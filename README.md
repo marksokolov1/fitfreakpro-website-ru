@@ -17,9 +17,9 @@
 
 ## Размещение
 
-Для текущей публикации загрузите содержимое этой папки в GitHub Pages project site: `https://marksokolov1.github.io/fitfreakpro-website-ru/`.
+Сайт публикуется через GitHub Pages с пользовательским доменом: `https://fitfreakpro.ru/`.
 
-Ссылки и ассеты настроены под project path `/fitfreakpro-website-ru/`, чтобы сайт корректно работал на GitHub Pages.
+Ссылки и ассеты настроены для размещения в корне домена.
 
 Сайт не требует сборки и остается статическим HTML, CSS и JavaScript.
 

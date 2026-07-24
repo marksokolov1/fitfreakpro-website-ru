@@ -1,22 +1,22 @@
 # Production audit
 
-Дата аудита: 2026-07-14  
-Production URL: `https://marksokolov1.github.io/fitfreakpro-website-ru/`  
-Base path: `/fitfreakpro-website-ru/`
+Дата аудита: 2026-07-24  
+Production URL: `https://fitfreakpro.ru/`  
+Base path: `/`
 
 ## URL inventory
 
 | URL | Source file | Search status | Title | Meta description | Canonical | H1 | Structured data | Internal link count |
 |---|---|---|---|---|---|---|---|---|
-| `/` | `index.html` | indexable | FitFreak Pro — приложение для персональных тренеров | Создавайте библиотеку упражнений, назначайте тренировки, задавайте цели по питанию и отслеживайте прогресс клиентов в FitFreak Pro. | `https://marksokolov1.github.io/fitfreakpro-website-ru/` | Ваш подход. Ваши упражнения. Клиент видит, что делать. | Organization, WebSite, SoftwareApplication, FAQPage | 9 |
-| `/how-it-works/` | `how-it-works/index.html` | indexable | Как работает FitFreak Pro для тренеров | Как тренеру начать бесплатно: создать библиотеку упражнений, пригласить клиента, назначить тренировки и проверить прогресс. | `https://marksokolov1.github.io/fitfreakpro-website-ru/how-it-works/` | От настройки тренера до работы с клиентом. | WebPage, BreadcrumbList | 9 |
-| `/for-personal-trainers/` | `for-personal-trainers/index.html` | indexable | FitFreak Pro для персональных тренеров | Приложение для независимых персональных тренеров: своя библиотека упражнений, клиентские планы, цели по питанию и просмотр прогресса. | `https://marksokolov1.github.io/fitfreakpro-website-ru/for-personal-trainers/` | Организуйте работу с клиентами без лишних инструментов. | WebPage, BreadcrumbList | 9 |
-| `/pricing/` | `pricing/index.html` | indexable | Цены FitFreak Pro для тренеров и клиентов | Тренер регистрируется бесплатно. Приглашенный клиент платит 990 ₽ в месяц за доступ к тренировкам, питанию и прогрессу. | `https://marksokolov1.github.io/fitfreakpro-website-ru/pricing/` | Простая модель для работы тренера с клиентом. | WebPage, BreadcrumbList | 9 |
-| `/about/` | `about/index.html` | indexable | О FitFreak Pro — приложение для тренеров | FitFreak Pro помогает персональным тренерам хранить упражнения, назначать тренировки, задавать цели по питанию и видеть прогресс клиентов. | `https://marksokolov1.github.io/fitfreakpro-website-ru/about/` | FitFreak Pro помогает тренерам организовать работу с клиентами. | AboutPage, BreadcrumbList | 9 |
-| `/support/` | `support/index.html` | indexable | Поддержка FitFreak Pro для тренеров и клиентов | Помощь по аккаунту тренера, клиентскому доступу, подпискам, тренировкам, целям по питанию, прогрессу и входу в FitFreak Pro. | `https://marksokolov1.github.io/fitfreakpro-website-ru/support/` | Чем мы можем помочь? | ContactPage, BreadcrumbList | 9 |
-| `/privacy/` | `privacy/index.html` | noindex | Политика конфиденциальности FitFreak Pro | Предварительное описание обработки данных в FitFreak Pro для тренеров и клиентов. Текст требует юридической проверки перед публикацией. | `https://marksokolov1.github.io/fitfreakpro-website-ru/privacy/` | Как FitFreak Pro описывает данные тренера и клиента. | WebPage | 9 |
-| `/terms/` | `terms/index.html` | noindex | Условия использования FitFreak Pro | Предварительный обзор условий FitFreak Pro для тренеров и клиентов. Текст требует юридической проверки перед публикацией. | `https://marksokolov1.github.io/fitfreakpro-website-ru/terms/` | Условия использования | WebPage | 9 |
-| `/404.html` | `404.html` | noindex | Страница не найдена \| FitFreak Pro | Страница FitFreak Pro не найдена. Перейдите на главную, к продукту, ценам или поддержке. | `https://marksokolov1.github.io/fitfreakpro-website-ru/404.html` | Страница не найдена. | none | 1 |
+| `/` | `index.html` | indexable | FitFreak Pro — приложение для персональных тренеров | Создавайте библиотеку упражнений, назначайте тренировки, задавайте цели по питанию и отслеживайте прогресс клиентов в FitFreak Pro. | `https://fitfreakpro.ru/` | Ваш подход. Ваши упражнения. Клиент видит, что делать. | Organization, WebSite, SoftwareApplication, FAQPage | 9 |
+| `/how-it-works/` | `how-it-works/index.html` | indexable | Как работает FitFreak Pro для тренеров | Как тренеру начать бесплатно: создать библиотеку упражнений, пригласить клиента, назначить тренировки и проверить прогресс. | `https://fitfreakpro.ru/how-it-works/` | От настройки тренера до работы с клиентом. | WebPage, BreadcrumbList | 9 |
+| `/for-personal-trainers/` | `for-personal-trainers/index.html` | indexable | FitFreak Pro для персональных тренеров | Приложение для независимых персональных тренеров: своя библиотека упражнений, клиентские планы, цели по питанию и просмотр прогресса. | `https://fitfreakpro.ru/for-personal-trainers/` | Организуйте работу с клиентами без лишних инструментов. | WebPage, BreadcrumbList | 9 |
+| `/pricing/` | `pricing/index.html` | indexable | Цены FitFreak Pro для тренеров и клиентов | Тренер регистрируется бесплатно. Приглашенный клиент платит 990 ₽ в месяц за доступ к тренировкам, питанию и прогрессу. | `https://fitfreakpro.ru/pricing/` | Простая модель для работы тренера с клиентом. | WebPage, BreadcrumbList | 9 |
+| `/about/` | `about/index.html` | indexable | О FitFreak Pro — приложение для тренеров | FitFreak Pro помогает персональным тренерам хранить упражнения, назначать тренировки, задавать цели по питанию и видеть прогресс клиентов. | `https://fitfreakpro.ru/about/` | FitFreak Pro помогает тренерам организовать работу с клиентами. | AboutPage, BreadcrumbList | 9 |
+| `/support/` | `support/index.html` | indexable | Поддержка FitFreak Pro для тренеров и клиентов | Помощь по аккаунту тренера, клиентскому доступу, подпискам, тренировкам, целям по питанию, прогрессу и входу в FitFreak Pro. | `https://fitfreakpro.ru/support/` | Чем мы можем помочь? | ContactPage, BreadcrumbList | 9 |
+| `/privacy/` | `privacy/index.html` | noindex | Политика конфиденциальности FitFreak Pro | Предварительное описание обработки данных в FitFreak Pro для тренеров и клиентов. Текст требует юридической проверки перед публикацией. | `https://fitfreakpro.ru/privacy/` | Как FitFreak Pro описывает данные тренера и клиента. | WebPage | 9 |
+| `/terms/` | `terms/index.html` | noindex | Условия использования FitFreak Pro | Предварительный обзор условий FitFreak Pro для тренеров и клиентов. Текст требует юридической проверки перед публикацией. | `https://fitfreakpro.ru/terms/` | Условия использования | WebPage | 9 |
+| `/404.html` | `404.html` | noindex | Страница не найдена \| FitFreak Pro | Страница FitFreak Pro не найдена. Перейдите на главную, к продукту, ценам или поддержке. | `https://fitfreakpro.ru/404.html` | Страница не найдена. | none | 1 |
 
 ## Indexation matrix
 
@@ -49,7 +49,6 @@ Base path: `/fitfreakpro-website-ru/`
 
 ### Critical
 
-- **Confirmed:** GitHub Pages project-site `robots.txt` is not host-root robots control. Evidence: `robots.txt` is served at `/fitfreakpro-website-ru/robots.txt`, not `https://marksokolov1.github.io/robots.txt`. Fix: documented in `docs/seo-deployment.md`; retained page-level robots and direct sitemap submission.
 - **Confirmed:** Legal/privacy facts are not final. Evidence: `privacy/index.html` and `terms/index.html` contain preliminary language and require legal review. Fix: both remain `noindex,follow` and are excluded from `sitemap.xml`; questionnaire added in `docs/legal-facts-required.md`.
 - **Confirmed:** App Store page exposes `Data Not Collected`, while website privacy draft describes possible data categories. Evidence: live App Store HTML includes `Data Not Collected`; website legal draft mentions account, workout, nutrition, progress and technical data categories. Fix: discrepancy documented; no final privacy claim added.
 
@@ -72,12 +71,7 @@ Base path: `/fitfreakpro-website-ru/`
 
 ## Production comparison
 
-Live checks performed on 2026-07-14:
-
-- Expected pages returned HTTP 200.
-- `/fitfreakpro-website-ru/not-a-real-page-*` returned HTTP 404.
-- App Store and Google Play links returned HTTP 200.
-- Current production HTML differs from the local source after this pass because these changes have not been pushed/deployed.
+The previous live checks were performed against the former GitHub Pages project URL and do not validate the new custom domain. Run the live audit after the domain configuration and this source update have been deployed.
 
 Run after deployment:
 

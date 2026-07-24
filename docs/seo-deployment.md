@@ -1,15 +1,15 @@
 # SEO и публикация русской версии
 
-Этот документ фиксирует технические настройки сайта `fitfreakpro-website-ru` перед публикацией на GitHub Pages.
+Этот документ фиксирует технические настройки сайта `fitfreakpro-website-ru` перед публикацией на GitHub Pages с пользовательским доменом.
 
 ## Текущий production URL
 
-- Основной URL: `https://marksokolov1.github.io/fitfreakpro-website-ru/`
-- Базовый путь проекта: `/fitfreakpro-website-ru/`
-- Карта сайта: `https://marksokolov1.github.io/fitfreakpro-website-ru/sitemap.xml`
-- Файл robots: `https://marksokolov1.github.io/fitfreakpro-website-ru/robots.txt`
+- Основной URL: `https://fitfreakpro.ru/`
+- Базовый путь проекта: `/`
+- Карта сайта: `https://fitfreakpro.ru/sitemap.xml`
+- Файл robots: `https://fitfreakpro.ru/robots.txt`
 
-Все canonical, Open Graph URL, sitemap URL и внутренние ссылки должны оставаться на этом host/base path, пока не выбран другой домен.
+Все canonical, Open Graph URL, sitemap URL и внутренние ссылки должны использовать этот production-домен.
 
 ## Индексируемые страницы
 
@@ -32,26 +32,20 @@
 
 На них используется `noindex,follow`, и они не включены в `sitemap.xml`.
 
-## Ограничение GitHub Pages project site
+## GitHub Pages и пользовательский домен
 
-Для project site GitHub Pages файл `robots.txt` находится по адресу `/fitfreakpro-website-ru/robots.txt`, а не в корне домена `marksokolov1.github.io/robots.txt`. Поисковые системы смотрят host-root файл `https://marksokolov1.github.io/robots.txt`, поэтому файл внутри project path нельзя считать полноценным robots-контролем для всего хоста.
+Файл `CNAME` закрепляет за публикацией домен `fitfreakpro.ru`. Сайт размещается в корне домена, поэтому `robots.txt` доступен по адресу `https://fitfreakpro.ru/robots.txt`, а карта сайта — по адресу `https://fitfreakpro.ru/sitemap.xml`.
 
-Практические варианты:
-
-- Подключить отдельный custom domain и разместить сайт в корне домена.
-- Использовать account-root Pages сайт для управления корневым `robots.txt`.
-- Отправлять project sitemap напрямую в Google Search Console, Bing Webmaster Tools и Яндекс Вебмастер.
-
-Для текущего URL самый надежный путь — оставить page-level `noindex,follow`, держать sitemap чистым и отправить sitemap напрямую в инструменты поисковых систем.
+DNS-записи для корневого домена и при необходимости `www` должны быть настроены у регистратора в соответствии с требованиями GitHub Pages. В настройках Pages следует включить принудительный HTTPS после успешной проверки домена.
 
 ## После публикации
 
-1. Откройте `https://marksokolov1.github.io/fitfreakpro-website-ru/` и проверьте, что CSS, JS и изображения загружаются без 404.
+1. Откройте `https://fitfreakpro.ru/` и проверьте, что CSS, JS и изображения загружаются без 404.
 2. Запустите `npm run audit:live`, чтобы сравнить production с локальным источником, проверить статусы, sitemap, robots, ассеты, внешние ссылки и 404.
 3. Откройте `sitemap.xml` и убедитесь, что там только индексируемые URL.
-4. В Google Search Console добавьте ресурс URL-prefix для `https://marksokolov1.github.io/fitfreakpro-website-ru/`.
+4. В Google Search Console добавьте ресурс URL-prefix для `https://fitfreakpro.ru/`.
 5. Подтвердите владение способом, который предложит Google.
-6. Отправьте sitemap: `https://marksokolov1.github.io/fitfreakpro-website-ru/sitemap.xml`.
+6. Отправьте sitemap: `https://fitfreakpro.ru/sitemap.xml`.
 7. Через URL Inspection проверьте главную страницу и несколько внутренних страниц.
 8. Посмотрите, какой canonical выбрал Google.
 9. Проверьте раздел Pages/Indexing на исключения, дубликаты и страницы с `noindex`.
@@ -59,7 +53,7 @@
 11. Для аудитории РФ добавьте сайт в Яндекс Вебмастер и отправьте тот же sitemap.
 12. После индексации проверьте сниппеты, заголовки, описания и Core Web Vitals.
 
-## Перед сменой домена
+## При следующей смене домена
 
 При переходе на другой домен нужно обновить:
 

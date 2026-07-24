@@ -2,8 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const baseUrl = 'https://marksokolov1.github.io/fitfreakpro-website-ru';
-const hostRoot = 'https://marksokolov1.github.io';
+const baseUrl = 'https://fitfreakpro.ru';
 const warnings = [];
 const errors = [];
 
@@ -76,11 +75,6 @@ for (const url of assets) {
 const missing = await fetchWithRedirects(`${baseUrl}/not-a-real-page-${Date.now()}`);
 if (missing.response.status !== 404) {
   errors.push(`${baseUrl}/nonexistent: expected GitHub Pages 404, got ${missing.response.status}`);
-}
-
-const hostRobots = await fetchWithRedirects(`${hostRoot}/robots.txt`);
-if (hostRobots.response.status !== 200) {
-  warnings.push(`${hostRoot}/robots.txt is not controlled by this project site. Use page-level robots and direct sitemap submission until a root robots solution exists.`);
 }
 
 for (const url of externalLinks) {

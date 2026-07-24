@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const basePath = '/fitfreakpro-website-ru';
-const baseUrl = 'https://marksokolov1.github.io/fitfreakpro-website-ru';
+const basePath = '';
+const baseUrl = 'https://fitfreakpro.ru';
 const errors = [];
 const warnings = [];
 
@@ -92,8 +92,8 @@ const parseAttributes = (attributeText) => {
 const localFromProjectPath = (url) => {
   const clean = url.split('#')[0].split('?')[0];
   if (!clean || clean.startsWith('mailto:') || clean.startsWith('tel:') || clean.startsWith('http')) return null;
-  if (!clean.startsWith(basePath)) return { invalidBase: true, path: clean };
-  const rel = clean.slice(basePath.length).replace(/^\/+/, '');
+  if (!clean.startsWith('/')) return { invalidBase: true, path: clean };
+  const rel = clean.replace(/^\/+/, '');
   let file = rel || 'index.html';
   if (file.endsWith('/')) file += 'index.html';
   return { path: file };
@@ -329,10 +329,9 @@ for (const url of sitemapUrls) {
 if (!robots.includes(`Sitemap: ${baseUrl}/sitemap.xml`)) {
   fail('robots.txt: missing exact sitemap URL');
 }
-if (!robots.includes(`Allow: ${basePath}/`)) {
-  fail('robots.txt: missing project path allow rule');
+if (!robots.includes('Allow: /')) {
+  fail('robots.txt: missing root allow rule');
 }
-warn('robots.txt: this is a GitHub Pages project-path robots file, not the host-root robots file; see docs/seo-deployment.md.');
 
 const allHtmlSource = htmlFiles.map(read).join('\n');
 if (/TODO|PLACEHOLDER|LEGAL_REVIEW_REQUIRED/i.test(stripHidden(allHtmlSource))) {

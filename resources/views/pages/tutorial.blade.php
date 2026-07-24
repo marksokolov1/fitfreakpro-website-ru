@@ -43,7 +43,7 @@
       <nav class="breadcrumbs container" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span>Инструкция</span></nav>
       <section class="route-hero tutorial-hero">
         <div class="container tutorial-hero-grid">
-          <div>
+          <div class="tutorial-hero-copy">
             <div class="eyebrow">FitFreak Pro — инструкция</div>
             <h1>Как пользоваться FitFreak Pro</h1>
             <p>Кратко пройдите основные шаги для тренера или клиента. Для детальной настройки каждого раздела скачайте полное руководство в PDF.</p>

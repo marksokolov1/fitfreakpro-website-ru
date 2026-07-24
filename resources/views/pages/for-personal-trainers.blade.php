@@ -48,9 +48,52 @@
 
       <nav class="breadcrumbs container" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span>Для персональных тренеров</span></nav>
 
-      <section class="route-hero"><div class="container"><div class="eyebrow">Для персональных тренеров</div><h1>Организуйте работу с клиентами без лишних инструментов.</h1><p>FitFreak Pro создан для независимых персональных тренеров, онлайн-тренеров и небольших команд персонального тренинга, которые ведут упражнения, планы, питание и клиентские данные без таблиц, заметок и разрозненных сообщений.</p></div></section>
-      <section class="section coach-cards-section"><div class="container route-grid coach-card-grid"><article class="route-card"><h2>Ваш контент</h2><p>Создавайте собственную библиотеку упражнений и используйте свои видео, чтобы клиент видел именно ваш подход.</p></article><article class="route-card"><h2>Ваше расписание</h2><p>Планируйте блоки работы с клиентами в календаре тренера.</p></article><article class="route-card"><h2>Ваши клиенты</h2><p>Приглашайте клиентов, назначайте планы и смотрите данные прогресса в панели тренера.</p></article><article class="route-card"><h2>Работа с клиентом</h2><p>Тренировки, питание и проверка прогресса собраны в одном рабочем сценарии для тренера и клиента.</p></article></div></section>
-      <section class="section coach-gallery-section"><div class="container page-image-row coach-screenshot-grid"><img src="{{ asset('assets/img/app-screen-4.webp') }}" width="619" height="1100" alt="Разделы библиотеки упражнений тренера" loading="lazy" /><img src="{{ asset('assets/img/app-screen-11.webp') }}" width="619" height="1100" alt="Календарь тренера с блоками расписания" loading="lazy" /><img src="{{ asset('assets/img/app-screen-8.webp') }}" width="619" height="1100" alt="Детали упражнения клиента" loading="lazy" /><img src="{{ asset('assets/img/app-screen-9.webp') }}" width="619" height="1100" alt="Экран отслеживания целей по питанию" loading="lazy" /></div></section>
+      <section class="route-hero trainer-hero">
+        <div class="container trainer-hero-grid">
+          <div class="trainer-hero-copy">
+            <div class="eyebrow">Для персональных тренеров</div>
+            <h1>Вся работа с клиентами в одном месте.</h1>
+            <p>FitFreak Pro объединяет упражнения, программы, питание, расписание и данные прогресса. Меньше переключений между сервисами — больше внимания клиентам.</p>
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="/#download" data-track="app_download_click">Скачать приложение</a>
+              <a class="btn btn-secondary" href="#trainer-workspace">Посмотреть возможности</a>
+            </div>
+            <ul class="trainer-hero-points" aria-label="Основные возможности">
+              <li>Бесплатный аккаунт тренера</li>
+              <li>Собственная библиотека</li>
+              <li>Клиенты и прогресс</li>
+            </ul>
+          </div>
+          <figure class="trainer-hero-visual">
+            <img src="{{ asset('assets/img/app-screen-1.webp') }}" width="619" height="1100" alt="Панель тренера FitFreak Pro со списком клиентов" loading="eager" fetchpriority="high" />
+          </figure>
+        </div>
+      </section>
+      <section class="section coach-cards-section" id="trainer-workspace">
+        <div class="container coach-section-heading">
+          <div class="eyebrow">Рабочее пространство тренера</div>
+          <h2>Всё необходимое для ежедневной работы.</h2>
+          <p>От первого приглашения до проверки прогресса — основные действия собраны в понятном рабочем процессе.</p>
+        </div>
+        <div class="container route-grid coach-card-grid">
+          <article class="route-card"><span class="route-card-index">01</span><h3>Ваш контент</h3><p>Создавайте собственную библиотеку упражнений и используйте свои видео, чтобы клиент видел именно ваш подход.</p></article>
+          <article class="route-card"><span class="route-card-index">02</span><h3>Ваше расписание</h3><p>Планируйте блоки работы с клиентами в календаре тренера и держите день под контролем.</p></article>
+          <article class="route-card"><span class="route-card-index">03</span><h3>Ваши клиенты</h3><p>Приглашайте клиентов, назначайте планы и смотрите данные прогресса в панели тренера.</p></article>
+          <article class="route-card"><span class="route-card-index">04</span><h3>Полная картина</h3><p>Тренировки, питание и проверка прогресса собраны в одном рабочем сценарии для тренера и клиента.</p></article>
+        </div>
+      </section>
+      <section class="section coach-gallery-section">
+        <div class="container coach-gallery-heading">
+          <span class="section-kicker">Внутри приложения</span>
+          <h2>Инструменты, которые всегда под рукой.</h2>
+        </div>
+        <div class="container coach-screenshot-grid">
+          <figure><img src="{{ asset('assets/img/app-screen-4.webp') }}" width="619" height="1100" alt="Разделы библиотеки упражнений тренера" loading="lazy" /><figcaption>Библиотека упражнений</figcaption></figure>
+          <figure><img src="{{ asset('assets/img/app-screen-11.webp') }}" width="619" height="1100" alt="Календарь тренера с блоками расписания" loading="lazy" /><figcaption>Расписание тренера</figcaption></figure>
+          <figure><img src="{{ asset('assets/img/app-screen-8.webp') }}" width="619" height="1100" alt="Детали упражнения клиента" loading="lazy" /><figcaption>Программы клиентов</figcaption></figure>
+          <figure><img src="{{ asset('assets/img/app-screen-9.webp') }}" width="619" height="1100" alt="Экран отслеживания целей по питанию" loading="lazy" /><figcaption>Цели по питанию</figcaption></figure>
+        </div>
+      </section>
       <section class="section"><div class="container cta-panel"><h2>Стройте работу вокруг своего подхода.</h2><p>Скачайте FitFreak Pro, чтобы начать с бесплатного аккаунта тренера.</p><div class="cta-actions"><a class="btn btn-primary" href="/#download" data-track="app_download_click">Скачать приложение для тренера</a><a class="btn btn-secondary" href="/pricing/">Посмотреть цены</a></div></div></section>
 
     </main>

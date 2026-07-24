@@ -150,18 +150,10 @@ button:focus-visible {
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  object-fit: contain;
-  box-shadow: 0 0 28px rgba(201,255,31,0.24);
-}
-
-.brand-word {
-  color: var(--lime);
-  font-style: italic;
-  text-transform: uppercase;
-  white-space: nowrap;
+  width: 174px;
+  height: 54px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .main-nav {
@@ -970,14 +962,11 @@ button:focus-visible {
   align-items: start;
 }
 .footer-logo {
-  width: 92px;
-  height: 92px;
-  object-fit: contain;
-  border-radius: 18px;
+  width: 220px;
+  height: 82px;
+  object-fit: cover;
+  object-position: center;
   margin-bottom: 16px;
-  padding: 12px;
-  background: #020302;
-  box-shadow: 0 0 32px rgba(201,255,31,.16);
 }
 .footer-tagline { color: var(--muted); line-height:1.6; max-width:320px; }
 .footer-links {
@@ -1185,7 +1174,7 @@ button:focus-visible {
 @media (max-width: 760px) {
   .container { width: min(100% - 30px, var(--max)); }
   .header-actions .btn { display: none; }
-  .brand-mark { width: 40px; height: 40px; }
+  .brand-mark { width: 146px; height: 48px; }
   .brand { font-size: .98rem; }
   .hero { padding-top: 56px; }
   .hero h1 { font-size: clamp(2.72rem, 12.5vw, 4.3rem); }
@@ -1549,11 +1538,10 @@ body::before {
 }
 
 .footer-logo {
-  width: 92px;
-  height: 92px;
-  object-fit: contain;
-  padding: 12px;
-  background: #020302;
+  width: 220px;
+  height: 82px;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 1040px) {
@@ -1644,7 +1632,8 @@ body::after,
 
 .brand-mark,
 .footer-logo {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 .redesign-hero {

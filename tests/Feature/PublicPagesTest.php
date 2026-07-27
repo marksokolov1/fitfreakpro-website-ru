@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\File;
 
 dataset('public pages', [
-    'home' => ['home', 'Платформа для персональных тренеров | FitFreak Pro', '/'],
+    'home' => ['home', 'FitFreak Pro — приложение для тренеров и работы с клиентами', '/'],
     'how it works' => ['how-it-works', 'Как работает FitFreak Pro для персонального тренера', '/how-it-works/'],
     'tutorial' => ['tutorial', 'Как пользоваться FitFreak Pro — инструкция для тренера и клиента', '/tutorial/'],
     'for trainers' => ['for-personal-trainers', 'FitFreak Pro для персональных тренеров', '/for-personal-trainers/'],
@@ -70,6 +70,7 @@ it('keeps the trainer landing page conversion flow in order', function () {
             'class="hero redesign-hero"',
             'id="trainer-problem"',
             'id="product"',
+            'id="built-for-trainers"',
             'id="core-features"',
             'id="coach-library"',
             'id="client-process"',
@@ -93,12 +94,32 @@ it('positions the landing page around trainer ownership and client workflow', fu
         ->assertSee('Все необходимое для сопровождения клиента в одном приложении.')
         ->assertSee('FitFreak Pro не заменяет тренера')
         ->assertSee('Создайте аккаунт тренера, добавляйте упражнения, создавайте программы и приглашайте клиентов.')
-        ->assertSee('Клиент получает доступ к персональному цифровому сопровождению от своего тренера.')
-        ->assertSee('Почему клиент платит отдельно?')
-        ->assertSee('Нужно ли менять мой текущий подход к тренировкам?')
+        ->assertSee('Клиент оплачивает доступ к цифровому сопровождению, которое предоставляет его тренер.')
+        ->assertSee('Почему клиент оплачивает подписку?')
+        ->assertSee('Можно ли продолжать работать по своей методике?')
         ->assertDontSee('1490')
         ->assertDontSee('AI-powered')
         ->assertDontSee('революцион');
+});
+
+it('adds verifiable trust, seo, and role-specific conversion signals', function () {
+    $response = $this->get(route('home', absolute: false));
+
+    $response
+        ->assertOk()
+        ->assertSee('<meta name="description" content="Создавайте планы тренировок, ведите клиентов, назначайте упражнения, отслеживайте прогресс и предоставляйте персональное сопровождение с FitFreak Pro.">', escape: false)
+        ->assertSee('Создано для персональных тренеров')
+        ->assertSee('FitFreak Pro поддерживает работу тренера, а не заменяет ее.')
+        ->assertSee('Без ежемесячной платы для тренера')
+        ->assertSee('Оплата клиента через YooKassa')
+        ->assertSee('FitFreak Pro доступен на iPhone и Android.')
+        ->assertSee('Готовы выстроить свой рабочий процесс?')
+        ->assertSee('У вас уже есть тренер?')
+        ->assertSee('Ввести код приглашения')
+        ->assertSee(route('tutorial', absolute: false).'#client-guide', escape: false)
+        ->assertDontSee('Stripe')
+        ->assertDontSee('testimonial')
+        ->assertDontSee('"aggregateRating"', escape: false);
 });
 
 it('publishes both current Russian manuals from the tutorial', function () {

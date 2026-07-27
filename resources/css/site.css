@@ -3619,6 +3619,7 @@ body::after,
 .redesign-hero .container,
 .download-strip .container,
 #product .container,
+#built-for-trainers .container,
 #workflow .container,
 #coach-calendar .container,
 #coach-library .container,
@@ -3788,6 +3789,7 @@ body::after,
 }
 
 #product,
+#built-for-trainers,
 #workflow,
 #pricing,
 #faq {
@@ -4086,6 +4088,60 @@ body::after,
   line-height: 1.55;
 }
 
+.pricing-confidence {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+  gap: clamp(42px, 7vw, 88px);
+  align-items: center;
+  margin-top: clamp(34px, 5vw, 58px);
+  padding: clamp(30px, 4vw, 46px) 0;
+  border-block: 1px solid rgba(201,255,31,.18);
+}
+
+.pricing-confidence h3 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.3vw, 2.25rem);
+  font-weight: 850;
+  line-height: 1.14;
+  letter-spacing: 0;
+}
+
+.pricing-confidence p {
+  max-width: 68ch;
+  margin: 14px 0 0;
+  color: rgba(255,255,255,.67);
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+
+.pricing-confidence ul {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pricing-confidence li {
+  position: relative;
+  padding-left: 24px;
+  color: rgba(255,255,255,.8);
+  font-weight: 760;
+  line-height: 1.5;
+}
+
+.pricing-confidence li::before {
+  content: "";
+  position: absolute;
+  top: .58em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px rgba(201,255,31,.38);
+}
+
 #faq .faq-list {
   gap: 0;
   max-width: 940px;
@@ -4157,6 +4213,54 @@ body::after,
 
 .final-cta .cta-actions {
   margin-top: 32px;
+}
+
+.final-cta-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
+  border-block: 1px solid rgba(201,255,31,.18);
+}
+
+.role-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 390px;
+  padding: clamp(36px, 5vw, 66px) clamp(28px, 5vw, 66px);
+}
+
+.role-cta + .role-cta {
+  border-left: 1px solid rgba(255,255,255,.1);
+}
+
+.role-cta .section-kicker {
+  margin-bottom: 26px;
+}
+
+.role-cta h2 {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(2.35rem, 3.5vw, 3.8rem);
+  font-weight: 880;
+  line-height: 1.07;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.role-cta p {
+  max-width: 48ch;
+  margin: 20px 0 0;
+  color: rgba(255,255,255,.68);
+  font-size: 1.05rem;
+  line-height: 1.68;
+}
+
+.role-cta .btn {
+  margin-top: auto;
+}
+
+.role-cta-client {
+  background: rgba(255,255,255,.018);
 }
 
 @media (hover: hover) {
@@ -4242,6 +4346,7 @@ body::after,
   .redesign-hero .container,
   .download-strip .container,
   #product .container,
+  #built-for-trainers .container,
   #workflow .container,
   #coach-calendar .container,
   #coach-library .container,
@@ -4450,6 +4555,13 @@ body::after,
     font-size: clamp(3rem, 15vw, 4.2rem);
   }
 
+  .pricing-confidence {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 30px;
+    padding: 28px 0;
+  }
+
   #faq .faq-question {
     min-height: 72px;
     padding: 20px 0;
@@ -4471,11 +4583,37 @@ body::after,
   .final-cta .cta-panel p {
     font-size: 1.04rem;
   }
+
+  .final-cta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role-cta {
+    min-height: 0;
+    padding: 34px 0;
+  }
+
+  .role-cta + .role-cta {
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-left: 0;
+  }
+
+  .role-cta h2 {
+    font-size: clamp(2.2rem, 9.5vw, 2.9rem);
+  }
+
+  .role-cta .btn {
+    width: 100%;
+    margin-top: 28px;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 /* Landing page conversion flow */
 #trainer-problem,
 #product,
+#built-for-trainers,
 #core-features,
 #coach-library,
 #client-process,
@@ -4488,11 +4626,13 @@ body::after,
 }
 
 .trainer-problem .container,
+.trainer-trust .container,
 .core-features .container {
   width: min(1240px, calc(100% - 48px));
 }
 
 .trainer-problem,
+.trainer-trust,
 .core-features {
   padding: clamp(96px, 9vw, 136px) 0;
   border-top: 1px solid rgba(255,255,255,.055);
@@ -4500,6 +4640,73 @@ body::after,
 
 .trainer-problem {
   background: rgba(255,255,255,.01);
+}
+
+.trainer-trust {
+  background:
+    linear-gradient(90deg, rgba(201,255,31,.018), transparent 45%, rgba(255,255,255,.012));
+}
+
+.trainer-trust-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(480px, 1.2fr);
+  gap: clamp(54px, 8vw, 110px);
+  align-items: start;
+}
+
+.trainer-trust-copy {
+  position: static;
+}
+
+.trainer-trust .section-title {
+  max-width: 680px;
+  font-size: clamp(2.65rem, 4vw, 4.25rem);
+  font-weight: 880;
+  line-height: 1.06;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.trainer-trust .section-copy {
+  max-width: 58ch;
+  margin-top: 24px;
+  color: rgba(255,255,255,.68);
+  font-size: clamp(1.08rem, 1.2vw, 1.18rem);
+  line-height: 1.74;
+}
+
+.trainer-ownership-list {
+  display: grid;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.trainer-ownership-list article {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 20px;
+  padding: 24px 4px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.trainer-ownership-list article > span {
+  color: var(--lime);
+  font-size: .78rem;
+  font-weight: 900;
+  line-height: 1.7;
+}
+
+.trainer-ownership-list h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  font-weight: 830;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.trainer-ownership-list p {
+  margin: 7px 0 0;
+  color: rgba(255,255,255,.62);
+  line-height: 1.58;
 }
 
 .problem-layout {
@@ -4510,8 +4717,7 @@ body::after,
 }
 
 .problem-copy {
-  position: sticky;
-  top: 120px;
+  position: static;
 }
 
 .problem-copy .section-title,
@@ -4745,6 +4951,15 @@ body::after,
     max-width: 760px;
   }
 
+  .trainer-trust-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .trainer-trust-copy {
+    position: static;
+    max-width: 760px;
+  }
+
   .trainer-tools {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0 22px;
@@ -4775,11 +4990,13 @@ body::after,
 
 @media (max-width: 760px) {
   .trainer-problem .container,
+  .trainer-trust .container,
   .core-features .container {
     width: min(100% - 32px, 1240px);
   }
 
   .trainer-problem,
+  .trainer-trust,
   .core-features {
     padding: 80px 0;
   }
@@ -4789,12 +5006,14 @@ body::after,
   }
 
   .problem-copy .section-title,
+  .trainer-trust .section-title,
   .core-features .section-title {
     font-size: clamp(2.15rem, 9.5vw, 2.85rem);
     line-height: 1.08;
   }
 
   .problem-copy .section-copy,
+  .trainer-trust .section-copy,
   .core-features .section-copy {
     margin-top: 20px;
     font-size: 1.03rem;
@@ -4803,6 +5022,14 @@ body::after,
 
   .trainer-tools {
     grid-template-columns: 1fr;
+  }
+
+  .trainer-trust-layout {
+    gap: 38px;
+  }
+
+  .trainer-ownership-list article {
+    padding: 20px 0;
   }
 
   .trainer-tool {

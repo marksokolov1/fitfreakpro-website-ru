@@ -43,6 +43,31 @@ it('keeps the current client price everywhere', function () {
         ->assertDontSee('"price": "1490"', escape: false);
 });
 
+it('keeps the trainer landing page conversion flow in order', function () {
+    $response = $this->get(route('home', absolute: false));
+
+    $response
+        ->assertOk()
+        ->assertSeeInOrder([
+            'class="hero redesign-hero"',
+            'id="trainer-problem"',
+            'id="product"',
+            'id="core-features"',
+            'id="coach-library"',
+            'id="client-process"',
+            'id="coach-calendar"',
+            'id="workflow"',
+            'id="pricing"',
+            'id="faq"',
+            'class="section final-cta"',
+        ], escape: false)
+        ->assertSee('Создайте бесплатный аккаунт тренера')
+        ->assertSee('Добавьте упражнения и видео')
+        ->assertSee('Соберите программы клиентов')
+        ->assertSee('Пригласите клиентов')
+        ->assertSee('Проверяйте прогресс');
+});
+
 it('publishes both current Russian manuals from the tutorial', function () {
     $response = $this->get(route('tutorial', absolute: false));
 

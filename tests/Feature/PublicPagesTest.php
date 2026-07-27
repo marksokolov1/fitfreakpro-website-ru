@@ -43,6 +43,24 @@ it('keeps the current client price everywhere', function () {
         ->assertDontSee('"price": "1490"', escape: false);
 });
 
+it('uses a focused trainer conversion navigation', function () {
+    $response = $this->get(route('home', absolute: false));
+
+    $response
+        ->assertOk()
+        ->assertSeeInOrder([
+            'Для тренеров',
+            'Как работает',
+            'Возможности',
+            'Цены',
+            'Инструкция',
+            'О нас',
+        ])
+        ->assertSee('Создать аккаунт тренера')
+        ->assertSee('class="mobile-nav-cta"', escape: false)
+        ->assertDontSee('Скачать приложение</a>', escape: false);
+});
+
 it('keeps the trainer landing page conversion flow in order', function () {
     $response = $this->get(route('home', absolute: false));
 

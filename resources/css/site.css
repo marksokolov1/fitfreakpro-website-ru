@@ -192,6 +192,14 @@ button:focus-visible {
   background: rgba(201,255,31,0.09);
 }
 
+.nav-desktop-only {
+  display: contents;
+}
+
+.mobile-nav-cta {
+  display: none;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -1148,6 +1156,7 @@ button:focus-visible {
 @media (max-width: 1040px) {
   .main-nav { display: none; }
   .mobile-toggle { display:block; }
+  .nav-desktop-only { display: none; }
   .site-header.nav-open .main-nav {
     display: grid;
     position: absolute;
@@ -1161,6 +1170,20 @@ button:focus-visible {
     box-shadow: 0 30px 80px rgba(0,0,0,.45);
   }
   .site-header.nav-open .main-nav a { padding: 13px; }
+  .site-header.nav-open .main-nav .mobile-nav-cta {
+    display: block;
+    margin-top: 4px;
+    padding: 14px 16px;
+    background: var(--lime);
+    color: #050505;
+    text-align: center;
+    box-shadow: 0 14px 34px rgba(201,255,31,.2);
+  }
+  .site-header.nav-open .main-nav .mobile-nav-cta:hover,
+  .site-header.nav-open .main-nav .mobile-nav-cta:focus-visible {
+    background: var(--lime-2);
+    color: #050505;
+  }
   .hero-grid,
   .client-panel-grid { grid-template-columns: 1fr; }
   .hero-visual { min-height: 560px; }

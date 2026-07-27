@@ -36,17 +36,11 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci
 
-      - name: Build production assets
-        run: npm run build
-
       - name: Run tests
         run: php artisan test
 
       - name: Check PHP formatting
         run: ./vendor/bin/pint --test
 
-      - name: Export GitHub Pages files
-        run: php artisan site:export
-
-      - name: Verify committed export is current
-        run: git diff --exit-code
+      - name: Build and verify committed static export
+        run: npm run check:export

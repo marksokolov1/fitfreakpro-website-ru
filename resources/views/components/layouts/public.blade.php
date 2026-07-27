@@ -47,9 +47,9 @@
 <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>
     <div class="page-shell">
-        <x-site-header />
+        <x-partials.header />
         {{ $slot }}
-        <x-site-footer />
+        <x-partials.footer />
     </div>
 </body>
 </html>

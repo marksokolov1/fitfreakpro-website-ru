@@ -122,6 +122,43 @@ it('adds verifiable trust, seo, and role-specific conversion signals', function 
         ->assertDontSee('"aggregateRating"', escape: false);
 });
 
+it('matches the shared English design structure while preserving Russian behavior', function () {
+    $this->get(route('home', absolute: false))
+        ->assertOk()
+        ->assertSee('<main id="main" class="home-page">', escape: false)
+        ->assertSee('workflow-showcase', escape: false)
+        ->assertSee('app-ui-frame', escape: false)
+        ->assertSee('class="faq-answer-inner"', escape: false)
+        ->assertSee('role="region"', escape: false)
+        ->assertSee('class="navigation-scrim"', escape: false);
+
+    $this->get(route('how-it-works', absolute: false))
+        ->assertOk()
+        ->assertSee('class="how-it-works-page"', escape: false)
+        ->assertSee('class="workflow-timeline"', escape: false)
+        ->assertSee('workflow-app-shot', escape: false)
+        ->assertSee('990 ₽')
+        ->assertSee('YooKassa')
+        ->assertDontSee('Stripe');
+
+    $this->get(route('pricing', absolute: false))
+        ->assertOk()
+        ->assertSee('class="pricing-page"', escape: false)
+        ->assertSee('class="pricing-sequence"', escape: false)
+        ->assertSee('pricing-cta-panel', escape: false);
+
+    $this->get(route('tutorial', absolute: false))
+        ->assertOk()
+        ->assertSee('class="tutorial-page"', escape: false)
+        ->assertSee('class="tutorial-role-selector"', escape: false)
+        ->assertSee('class="tutorial-path-nav"', escape: false)
+        ->assertSee('data-tutorial-progress="coach-guide"', escape: false)
+        ->assertSee('data-tutorial-progress="client-guide"', escape: false)
+        ->assertSee('data-tutorial-step-section', escape: false)
+        ->assertSee('YooKassa')
+        ->assertDontSee('Stripe');
+});
+
 it('publishes both current Russian manuals from the tutorial', function () {
     $response = $this->get(route('tutorial', absolute: false));
 

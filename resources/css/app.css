@@ -1,22 +1,2393 @@
 @import 'tailwindcss';
 @import './site.css';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.js';
 
 @theme {
-    --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --color-brand-neon: #c8ff1f;
-    --color-brand-neon-bright: #e3ff55;
-    --color-brand-neon-hover: #b7ef0e;
-    --color-brand-neon-dark: #91bc00;
-    --color-brand-background: #030403;
-    --color-brand-background-secondary: #070907;
-    --color-brand-surface: #121612;
-    --color-brand-surface-hover: #181d18;
-    --color-brand-text: #fbfbfb;
-    --color-brand-text-muted: #b7bbb8;
-    --color-brand-border: #293027;
+  --color-brand-neon: #c8ff1f;
+  --color-brand-neon-bright: #e2ff57;
+  --color-brand-neon-hover: #b7f10f;
+  --color-brand-neon-dark: #9cef00;
+  --color-brand-background: #030403;
+  --color-brand-background-secondary: #070907;
+  --color-brand-surface: #121412;
+  --color-brand-surface-hover: #1b1f1b;
+  --color-brand-text: #fbfbfb;
+  --color-brand-text-muted: #b7bbb8;
+  --color-brand-border: #293027;
+  --color-status-danger: #ff6262;
+  --color-status-warning: #f5c451;
+  --color-status-success: #69d391;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* The supplied logo is a horizontal lockup inside a square transparent canvas. */
+.brand {
+  width: 11.5rem;
+  height: 3.5rem;
+  gap: 0;
+  overflow: hidden;
+}
+
+.brand-mark {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: none;
+}
+
+.footer-logo {
+  width: 12.5rem;
+  height: 4rem;
+  padding: 0;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+.navigation-scrim {
+  display: none;
+}
+
+.mobile-nav-cta {
+  display: none;
+}
+
+/* Keep display type confident without letting it overpower the page. */
+.hero h1 {
+  font-size: 4rem;
+  letter-spacing: 0;
+}
+
+.section-title {
+  font-size: 3.25rem;
+  letter-spacing: 0;
+}
+
+.feature-split .split-panel h2 {
+  font-size: 3.25rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.faq-section .section-title {
+  font-size: 4.5rem;
+  letter-spacing: 0;
+}
+
+.tutorial-hero h1 {
+  font-size: 4.5rem;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.tutorial-step h3 {
+  font-size: 3.25rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.tutorial-guide-card h2 {
+  font-size: 2.75rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.route-hero {
+  padding-block: 4.5rem 2.75rem;
+}
+
+.route-hero h1 {
+  max-width: 62rem;
+  margin: 1.25rem 0 0;
+  font-size: 4.25rem;
+  font-weight: 950;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.route-hero p {
+  max-width: 64rem;
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.3vw, 1.18rem);
+  line-height: 1.62;
+}
+
+.route-card h2,
+.route-card h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.route-card p {
+  margin: 0.75rem 0 0;
+}
+
+.trainer-hero {
+  padding-block: 4rem 3.5rem;
+  overflow: hidden;
+}
+
+.trainer-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(21.25rem, 28.75rem);
+  gap: 5.5rem;
+  align-items: center;
+}
+
+.trainer-hero-copy h1 {
+  max-width: 47.5rem;
+  font-size: 4.5rem;
+  text-wrap: balance;
+}
+
+.trainer-hero-copy p {
+  max-width: 40.625rem;
+  color: rgba(255, 255, 255, 0.72);
+  text-wrap: pretty;
+}
+
+.trainer-hero-copy .cta-actions {
+  margin-top: 1.875rem;
+}
+
+.trainer-hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem 1.375rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trainer-hero-points li {
+  position: relative;
+  padding-left: 1.0625rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.trainer-hero-points li::before {
+  content: "";
+  position: absolute;
+  top: 0.48em;
+  left: 0;
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0.875rem rgba(201, 255, 31, 0.5);
+}
+
+.trainer-hero-visual {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 26.875rem);
+  height: 40.625rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.75rem;
+  background: #050605;
+  box-shadow: 0 1.75rem 5.625rem rgba(0, 0, 0, 0.42), 0 0 5rem rgba(201, 255, 31, 0.09);
+}
+
+.trainer-hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 18%;
+  background: linear-gradient(transparent, #020302);
+  pointer-events: none;
+}
+
+.trainer-hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coach-cards-section {
+  padding-top: 5.5rem;
+}
+
+.coach-section-heading {
+  max-width: 56.25rem;
+  margin-bottom: 2.125rem;
+}
+
+.coach-section-heading h2,
+.coach-gallery-heading h2 {
+  max-width: 47.5rem;
+  margin: 1.125rem 0 0;
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.coach-section-heading p {
+  max-width: 42.5rem;
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.coach-card-grid {
+  gap: 0.875rem;
+}
+
+.coach-card-grid .route-card {
+  position: relative;
+  min-height: 0;
+  padding: 1.75rem 1.875rem 1.875rem;
+  overflow: hidden;
+  border-radius: 1.125rem;
+}
+
+.coach-card-grid .route-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--lime), transparent 72%);
+  opacity: 0.55;
+}
+
+.route-card-index {
+  display: block;
+  margin-bottom: 1.75rem;
+  color: var(--lime);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.coach-card-grid h3 {
+  font-size: 1.55rem;
+  letter-spacing: 0;
+}
+
+.coach-card-grid p {
+  max-width: 48ch;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.58;
+}
+
+.coach-gallery-section {
+  padding-top: 5.5rem;
+}
+
+.coach-gallery-heading {
+  margin-bottom: 2rem;
+}
+
+.coach-gallery-heading h2 {
+  font-size: 3.25rem;
+}
+
+.coach-screenshot-grid {
+  display: grid;
+}
+
+.coach-screenshot-grid figure {
+  margin: 0;
+}
+
+.coach-screenshot-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 619 / 980;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 1.125rem;
+  background: #050505;
+  box-shadow: 0 1.125rem 3.5rem rgba(0, 0, 0, 0.28);
+}
+
+.coach-screenshot-grid figcaption {
+  padding: 0.875rem 0.1875rem 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+/* Homepage hierarchy and spacing refinement. */
+.home-page .section {
+  padding-block: 3.75rem;
+}
+
+.home-page .section-header {
+  margin-bottom: 1.625rem;
+}
+
+.home-page .section-copy {
+  margin-top: 0.875rem;
+}
+
+.home-page .section-kicker {
+  margin-bottom: 0.625rem;
+}
+
+.home-page .redesign-hero {
+  padding-block: 4rem 3rem;
+}
+
+.home-page .hero-grid {
+  grid-template-columns: minmax(0, 1.06fr) minmax(23rem, 0.94fr);
+  gap: 3rem;
+}
+
+.home-page .product-shot-grid {
+  min-height: 36rem;
+}
+
+.home-page .phone-shot {
+  border-radius: 1.375rem;
+}
+
+.home-page .phone-shot-primary {
+  width: min(84%, 27rem);
+  height: 36rem;
+  aspect-ratio: auto;
+  box-shadow: 0 1.75rem 6rem rgba(0, 0, 0, 0.5), 0 0 3.5rem rgba(201, 255, 31, 0.16);
+}
+
+.home-page .phone-shot-primary img {
+  width: 100%;
+  height: auto;
+  transform: translateY(-28%);
+  filter: brightness(1.14) saturate(1.08);
+}
+
+.home-page .phone-shot-secondary {
+  right: -1%;
+  bottom: 4%;
+  width: min(42%, 14.5rem);
+  height: 27rem;
+  aspect-ratio: auto;
+  opacity: 0.34;
+  filter: brightness(0.72);
+}
+
+.home-page .phone-shot-secondary img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.home-page .download-strip {
+  padding-block: 1.125rem;
+}
+
+.home-band {
+  border-block: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.home-band-muted {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0.008));
+}
+
+.home-band-primary {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(201, 255, 31, 0.075), transparent 26rem),
+    linear-gradient(180deg, rgba(10, 13, 10, 0.82), rgba(4, 6, 4, 0.76));
+}
+
+.home-band-pricing {
+  background:
+    radial-gradient(circle at 14% 20%, rgba(201, 255, 31, 0.055), transparent 25rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.006));
+}
+
+.home-page .metrics-row {
+  gap: 0.875rem;
+}
+
+.home-page .metric-card {
+  min-height: 6.75rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+}
+
+.home-page .metric-card span {
+  margin-top: 0.5rem;
+}
+
+.workflow-showcase {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.workflow-product-shot {
+  width: 100%;
+  height: 36rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(201, 255, 31, 0.2);
+  border-radius: 1.125rem;
+  background: #030403;
+  box-shadow: 0 1.5rem 4.5rem rgba(0, 0, 0, 0.34), 0 0 2.5rem rgba(201, 255, 31, 0.07);
+}
+
+.workflow-product-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-page .workflow-flow {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+  border-radius: 1.125rem;
+}
+
+.home-page .workflow-flow::before {
+  display: none;
+}
+
+.home-page .workflow-card {
+  min-height: 0;
+  padding: 1.5rem;
+}
+
+.home-page .workflow-card:nth-child(2n) {
+  border-right: 0;
+}
+
+.home-page .workflow-card:nth-child(-n + 2) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.home-page .workflow-card .feature-icon {
+  margin-bottom: 1.5rem;
+}
+
+.home-page .workflow-card p {
+  margin-top: 0.625rem;
+}
+
+.home-feature {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.home-feature-primary {
+  background: linear-gradient(90deg, rgba(201, 255, 31, 0.035), transparent 58%);
+}
+
+.home-feature-client {
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.025), transparent 62%);
+}
+
+.home-page .feature-split .split-panel {
+  gap: 3rem;
+  padding: 2rem;
+  border-radius: 1.125rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.018));
+}
+
+.home-page .feature-split .split-panel:not(.reverse) {
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.72fr);
+}
+
+.home-page .feature-split .split-panel.reverse {
+  grid-template-columns: minmax(19rem, 0.72fr) minmax(0, 1fr);
+}
+
+.home-page .feature-split .split-panel h2 {
+  max-width: 13ch;
+}
+
+.home-page .feature-split .split-panel p {
+  margin-top: 1rem;
+}
+
+.home-page .check-list {
+  gap: 0.625rem;
+  margin-top: 1.125rem;
+}
+
+.home-page .pill-row {
+  gap: 0.5rem;
+  margin-top: 1.125rem;
+}
+
+.app-ui-frame {
+  justify-self: center;
+  width: min(100%, 26rem);
+  height: 36rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 1.125rem;
+  background: #020302;
+  box-shadow: 0 1.5rem 4.5rem rgba(0, 0, 0, 0.38), 0 0 2.5rem rgba(201, 255, 31, 0.08);
+}
+
+.app-ui-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-secondary-feature {
+  padding-block: 3rem !important;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.home-page .home-secondary-feature .split-panel {
+  width: min(calc(100% - 2rem), 64rem);
+  grid-template-columns: minmax(15rem, 0.58fr) minmax(0, 1fr);
+  gap: 2.25rem;
+  padding: 1.625rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.home-page .home-secondary-feature .split-panel h2 {
+  font-size: 2.65rem;
+}
+
+.app-ui-frame-compact {
+  width: min(100%, 19rem);
+  height: 25rem;
+}
+
+.home-page .pricing-grid {
+  gap: 1rem;
+}
+
+.home-page .pricing-card {
+  min-height: 0;
+  padding: 1.5rem;
+  border-radius: 1.125rem;
+}
+
+.home-page .pricing-card p {
+  margin-top: 0.875rem;
+}
+
+.home-page .pricing-card ul {
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.home-page .price {
+  margin-top: 1rem;
+}
+
+.home-page .content-note {
+  margin-top: 1rem;
+  padding: 1.375rem;
+  border-radius: 1.125rem;
+}
+
+.home-page .founder-section .split-panel {
+  gap: 2rem;
+  padding: 1.75rem;
+  border-radius: 1.125rem;
+}
+
+.home-page .founder-card {
+  padding: 1.375rem;
+  border-radius: 1rem;
+}
+
+.home-page .faq-section {
+  padding-block: 3.5rem;
+}
+
+.home-page .faq-section .section-title {
+  max-width: 48rem;
+  font-size: 3.5rem;
+  line-height: 1.02;
+}
+
+.home-page .faq-section .faq-list {
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.home-page .faq-section .faq-item {
+  border-radius: 1rem;
+}
+
+.home-page .faq-section .faq-question {
+  min-height: 3.375rem;
+  padding: 0.875rem 1.125rem;
+}
+
+.home-page .faq-section .faq-answer {
+  padding: 0 1.125rem 1rem;
+}
+
+.home-page .final-cta {
+  padding-block: 3.25rem;
+}
+
+.home-page .final-cta .cta-panel {
+  padding: 2.375rem;
+  border-radius: 1.375rem;
+}
+
+.home-page .final-cta .cta-actions {
+  margin-top: 1.25rem;
+}
+
+.how-it-works-page .route-hero {
+  padding-block: 4rem 2.25rem;
+}
+
+.how-it-works-page .route-hero h1 {
+  max-width: 60rem;
+  font-size: clamp(3rem, 5vw, 4.25rem);
+  text-wrap: balance;
+}
+
+.how-it-works-workflow-section {
+  padding-block: 0 3.25rem;
+}
+
+.how-it-works-page .workflow-timeline {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.how-it-works-page .workflow-step {
+  grid-column: span 2;
+}
+
+.how-it-works-page .workflow-step:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.how-it-works-page .workflow-step:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.how-it-works-page .workflow-step {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border-color: rgba(255, 255, 255, 0.13);
+  border-radius: 1.125rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(201, 255, 31, 0.065), transparent 17rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  box-shadow: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.24);
+}
+
+.how-it-works-page .workflow-app-shot {
+  width: 100%;
+  height: 31rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.875rem;
+  background: #000000;
+}
+
+.how-it-works-page .workflow-app-shot img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: top center;
+  border: 0;
+  border-radius: 0;
+}
+
+.how-it-works-page .workflow-app-shot-registration img {
+  object-position: center bottom;
+}
+
+.how-it-works-page .workflow-app-shot-registration {
+  position: relative;
+}
+
+.how-it-works-page .workflow-app-shot-registration::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 auto;
+  height: 5.5rem;
+  background: #000000;
+  pointer-events: none;
+}
+
+.workflow-price-note {
+  width: min(100%, 52rem);
+  margin: 1.25rem auto 0;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(201, 255, 31, 0.2);
+  border-radius: 0.875rem;
+  color: rgba(255, 255, 255, 0.74);
+  background: rgba(201, 255, 31, 0.045);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.how-it-works-page .workflow-step > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.25rem 0.25rem 0.375rem;
+}
+
+.how-it-works-page .workflow-step h2 {
+  margin: 0.625rem 0 0.75rem;
+  font-size: clamp(1.25rem, 1.55vw, 1.6rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.how-it-works-page .workflow-step p {
+  margin-top: auto;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.55;
+}
+
+.how-it-works-cta-section {
+  padding-block: 3.25rem 4.5rem;
+}
+
+.how-it-works-page .cta-panel {
+  padding: 2rem 2.25rem;
+  border-radius: 1.375rem;
+}
+
+.how-it-works-page .cta-panel h2 {
+  max-width: 54rem;
+  font-size: clamp(2rem, 3.4vw, 3.15rem);
+}
+
+.how-it-works-page .cta-panel p {
+  max-width: 48rem;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.how-it-works-page .cta-actions {
+  margin-top: 1.25rem;
+}
+
+.how-it-works-page + .site-footer .footer-tagline {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.how-it-works-page + .site-footer .footer-links a,
+.how-it-works-page + .site-footer .footer-legal a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.how-it-works-page + .site-footer .footer-legal {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.tutorial-page .tutorial-hero {
+  padding-block: 3.25rem 2.75rem;
+}
+
+.tutorial-page .tutorial-hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 26rem);
+  gap: 3rem;
+}
+
+.tutorial-page .tutorial-hero h1 {
+  max-width: 46rem;
+  font-size: 4.15rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.tutorial-page .tutorial-hero p {
+  margin-top: 1.125rem;
+}
+
+.tutorial-page .tutorial-role-selector {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 43rem);
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+  padding: 0.375rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.125rem;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.tutorial-page .tutorial-role-option {
+  display: flex;
+  min-width: 0;
+  min-height: 5.25rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.275rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.875rem;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.tutorial-page .tutorial-role-option strong {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.tutorial-page .tutorial-role-option span {
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.tutorial-page .tutorial-role-option:hover,
+.tutorial-page .tutorial-role-option:focus-visible {
+  border-color: rgba(201, 255, 31, 0.5);
+  color: #fff;
+}
+
+.tutorial-page .tutorial-role-option[aria-current="location"] {
+  border-color: rgba(201, 255, 31, 0.72);
+  color: rgba(3, 4, 3, 0.78);
+  background: var(--lime);
+  box-shadow: 0 0 1.75rem rgba(201, 255, 31, 0.16);
+}
+
+.tutorial-page .tutorial-role-option[aria-current="location"] strong {
+  color: #030403;
+}
+
+.tutorial-page .tutorial-role-option:focus-visible,
+.tutorial-path-nav a:focus-visible,
+.tutorial-page .tutorial-guide-card .btn:focus-visible,
+.tutorial-page .tutorial-resource-links a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.tutorial-page .tutorial-trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.45;
+  list-style: none;
+}
+
+.tutorial-page .tutorial-trust-list li {
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.tutorial-page .tutorial-trust-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.48em;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0.65rem rgba(201, 255, 31, 0.42);
+}
+
+.tutorial-page .tutorial-hero-visual {
+  min-height: 28.5rem;
+}
+
+.tutorial-page .tutorial-hero-phone {
+  aspect-ratio: 1242 / 2688;
+  border-radius: 1.375rem;
+}
+
+.tutorial-page .tutorial-hero-phone-primary {
+  width: min(62%, 13.5rem);
+  left: 8%;
+}
+
+.tutorial-page .tutorial-hero-phone-dashboard img {
+  width: 179.4%;
+  max-width: none;
+  height: 146.7%;
+  object-fit: fill;
+  transform: translate(-22.9%, -31.8%);
+}
+
+.tutorial-page .tutorial-hero-phone-secondary {
+  width: min(46%, 10rem);
+  right: 6%;
+  bottom: 2%;
+  opacity: 0.68;
+}
+
+.tutorial-path-nav {
+  position: sticky;
+  z-index: 90;
+  top: 4.875rem;
+  border-block: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 6, 5, 0.9);
+  backdrop-filter: blur(18px);
+}
+
+.tutorial-path-nav-inner {
+  display: grid;
+  min-height: 4.5rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+.tutorial-guide-switch {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.tutorial-path-nav a {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 0.8rem;
+  border: 1px solid transparent;
+  border-radius: 0.625rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.8rem;
+  font-weight: 850;
+  white-space: nowrap;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.tutorial-path-nav a:hover,
+.tutorial-path-nav a:focus-visible,
+.tutorial-path-nav a[aria-current="location"] {
+  border-color: rgba(201, 255, 31, 0.24);
+  color: var(--lime);
+  background: rgba(201, 255, 31, 0.075);
+}
+
+.tutorial-progress-links {
+  display: none;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.125rem;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  list-style: none;
+}
+
+.tutorial-progress-links::-webkit-scrollbar {
+  display: none;
+}
+
+.tutorial-progress-links.is-active {
+  display: flex;
+}
+
+.tutorial-progress-links a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.tutorial-progress-links a::before {
+  content: "";
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-right: 0.45rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  transition: background 160ms ease, box-shadow 160ms ease;
+}
+
+.tutorial-progress-links a:hover,
+.tutorial-progress-links a:focus-visible,
+.tutorial-progress-links a[aria-current="step"] {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.tutorial-progress-links a[aria-current="step"]::before {
+  background: var(--lime);
+  box-shadow: 0 0 0.75rem rgba(201, 255, 31, 0.55);
+}
+
+.tutorial-page .tutorial-journey {
+  padding-block: 4rem 2rem;
+  scroll-margin-top: 8.875rem;
+}
+
+.tutorial-page .tutorial-journey-trainer {
+  background:
+    linear-gradient(90deg, rgba(201, 255, 31, 0.032), transparent 56%),
+    #030403;
+}
+
+.tutorial-page .tutorial-journey-client {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    linear-gradient(270deg, rgba(201, 255, 31, 0.025), transparent 58%),
+    rgba(255, 255, 255, 0.012);
+}
+
+.tutorial-page .tutorial-journey .section-header {
+  margin-bottom: 1.5rem;
+}
+
+.tutorial-page .tutorial-journey .section-header > div {
+  max-width: 57rem;
+}
+
+.tutorial-page .tutorial-journey .section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(201, 255, 31, 0.22);
+  border-radius: 999px;
+  background: rgba(201, 255, 31, 0.055);
+}
+
+.tutorial-page .tutorial-journey .section-kicker::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0.875rem rgba(201, 255, 31, 0.5);
+}
+
+.tutorial-page .tutorial-journey .section-title {
+  font-size: 3.25rem;
+  line-height: 1.02;
+}
+
+.tutorial-page .tutorial-step-list {
+  gap: 1rem;
+}
+
+.tutorial-page .tutorial-step {
+  min-height: 38rem;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  gap: 3rem;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  scroll-margin-top: 9.75rem;
+}
+
+.tutorial-page .tutorial-step.is-reverse {
+  grid-template-columns: 18rem minmax(0, 1fr);
+}
+
+.tutorial-page .tutorial-step-copy {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tutorial-page .tutorial-step h3 {
+  max-width: 38rem;
+  margin-top: 1.25rem;
+  font-size: 2.75rem;
+  line-height: 1.04;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.tutorial-page .tutorial-step .tutorial-step-title-long {
+  font-size: 2.35rem;
+  line-height: 1.06;
+}
+
+.tutorial-page .tutorial-step p {
+  max-width: 39rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.05rem;
+  line-height: 1.62;
+}
+
+.tutorial-page .tutorial-step .tutorial-step-why {
+  max-width: 36rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201, 255, 31, 0.16);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.tutorial-page .tutorial-step-why strong {
+  color: var(--lime);
+  font-weight: 850;
+}
+
+.tutorial-page .tutorial-media {
+  width: 16.5rem;
+  height: 35rem;
+  aspect-ratio: auto;
+  border-radius: 1.25rem;
+}
+
+.tutorial-page .tutorial-guide-band {
+  padding-block: 0 3.5rem;
+}
+
+.tutorial-page .tutorial-guide-band-trainer {
+  background:
+    linear-gradient(90deg, rgba(201, 255, 31, 0.032), transparent 56%),
+    #030403;
+}
+
+.tutorial-page .tutorial-guide-band-client {
+  background:
+    linear-gradient(270deg, rgba(201, 255, 31, 0.025), transparent 58%),
+    rgba(255, 255, 255, 0.012);
+}
+
+.tutorial-page .tutorial-guide-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.625rem 2rem;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-color: rgba(201, 255, 31, 0.2);
+  border-radius: 1.125rem;
+  background:
+    linear-gradient(90deg, rgba(201, 255, 31, 0.065), transparent 48%),
+    rgba(255, 255, 255, 0.035);
+}
+
+.tutorial-page .tutorial-guide-card .section-kicker,
+.tutorial-page .tutorial-guide-card h2,
+.tutorial-page .tutorial-guide-card p {
+  grid-column: 1;
+}
+
+.tutorial-page .tutorial-guide-card h2 {
+  font-size: 2rem;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.tutorial-page .tutorial-guide-card p {
+  max-width: 52rem;
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.tutorial-page .tutorial-guide-card .cta-actions {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+}
+
+.tutorial-page .tutorial-guide-card .btn {
+  width: 100%;
+  min-width: 17rem;
+  text-align: center;
+}
+
+.tutorial-page .tutorial-resource-band {
+  padding-block: 0 3.5rem;
+  background:
+    linear-gradient(270deg, rgba(201, 255, 31, 0.025), transparent 58%),
+    rgba(255, 255, 255, 0.012);
+}
+
+.tutorial-page .tutorial-resource-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.tutorial-page .tutorial-resource-card h2 {
+  margin-top: 0.25rem;
+  font-size: 1.6rem;
+  line-height: 1.12;
+}
+
+.tutorial-page .tutorial-resource-card p {
+  margin-top: 0.35rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+}
+
+.tutorial-page .tutorial-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.tutorial-page .tutorial-resource-links a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.75rem;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.86rem;
+  font-weight: 800;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.tutorial-page .tutorial-resource-links a span[aria-hidden="true"] {
+  color: var(--lime);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+.tutorial-page .tutorial-resource-links a:hover {
+  border-color: rgba(201, 255, 31, 0.38);
+  color: #fff;
+  background: rgba(201, 255, 31, 0.055);
+}
+
+.tutorial-page .final-cta {
+  padding-block: 3.5rem;
+}
+
+.tutorial-page .final-cta .cta-panel {
+  padding: 2.5rem;
+  border-radius: 1.375rem;
+}
+
+.pricing-page .route-hero {
+  padding-block: 4rem 2.25rem;
+}
+
+.pricing-page .route-hero h1 {
+  max-width: 58rem;
+  font-size: 3.825rem;
+  text-wrap: balance;
+}
+
+.pricing-model-section {
+  padding-block: 0 4.5rem;
+}
+
+.pricing-page .pricing-sequence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 1rem;
+  padding: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.125rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.pricing-page .pricing-sequence-step {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 2.25rem 0.75rem 0.875rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+.pricing-page .pricing-sequence-step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  color: var(--lime);
+  font-size: 1.25rem;
+  transform: translateY(-50%);
+}
+
+.pricing-page .pricing-sequence-step > span {
+  display: grid;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid rgba(201, 255, 31, 0.3);
+  border-radius: 50%;
+  color: var(--lime);
+  background: rgba(201, 255, 31, 0.08);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.pricing-page .pricing-grid {
+  gap: 0.625rem;
+  padding: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(90deg, rgba(201, 255, 31, 0.035), transparent 48%),
+    rgba(255, 255, 255, 0.025);
+}
+
+.pricing-page .pricing-card {
+  min-height: 0;
+  padding: 2rem;
+  border-radius: 1.125rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.072), rgba(255, 255, 255, 0.026));
+}
+
+.pricing-page .pricing-card.featured {
+  border-color: rgba(201, 255, 31, 0.48);
+  box-shadow: 0 0 3.5rem rgba(201, 255, 31, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.pricing-page .price {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pricing-page .price > span {
+  font-size: clamp(3rem, 5.2vw, 4.5rem);
+  font-weight: 950;
+  line-height: 0.9;
+}
+
+.pricing-page .price small {
+  font-size: 0.92rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.pricing-page .pricing-card p {
+  margin-top: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pricing-page .pricing-card ul {
+  gap: 0.55rem;
+  margin-top: 1.125rem;
+}
+
+.pricing-page .pricing-card li {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.45;
+}
+
+.pricing-page .content-note {
+  position: relative;
+  margin-top: 1rem;
+  padding: 1.75rem 2rem 1.75rem 2.25rem;
+  overflow: hidden;
+  border-color: rgba(201, 255, 31, 0.3);
+  border-radius: 1.125rem;
+  background:
+    linear-gradient(90deg, rgba(201, 255, 31, 0.085), transparent 42%),
+    rgba(255, 255, 255, 0.03);
+}
+
+.pricing-page .content-note::before {
+  content: "";
+  position: absolute;
+  inset: 1.25rem auto 1.25rem 0;
+  width: 0.25rem;
+  border-radius: 99px;
+  background: var(--lime);
+  box-shadow: 0 0 1.5rem rgba(201, 255, 31, 0.42);
+}
+
+.pricing-page .content-note h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.2vw, 2rem);
+  line-height: 1.1;
+}
+
+.pricing-page .content-note p {
+  max-width: 60rem;
+  margin: 0.75rem 0 0;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.pricing-page .pricing-cta-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 2.25rem;
+  border-radius: 1.375rem;
+}
+
+.pricing-page .pricing-cta-panel h2 {
+  font-size: clamp(2rem, 3.4vw, 3.15rem);
+  line-height: 1;
+}
+
+.pricing-page .pricing-cta-panel p {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.pricing-page .pricing-cta-panel .cta-actions {
+  margin-top: 1.25rem;
+}
+
+.pricing-page .pricing-cta-panel .store-row {
+  display: grid;
+  width: 12rem;
+  gap: 0.625rem;
+  margin: 0;
+}
+
+.pricing-page .pricing-cta-panel .store-badge {
+  min-width: 0;
+  width: 100%;
+  border-radius: 0.875rem;
+}
+
+.home-page .hero-primary-cta {
+  min-height: 3.5rem;
+  padding-inline: 1.75rem;
+  border-color: rgba(226, 255, 87, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(201, 255, 31, 0.18),
+    0 0.875rem 2.75rem rgba(201, 255, 31, 0.2);
+}
+
+.home-page .hero-primary-cta:hover {
+  box-shadow:
+    0 0 0 1px rgba(226, 255, 87, 0.3),
+    0 1rem 3rem rgba(201, 255, 31, 0.28);
+}
+
+.home-page .hero-primary-cta:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+  box-shadow:
+    0 0 0 1px rgba(226, 255, 87, 0.35),
+    0 1rem 3rem rgba(201, 255, 31, 0.25);
+}
+
+.hero-differentiator {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0.75rem 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.hero-differentiator::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--lime);
+  box-shadow: 0 0 0.875rem rgba(201, 255, 31, 0.52);
+}
+
+#workflow,
+#features,
+#faq,
+#download {
+  scroll-margin-top: 6rem;
+}
+
+.legacy-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 1320px) {
+  .brand {
+    width: 10.5rem;
+  }
+
+  .main-nav {
+    margin-left: 0.375rem;
+  }
+
+  .main-nav a {
+    padding-inline: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .header-actions .btn {
+    padding-inline: 1rem;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 1040px) {
+  .tutorial-page .tutorial-hero-grid,
+  .tutorial-page .tutorial-step,
+  .tutorial-page .tutorial-step.is-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-page .tutorial-hero-visual {
+    width: min(100%, 31rem);
+    min-height: 27rem;
+    margin-inline: auto;
+  }
+
+  .tutorial-page .tutorial-step {
+    min-height: 0;
+  }
+
+  .tutorial-page .tutorial-step.is-reverse .tutorial-media {
+    order: initial;
+  }
+
+  .tutorial-page .tutorial-media {
+    width: 16rem;
+    height: 34rem;
+  }
+
+  .tutorial-page .tutorial-guide-card {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-page .tutorial-guide-card .cta-actions {
+    grid-column: 1;
+    grid-row: auto;
+    align-items: flex-start;
+    margin-top: 0.75rem;
+  }
+
+  .tutorial-path-nav-inner {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .tutorial-progress-links {
+    justify-content: flex-start;
+  }
+
+  .tutorial-page .tutorial-resource-card {
+    align-items: flex-start;
+  }
+
+  .how-it-works-page .workflow-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .how-it-works-page .workflow-step,
+  .how-it-works-page .workflow-step:nth-child(4),
+  .how-it-works-page .workflow-step:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .how-it-works-page .workflow-app-shot {
+    height: 33rem;
+  }
+
+  .home-page .hero-grid,
+  .workflow-showcase,
+  .home-page .feature-split .split-panel,
+  .home-page .feature-split .split-panel.reverse,
+  .home-page .feature-split .split-panel:not(.reverse),
+  .home-page .home-secondary-feature .split-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .product-shot-grid {
+    width: min(100%, 36rem);
+    min-height: 32rem;
+    margin-inline: auto;
+  }
+
+  .home-page .phone-shot-primary {
+    height: 32rem;
+  }
+
+  .workflow-product-shot {
+    justify-self: center;
+    width: min(100%, 24rem);
+    height: 31rem;
+  }
+
+  .home-page .feature-split .split-panel,
+  .home-page .home-secondary-feature .split-panel {
+    gap: 2rem;
+  }
+
+  .home-page .home-secondary-feature .split-panel {
+    width: min(calc(100% - 2rem), 44rem);
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .section-title,
+  .feature-split .split-panel h2 {
+    font-size: 2.8rem;
+  }
+
+  .faq-section .section-title,
+  .tutorial-hero h1 {
+    font-size: 3.6rem;
+  }
+
+  .tutorial-step h3 {
+    font-size: 2.75rem;
+  }
+
+  .route-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .trainer-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(18.75rem, 22.5rem);
+    gap: 2.5rem;
+  }
+
+  .trainer-hero-copy h1 {
+    font-size: 3.65rem;
+  }
+
+  .trainer-hero-visual {
+    height: 33.75rem;
+  }
+
+  .site-header .header-inner {
+    position: relative;
+    z-index: 3;
+  }
+
+  .navigation-scrim {
+    position: fixed;
+    z-index: 2;
+    inset: 4.875rem 0 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.68);
+    backdrop-filter: blur(2px);
+    transition: visibility 0s linear 160ms, opacity 160ms ease;
+  }
+
+  .site-header.nav-open .navigation-scrim {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  .site-header.nav-open .main-nav {
+    z-index: 4;
+    max-height: calc(100dvh - 6rem);
+    overflow-y: auto;
+    background: rgba(5, 6, 5, 0.98);
+  }
+
+  body.navigation-open {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing-page .pricing-cta-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-page .pricing-cta-panel .store-row {
+    display: flex;
+    width: 100%;
+  }
+
+  .pricing-page .pricing-cta-panel .store-badge {
+    width: auto;
+    min-width: 11.75rem;
+  }
+
+  .trainer-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trainer-hero-copy {
+    max-width: 47.5rem;
+  }
+
+  .trainer-hero-visual {
+    justify-self: start;
+    width: min(100%, 24.375rem);
+    height: 33.125rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .tutorial-page .tutorial-hero {
+    padding-block: 2.25rem 2rem;
+  }
+
+  .tutorial-page .tutorial-hero h1 {
+    font-size: 2.55rem;
+  }
+
+  .tutorial-page .tutorial-role-selector {
+    display: grid;
+    width: 100%;
+  }
+
+  .tutorial-page .tutorial-role-option {
+    min-height: 5.75rem;
+    padding-inline: 0.8rem;
+  }
+
+  .tutorial-page .tutorial-role-option strong {
+    font-size: 0.92rem;
+  }
+
+  .tutorial-page .tutorial-role-option span {
+    font-size: 0.75rem;
+  }
+
+  .tutorial-page .tutorial-hero-visual {
+    width: min(100%, 22rem);
+    min-height: 20.5rem;
+  }
+
+  .tutorial-page .tutorial-hero-phone-primary {
+    width: min(60%, 9.5rem);
+  }
+
+  .tutorial-page .tutorial-hero-phone-secondary {
+    width: min(45%, 7.25rem);
+  }
+
+  .tutorial-path-nav {
+    top: 4.5rem;
+  }
+
+  .tutorial-path-nav-inner {
+    min-height: 6.25rem;
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding-block: 0.45rem;
+  }
+
+  .tutorial-guide-switch {
+    width: 100%;
+  }
+
+  .tutorial-guide-switch a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .tutorial-progress-links {
+    width: 100%;
+    justify-content: flex-start;
+    padding-bottom: 0.1rem;
+  }
+
+  .tutorial-progress-links a {
+    min-height: 2.1rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.73rem;
+  }
+
+  .tutorial-page .tutorial-journey {
+    padding-block: 2.75rem 1.25rem;
+    scroll-margin-top: 11rem;
+  }
+
+  .tutorial-page .tutorial-journey .section-header {
+    margin-bottom: 1.125rem;
+  }
+
+  .tutorial-page .tutorial-journey .section-title {
+    font-size: 2.35rem;
+  }
+
+  .tutorial-page .tutorial-step {
+    gap: 1.5rem;
+    padding: 1.375rem;
+    border-radius: 1.125rem;
+    scroll-margin-top: 11.5rem;
+  }
+
+  .tutorial-page .tutorial-step-copy {
+    min-height: 0;
+  }
+
+  .tutorial-page .tutorial-step h3 {
+    margin-top: 1rem;
+    font-size: 1.9rem;
+    line-height: 1.08;
+  }
+
+  .tutorial-page .tutorial-step .tutorial-step-title-long {
+    font-size: 1.65rem;
+  }
+
+  .tutorial-page .tutorial-step p {
+    font-size: 1rem;
+  }
+
+  .tutorial-page .tutorial-step .tutorial-step-why {
+    font-size: 0.84rem;
+  }
+
+  .tutorial-page .tutorial-media {
+    width: 14rem;
+    height: 30rem;
+    border-radius: 1rem;
+  }
+
+  .tutorial-page .tutorial-guide-band {
+    padding-bottom: 2.5rem;
+  }
+
+  .tutorial-page .tutorial-guide-card {
+    padding: 1.5rem;
+  }
+
+  .tutorial-page .tutorial-guide-card h2 {
+    font-size: 1.75rem;
+  }
+
+  .tutorial-page .tutorial-guide-card .cta-actions {
+    align-items: stretch;
+  }
+
+  .tutorial-page .tutorial-guide-card .btn {
+    min-width: 0;
+  }
+
+  .tutorial-page .tutorial-resource-band {
+    padding-bottom: 2.5rem;
+  }
+
+  .tutorial-page .tutorial-resource-card {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.375rem;
+  }
+
+  .tutorial-page .tutorial-resource-card h2 {
+    font-size: 1.45rem;
+  }
+
+  .tutorial-page .tutorial-resource-links {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .tutorial-page .tutorial-resource-links a {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .tutorial-page .final-cta {
+    padding-block: 2.5rem;
+  }
+
+  .tutorial-page .final-cta .cta-panel {
+    padding: 1.5rem;
+  }
+
+  .pricing-page .route-hero {
+    padding-block: 2.75rem 1.75rem;
+  }
+
+  .pricing-page .route-hero h1 {
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  .pricing-model-section {
+    padding-bottom: 3.25rem;
+  }
+
+  .pricing-page .pricing-sequence {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0.5rem;
+  }
+
+  .pricing-page .pricing-sequence-step {
+    min-height: 3.75rem;
+    padding: 0.75rem 0.875rem 1.5rem;
+  }
+
+  .pricing-page .pricing-sequence-step:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 1.22rem;
+    transform: none;
+  }
+
+  .pricing-page .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .pricing-page .pricing-card {
+    padding: 1.5rem;
+  }
+
+  .pricing-page .content-note {
+    padding: 1.5rem 1.375rem 1.5rem 1.625rem;
+  }
+
+  .pricing-page .pricing-cta-panel {
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1.125rem;
+  }
+
+  .pricing-page .pricing-cta-panel h2 {
+    font-size: 2rem;
+  }
+
+  .pricing-page .pricing-cta-panel .store-row {
+    display: grid;
+  }
+
+  .pricing-page .pricing-cta-panel .store-badge {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .how-it-works-page .route-hero {
+    padding-block: 2.75rem 1.75rem;
+  }
+
+  .how-it-works-page .route-hero h1 {
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  .how-it-works-workflow-section {
+    padding-bottom: 2.25rem;
+  }
+
+  .how-it-works-page .workflow-timeline {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  .how-it-works-page .workflow-step {
+    grid-template-columns: none;
+    gap: 0.875rem;
+    padding: 0.875rem;
+  }
+
+  .how-it-works-page .workflow-app-shot {
+    height: 29rem;
+  }
+
+  .how-it-works-page .workflow-step > div {
+    padding: 0.25rem 0.375rem 0.5rem;
+  }
+
+  .how-it-works-page .workflow-step h2 {
+    font-size: 1.4rem;
+  }
+
+  .workflow-price-note {
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    text-align: left;
+  }
+
+  .how-it-works-cta-section {
+    padding-block: 2.25rem 3.25rem;
+  }
+
+  .how-it-works-page .cta-panel {
+    padding: 1.5rem;
+    border-radius: 1.125rem;
+  }
+
+  .how-it-works-page .cta-panel h2 {
+    font-size: 2rem;
+  }
+
+  .site-header.nav-open .main-nav .mobile-nav-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.25rem;
+    color: #050605;
+    background: var(--lime);
+  }
+
+  .site-header.nav-open .main-nav .mobile-nav-cta:hover,
+  .site-header.nav-open .main-nav .mobile-nav-cta:focus-visible {
+    color: #050605;
+    background: #e2ff57;
+  }
+
+  .home-page .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .home-page .hero-actions .btn {
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .home-page .hero-primary-cta {
+    min-height: 3.5rem;
+    padding-inline: 1.25rem;
+  }
+
+  .hero-differentiator {
+    font-size: 0.86rem;
+  }
+
+  .home-page .section {
+    padding-block: 2.625rem;
+  }
+
+  .home-page .section-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .home-page .redesign-hero {
+    padding-block: 2rem 1.75rem;
+  }
+
+  .home-page .hero-grid {
+    gap: 1.5rem;
+  }
+
+  .home-page .product-shot-grid {
+    min-height: 23rem;
+  }
+
+  .home-page .phone-shot-primary {
+    width: min(76%, 16rem);
+    height: 22rem;
+    border-radius: 1.125rem;
+  }
+
+  .home-page .phone-shot-secondary {
+    right: 4%;
+    width: min(36%, 8.5rem);
+    height: 16rem;
+    opacity: 0.25;
+    border-radius: 1rem;
+  }
+
+  .home-page .download-strip {
+    padding-block: 1rem;
+  }
+
+  .home-page .metrics-row {
+    gap: 0.625rem;
+  }
+
+  .home-page .metric-card {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .workflow-showcase {
+    gap: 0.75rem;
+  }
+
+  .workflow-product-shot {
+    width: min(100%, 21rem);
+    height: 26rem;
+  }
+
+  .home-page .workflow-flow {
+    grid-template-columns: 1fr;
+    border-radius: 1rem;
+  }
+
+  .home-page .workflow-card {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: 0.875rem;
+    padding: 1.125rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  .home-page .workflow-card .feature-icon {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .home-page .workflow-card p {
+    margin-top: 0.375rem;
+  }
+
+  .home-page .feature-split .split-panel,
+  .home-page .home-secondary-feature .split-panel {
+    gap: 1.375rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .app-ui-frame {
+    width: min(100%, 20rem);
+    height: 27rem;
+    border-radius: 1rem;
+  }
+
+  .home-secondary-feature {
+    padding-block: 2.25rem !important;
+  }
+
+  .app-ui-frame-compact {
+    width: min(100%, 17rem);
+    height: 21rem;
+  }
+
+  .home-page .home-secondary-feature .split-panel h2 {
+    font-size: 2.2rem;
+  }
+
+  .home-page .pricing-grid {
+    gap: 0.75rem;
+  }
+
+  .home-page .pricing-card {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .home-page .founder-section .split-panel,
+  .home-page .final-cta .cta-panel {
+    padding: 1.375rem;
+    border-radius: 1rem;
+  }
+
+  .home-page .faq-section {
+    padding-block: 2.75rem;
+  }
+
+  .home-page .faq-section .section-title {
+    font-size: 2.5rem;
+  }
+
+  .home-page .faq-section .faq-list {
+    margin-top: 1rem;
+  }
+
+  .home-page .final-cta {
+    padding-block: 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .section-title,
+  .feature-split .split-panel h2 {
+    font-size: 2.35rem;
+  }
+
+  .faq-section .section-title {
+    font-size: 2.5rem;
+  }
+
+  .tutorial-hero h1,
+  .route-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .tutorial-step h3 {
+    font-size: 2.25rem;
+  }
+
+  .tutorial-guide-card h2 {
+    font-size: 2.15rem;
+  }
+
+  .trainer-hero {
+    padding-block: 2.625rem 2.125rem;
+  }
+
+  .trainer-hero-grid {
+    gap: 2.125rem;
+  }
+
+  .trainer-hero-copy h1 {
+    font-size: 2.85rem;
+  }
+
+  .trainer-hero-copy .cta-actions {
+    align-items: stretch;
+  }
+
+  .trainer-hero-copy .btn {
+    width: 100%;
+  }
+
+  .trainer-hero-points {
+    display: grid;
+    gap: 0.625rem;
+  }
+
+  .trainer-hero-visual {
+    width: 100%;
+    height: min(118vw, 32.5rem);
+    border-radius: 1.375rem;
+  }
+
+  .coach-section-heading h2,
+  .coach-gallery-heading h2 {
+    font-size: 2.5rem;
+  }
+
+  .coach-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-card-grid .route-card {
+    padding: 1.5rem;
+  }
+
+  .route-card-index {
+    margin-bottom: 1.375rem;
+  }
+
+  .coach-screenshot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .coach-screenshot-grid figcaption {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .brand {
+    width: 10.25rem;
+    height: 3.125rem;
+  }
+
+  .route-hero {
+    padding-block: 2.75rem 1.75rem;
+  }
+
+  .route-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .trainer-hero-copy h1 {
+    font-size: 2.55rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .redesign-hero {
+    padding-block: 48px 36px;
+  }
+
+  .redesign-hero .container {
+    width: min(calc(100% - 64px), 1540px);
+  }
+
+  .redesign-hero h1 {
+    font-size: 4rem;
+    letter-spacing: 0;
+  }
+}
+
+/* Russian landing keeps five workflow steps; retain the English showcase rhythm. */
+.home-page #workflow .workflow-flow {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-page #workflow .workflow-card {
+  min-height: 0;
+  padding: 1.5rem;
+}
+
+.home-page #workflow .workflow-card:nth-child(5) {
+  grid-column: 1 / -1;
+  border-right: 0;
+}
+
+@media (max-width: 760px) {
+  .home-page .hero h1 {
+    font-size: 2.15rem;
+    overflow-wrap: normal;
+  }
+
+  .home-page #workflow .workflow-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page #workflow .workflow-card:nth-child(5) {
+    grid-column: auto;
+  }
 }

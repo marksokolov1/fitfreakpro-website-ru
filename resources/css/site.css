@@ -4239,7 +4239,7 @@ body::after,
 
   .redesign-hero h1 {
     margin-top: 22px;
-    font-size: clamp(2.55rem, 11.8vw, 3.35rem);
+    font-size: clamp(2.15rem, 8.8vw, 3.35rem);
     line-height: 1.055;
   }
 

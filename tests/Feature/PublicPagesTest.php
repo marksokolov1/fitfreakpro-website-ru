@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\File;
 
 dataset('public pages', [
-    'home' => ['home', 'Приложение для персональных тренеров | FitFreak Pro', '/'],
+    'home' => ['home', 'Платформа для персональных тренеров | FitFreak Pro', '/'],
     'how it works' => ['how-it-works', 'Как работает FitFreak Pro для персонального тренера', '/how-it-works/'],
     'tutorial' => ['tutorial', 'Как пользоваться FitFreak Pro — инструкция для тренера и клиента', '/tutorial/'],
     'for trainers' => ['for-personal-trainers', 'FitFreak Pro для персональных тренеров', '/for-personal-trainers/'],
@@ -62,10 +62,25 @@ it('keeps the trainer landing page conversion flow in order', function () {
             'class="section final-cta"',
         ], escape: false)
         ->assertSee('Создайте бесплатный аккаунт тренера')
-        ->assertSee('Добавьте упражнения и видео')
-        ->assertSee('Соберите программы клиентов')
-        ->assertSee('Пригласите клиентов')
-        ->assertSee('Проверяйте прогресс');
+        ->assertSee('Добавьте свои упражнения и видео')
+        ->assertSee('Соберите программу по своей методике')
+        ->assertSee('Пригласите клиента и назначьте план')
+        ->assertSee('Проверяйте прогресс и корректируйте работу');
+});
+
+it('positions the landing page around trainer ownership and client workflow', function () {
+    $this->get(route('home', absolute: false))
+        ->assertOk()
+        ->assertSee('Ваша методика. Ваши упражнения. Ваши клиенты.')
+        ->assertSee('Все необходимое для сопровождения клиента в одном приложении.')
+        ->assertSee('FitFreak Pro не заменяет тренера')
+        ->assertSee('Создайте аккаунт тренера, добавляйте упражнения, создавайте программы и приглашайте клиентов.')
+        ->assertSee('Клиент получает доступ к персональному цифровому сопровождению от своего тренера.')
+        ->assertSee('Почему клиент платит отдельно?')
+        ->assertSee('Нужно ли менять мой текущий подход к тренировкам?')
+        ->assertDontSee('1490')
+        ->assertDontSee('AI-powered')
+        ->assertDontSee('революцион');
 });
 
 it('publishes both current Russian manuals from the tutorial', function () {

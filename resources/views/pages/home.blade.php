@@ -162,6 +162,7 @@
             <div class="section-kicker">Проблема тренера</div>
             <h2 class="section-title">Сопровождение клиентов не должно быть разбросано по пяти инструментам.</h2>
             <p class="section-copy">Telegram для сообщений, таблицы для программ, PDF для инструкций, отдельные ссылки на видео и ручные заметки о прогрессе — так тренеру приходится собирать работу с каждым клиентом по частям.</p>
+            <p class="problem-conclusion">FitFreak Pro объединяет упражнения, программы, питание и прогресс клиента в одном приложении.</p>
           </div>
           <div class="trainer-tools" aria-label="Разрозненные инструменты в работе тренера">
             <article class="trainer-tool"><span>01</span><div><h3>Telegram</h3><p>Обсуждение тренировок и обратная связь</p></div></article>
@@ -170,36 +171,28 @@
             <article class="trainer-tool"><span>04</span><div><h3>Видео</h3><p>Отдельные ссылки на технику упражнений</p></div></article>
             <article class="trainer-tool"><span>05</span><div><h3>Заметки</h3><p>Ручная фиксация прогресса и питания</p></div></article>
           </div>
-          <div class="problem-transition">
-            <span>Вместо разрозненных инструментов</span>
-            <strong>Все необходимое для сопровождения клиента в одном приложении.</strong>
-          </div>
         </div>
       </section>
 
-      <section class="section home-band home-band-primary" id="product">
-        <div class="container section-header"><div><div class="section-kicker">Рабочая система тренера</div><h2 class="section-title">Вы управляете методикой. FitFreak Pro помогает организовать работу.</h2><p class="section-copy">Вы выбираете упражнения, создаете программы и принимаете решения по клиенту. FitFreak Pro сохраняет назначения, питание и прогресс в одном профессиональном рабочем процессе.</p></div></div>
-        <div class="container metrics-row">
-          <div class="metric-card"><strong>0 ₽</strong><span>регистрация тренера</span></div>
-          <div class="metric-card"><strong>990 ₽</strong><span>доступ клиента за 30 дней</span></div>
-          <div class="metric-card"><strong>1</strong><span>рабочий процесс для сопровождения клиентов</span></div>
-        </div>
-      </section>
-
-      <section class="section trainer-trust home-band" id="built-for-trainers">
+      <section class="section trainer-trust home-band home-band-primary" id="product">
+        <span id="built-for-trainers" class="legacy-anchor" aria-hidden="true"></span>
         <div class="container trainer-trust-layout">
           <div class="trainer-trust-copy">
             <div class="section-kicker">Создано для персональных тренеров</div>
-            <h2 class="section-title">Ваш подход остается вашим.</h2>
-            <p class="section-copy">FitFreak Pro поддерживает работу тренера, а не заменяет ее. Вы определяете содержание программ, выбираете упражнения и сохраняете прямые отношения со своими клиентами.</p>
+            <h2 class="section-title">Вы определяете, как работать с клиентом.</h2>
+            <p class="section-copy">Создавайте собственные упражнения, используйте свои видео, собирайте персональные программы и самостоятельно принимайте решения по каждому клиенту. FitFreak Pro организует этот процесс, но не заменяет тренера.</p>
           </div>
           <div class="trainer-ownership-list" aria-label="Что остается под контролем тренера">
-            <article><span>01</span><div><h3>Ваша библиотека упражнений</h3><p>Вы сами формируете набор упражнений для своей практики.</p></div></article>
-            <article><span>02</span><div><h3>Ваши видео</h3><p>Клиент видит демонстрации и пояснения своего тренера.</p></div></article>
-            <article><span>03</span><div><h3>Ваша методика</h3><p>Платформа организует процесс, не диктуя подход к тренировкам.</p></div></article>
-            <article><span>04</span><div><h3>Ваши программы клиентов</h3><p>Вы создаете и назначаете персональные планы каждому клиенту.</p></div></article>
-            <article><span>05</span><div><h3>Ваши отношения с клиентами</h3><p>Решения, обратная связь и сопровождение остаются за тренером.</p></div></article>
+            <article><span>01</span><div><h3>Ваши упражнения и видео</h3></div></article>
+            <article><span>02</span><div><h3>Ваши персональные программы</h3></div></article>
+            <article><span>03</span><div><h3>Ваши решения по каждому клиенту</h3></div></article>
+            <article><span>04</span><div><h3>Ваши отношения с клиентами</h3></div></article>
           </div>
+        </div>
+        <div class="container metrics-row">
+          <div class="metric-card"><strong>0 ₽</strong><span>для тренера</span></div>
+          <div class="metric-card"><strong>990 ₽</strong><span>за 30 дней для клиента</span></div>
+          <div class="metric-card"><strong>1</strong><span>рабочий процесс</span></div>
         </div>
       </section>
 
@@ -210,11 +203,11 @@
           <div class="feature-showcase-copy">
             <div class="section-kicker">01 · Ваша база упражнений</div>
             <h2>Создайте собственную библиотеку упражнений</h2>
-            <p>Соберите в одном месте упражнения, собственные видео и пояснения, которые используете в работе с клиентами.</p>
+            <p>Добавляйте собственные упражнения, видео, описания и инструкции, которые используете в работе с клиентами.</p>
             <ul class="interface-callouts" aria-label="Возможности библиотеки упражнений">
-              <li>Категории упражнений</li>
+              <li>Свои упражнения</li>
               <li>Собственные видео</li>
-              <li>Пояснения по технике</li>
+              <li>Описания и инструкции</li>
             </ul>
           </div>
           <figure class="feature-product-frame">
@@ -231,64 +224,46 @@
           <div class="feature-showcase-copy">
             <div class="section-kicker">02 · Персональный план</div>
             <h2>Назначайте персональные программы</h2>
-            <p>Создавайте план для конкретного клиента и назначайте выбранные упражнения, подходы и повторения.</p>
+            <p>Каждый клиент получает план, созданный его тренером: упражнения, подходы и нагрузку, а также связанные цели питания и данные прогресса.</p>
             <ul class="interface-callouts" aria-label="Возможности персональных программ">
-              <li>Программа для клиента</li>
-              <li>Подходы и повторения</li>
-              <li>Назначение в пару нажатий</li>
+              <li>Тренировки и нагрузка</li>
+              <li>Цели питания</li>
+              <li>Данные прогресса</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="section feature-showcase feature-showcase-wide home-band" id="coach-calendar">
-        <div class="container feature-showcase-wide-layout">
-          <div class="feature-showcase-copy">
-            <div class="section-kicker">03 · Питание клиента</div>
-            <h2>Устанавливайте цели питания</h2>
-            <p>Задавайте клиенту ориентиры по калориям, БЖУ и воде рядом с его тренировочной программой.</p>
-            <ul class="interface-callouts" aria-label="Возможности целей питания">
-              <li>Цель по калориям</li>
-              <li>Баланс БЖУ</li>
-              <li>Норма воды</li>
-            </ul>
-          </div>
-          <figure class="feature-product-frame feature-product-frame-wide">
-            <img src="{{ asset('assets/img/app-screen-6.webp') }}" width="619" height="1100" alt="Настройка целей клиента по калориям, БЖУ и воде в FitFreak Pro" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section class="section feature-showcase feature-showcase-progress home-band" id="progress">
+      <section class="section feature-showcase feature-showcase-compact home-band" id="coach-calendar">
         <div class="container feature-showcase-grid">
+          <figure class="feature-product-frame feature-product-frame-calendar">
+            <img src="{{ asset('images/tutorial/coach/06-coach-calendar.png') }}" width="922" height="2000" alt="Календарь тренера с блоком работы с клиентом в FitFreak Pro" loading="lazy" />
+          </figure>
           <div class="feature-showcase-copy">
-            <div class="section-kicker">04 · Данные клиента</div>
-            <h2>Отслеживайте прогресс клиента</h2>
-            <p>Просматривайте цели, исходные данные и активность клиента, чтобы оценивать изменения и корректировать дальнейший план.</p>
-            <ul class="interface-callouts" aria-label="Данные для отслеживания прогресса">
-              <li>Цель клиента</li>
-              <li>Вес и параметры</li>
-              <li>Уровень активности</li>
+            <div class="section-kicker">03 · Расписание тренера</div>
+            <h2>Планируйте работу с клиентами</h2>
+            <p>Создавайте блоки расписания на выбранный день и держите рабочий календарь рядом с клиентскими назначениями.</p>
+            <ul class="interface-callouts" aria-label="Возможности календаря тренера">
+              <li>Блоки расписания</li>
+              <li>Выбранные дни</li>
+              <li>Работа рядом с назначениями</li>
             </ul>
           </div>
-          <figure class="feature-product-frame">
-            <img src="{{ asset('assets/img/app-screen-5.webp') }}" width="619" height="1100" alt="Данные, цель и уровень активности клиента в FitFreak Pro" loading="lazy" />
-          </figure>
         </div>
       </section>
 
       <section class="section home-band home-band-primary" id="workflow">
-        <div class="container section-header"><div><div class="section-kicker">Как это работает</div><h2 class="section-title">Пять шагов от вашей методики до персонального плана клиента.</h2><p class="section-copy">Вы определяете содержание работы на каждом этапе. FitFreak Pro помогает последовательно передать его клиенту.</p></div></div>
+        <div class="container section-header"><div><div class="section-kicker">Как это работает</div><h2 class="section-title">От регистрации до работы с клиентом — пять шагов.</h2></div></div>
         <div class="container workflow-showcase">
           <figure class="workflow-product-shot">
             <img src="{{ asset('images/tutorial/coach/04-create-program.png') }}" width="1080" height="2400" alt="Создание и назначение программы клиента в FitFreak Pro" loading="lazy" />
           </figure>
           <div class="workflow-flow" aria-label="Шаги процесса тренера">
-            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">01</div><h3>Создайте бесплатный аккаунт тренера</h3><p>Зарегистрируйтесь бесплатно и подготовьте рабочее пространство для своей практики.</p></article>
-            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">02</div><h3>Добавьте свои упражнения и видео</h3><p>Создайте библиотеку из упражнений, демонстраций и рекомендаций, которые используете вы.</p></article>
-            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">03</div><h3>Соберите программу по своей методике</h3><p>Выберите упражнения, настройте детали занятий и подготовьте персональный план.</p></article>
-            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">04</div><h3>Пригласите клиента и назначьте план</h3><p>Клиент подключается по вашему приглашению и получает созданные вами назначения.</p></article>
-            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">05</div><h3>Проверяйте прогресс и корректируйте работу</h3><p>Просматривайте данные клиента и принимайте решения о следующих шагах.</p></article>
+            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">01</div><h3>Создайте аккаунт</h3><p>Зарегистрируйтесь бесплатно как тренер.</p></article>
+            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">02</div><h3>Добавьте упражнения</h3><p>Загрузите собственные видео и инструкции.</p></article>
+            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">03</div><h3>Соберите программу</h3><p>Настройте упражнения, подходы и нагрузку.</p></article>
+            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">04</div><h3>Пригласите клиента</h3><p>Отправьте код и назначьте персональный план.</p></article>
+            <article class="workflow-card"><div class="feature-icon" aria-hidden="true">05</div><h3>Проверяйте прогресс</h3><p>Просматривайте данные и корректируйте сопровождение.</p></article>
           </div>
         </div>
         <div class="container journey-cta">

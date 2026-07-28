@@ -1557,6 +1557,406 @@
   }
 }
 
+/* Consolidated homepage pacing and English-reference footer structure. */
+.home-page .trainer-problem,
+.home-page .trainer-trust,
+.home-page #workflow,
+.home-page #pricing,
+.home-page #faq,
+.home-page .final-cta {
+  padding-block: clamp(3.25rem, 5vw, 4.75rem);
+}
+
+.home-page .problem-layout {
+  align-items: center;
+}
+
+.problem-conclusion {
+  max-width: 58ch;
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(201, 255, 31, 0.22);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  font-weight: 760;
+  line-height: 1.55;
+}
+
+.home-page .trainer-trust-layout {
+  align-items: center;
+}
+
+.home-page .trainer-ownership-list article {
+  min-height: 4.75rem;
+  align-items: center;
+  padding-block: 1rem;
+}
+
+.home-page .trainer-ownership-list h3 {
+  font-size: 1.08rem;
+}
+
+.home-page .trainer-trust .metrics-row {
+  margin-top: clamp(2rem, 4vw, 3.25rem);
+}
+
+.home-page .feature-showcase {
+  padding-block: clamp(3.25rem, 5vw, 4.75rem);
+}
+
+.home-page .feature-showcase-compact {
+  padding-block: clamp(2.75rem, 4vw, 3.75rem);
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.home-page .feature-showcase-compact .feature-showcase-grid {
+  width: min(68rem, calc(100% - 3rem));
+  grid-template-columns: minmax(17rem, 0.65fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.home-page .feature-showcase-compact .feature-showcase-copy h2 {
+  max-width: 14ch;
+  font-size: clamp(2.35rem, 3.4vw, 3.5rem);
+}
+
+.feature-product-frame-calendar {
+  width: min(100%, 20rem);
+  max-height: 31rem;
+}
+
+.feature-product-frame-calendar img {
+  object-position: top center;
+}
+
+.home-page #workflow .section-header {
+  margin-bottom: 1.5rem;
+}
+
+.home-page #workflow .workflow-card {
+  min-height: 0;
+  padding: 1.25rem;
+}
+
+.home-page #workflow .workflow-card .feature-icon {
+  margin-bottom: 1rem;
+}
+
+.home-page #workflow .workflow-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.home-page #workflow .workflow-card p {
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.home-page .journey-cta {
+  margin-top: 2rem;
+  padding-block: 1.75rem;
+}
+
+.home-page .final-cta-grid {
+  gap: 0;
+}
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 0 1.5rem;
+  border-top-color: rgba(201, 255, 31, 0.14);
+  background:
+    radial-gradient(circle at 10% 18%, rgba(201, 255, 31, 0.05), transparent 24rem),
+    linear-gradient(180deg, rgba(8, 10, 8, 0.97), rgba(1, 2, 1, 0.99));
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 255, 31, 0.42), transparent);
+  pointer-events: none;
+}
+
+.site-footer .footer-grid {
+  grid-template-columns:
+    minmax(14rem, 0.9fr)
+    minmax(28rem, 1.65fr)
+    minmax(13rem, 0.8fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.footer-brand {
+  min-width: 0;
+}
+
+.site-footer .footer-logo {
+  width: 12rem;
+  height: 4rem;
+  margin: 0 0 1rem;
+}
+
+.site-footer .footer-tagline {
+  max-width: 21rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.footer-navigation,
+.footer-actions {
+  min-width: 0;
+  padding-top: 0.35rem;
+}
+
+.footer-navigation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.footer-link-group {
+  min-width: 0;
+}
+
+.site-footer .footer-heading {
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.site-footer .footer-heading::after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  margin-top: 0.65rem;
+  border-radius: 999px;
+  background: var(--lime);
+}
+
+.site-footer .footer-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.site-footer .footer-links a {
+  display: flex;
+  width: fit-content;
+  min-height: 2.25rem;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.88rem;
+  line-height: 1.35;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.site-footer .footer-links a:hover,
+.site-footer .footer-links a:focus-visible {
+  color: #fff;
+  transform: translateX(0.2rem);
+}
+
+.site-footer .footer-links a[aria-current="page"] {
+  color: var(--lime);
+}
+
+.site-footer .footer-actions {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.site-footer .store-row {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+.site-footer .store-badge {
+  width: 100%;
+  max-width: 14rem;
+  min-height: 3.5rem;
+  padding: 0.7rem 0.9rem;
+  border-color: rgba(255, 255, 255, 0.18);
+  border-radius: 0.875rem;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.site-footer .store-badge strong {
+  margin-top: 0.18rem;
+  color: #fff;
+  font-size: 1.02rem;
+  letter-spacing: 0;
+}
+
+.site-footer .footer-social {
+  margin-top: 0;
+}
+
+.site-footer .social-link {
+  width: min(100%, 10rem);
+  min-height: 2.75rem;
+  justify-content: center;
+  border-radius: 0.75rem;
+}
+
+.site-footer .footer-legal {
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.82rem;
+}
+
+.footer-legal-links {
+  text-align: right;
+}
+
+@media (max-width: 1100px) {
+  .site-footer .footer-grid {
+    grid-template-columns: minmax(14rem, 0.8fr) minmax(26rem, 1.6fr);
+    gap: 2.5rem 3rem;
+  }
+
+  .site-footer .footer-actions {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(15rem, 1fr) minmax(10rem, 0.55fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-page .trainer-problem,
+  .home-page .trainer-trust,
+  .home-page #workflow,
+  .home-page #pricing,
+  .home-page #faq,
+  .home-page .final-cta,
+  .home-page .feature-showcase {
+    padding-block: 3.5rem;
+  }
+
+  .home-page .problem-layout,
+  .home-page .trainer-trust-layout {
+    gap: 2rem;
+  }
+
+  .problem-conclusion {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .home-page .trainer-ownership-list article {
+    min-height: 4.5rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .home-page .feature-showcase-compact {
+    padding-block: 3rem;
+  }
+
+  .home-page .feature-showcase-compact .feature-showcase-grid {
+    width: calc(100% - 2.5rem);
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .home-page .feature-showcase-compact .feature-showcase-copy {
+    order: 1;
+  }
+
+  .home-page .feature-showcase-compact .feature-product-frame {
+    order: 2;
+  }
+
+  .feature-product-frame-calendar {
+    width: min(100%, 17rem);
+    max-height: none;
+  }
+
+  .home-page #workflow .workflow-card {
+    padding: 1.125rem;
+  }
+
+  .home-page .journey-cta {
+    margin-top: 1.5rem;
+    padding-block: 1.5rem;
+  }
+
+  .site-footer {
+    padding-block: 2.5rem 1.25rem;
+  }
+
+  .site-footer .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .site-footer .footer-logo {
+    width: 11rem;
+    height: 3.75rem;
+  }
+
+  .footer-navigation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .site-footer .footer-links a {
+    width: 100%;
+    min-height: 2.75rem;
+    font-size: 0.82rem;
+  }
+
+  .site-footer .footer-actions {
+    grid-template-columns: minmax(0, 1fr) minmax(7.5rem, 0.55fr);
+    gap: 1.25rem;
+  }
+
+  .site-footer .store-badge,
+  .site-footer .social-link {
+    width: 100%;
+    max-width: none;
+  }
+
+  .site-footer .footer-legal {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .footer-legal-links {
+    text-align: left;
+  }
+}
+
+@media (max-width: 430px) {
+  .footer-navigation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+  }
+
+  .footer-navigation-grid .footer-link-group:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer .footer-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 1320px) {
   .brand {
     width: 10.5rem;
@@ -3439,5 +3839,39 @@ button:focus-visible,
   .pricing-card:hover,
   .workflow-card:hover {
     transform: none !important;
+  }
+}
+
+/* Keep the consolidated landing rhythm authoritative after legacy responsive rules. */
+.home-page .trainer-problem,
+.home-page .trainer-trust,
+.home-page #workflow,
+.home-page #pricing,
+.home-page #faq,
+.home-page .final-cta {
+  padding-block: clamp(3.25rem, 5vw, 4.75rem);
+}
+
+.home-page .feature-showcase {
+  padding-block: clamp(3.25rem, 5vw, 4.75rem);
+}
+
+.home-page .feature-showcase-compact {
+  padding-block: clamp(2.75rem, 4vw, 3.75rem);
+}
+
+@media (max-width: 760px) {
+  .home-page .trainer-problem,
+  .home-page .trainer-trust,
+  .home-page #workflow,
+  .home-page #pricing,
+  .home-page #faq,
+  .home-page .final-cta,
+  .home-page .feature-showcase {
+    padding-block: 3.5rem;
+  }
+
+  .home-page .feature-showcase-compact {
+    padding-block: 3rem;
   }
 }

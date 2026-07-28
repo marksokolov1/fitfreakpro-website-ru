@@ -77,20 +77,19 @@ it('keeps the trainer landing page conversion flow in order', function () {
         ->assertOk()
         ->assertSeeInOrder([
             'class="hero redesign-hero"',
-            'id="trainer-problem"',
+            'class="download-strip"',
             'id="product"',
-            'id="built-for-trainers"',
-            'id="core-features"',
-            'id="coach-library"',
+            'id="trainer-problem"',
+            'id="workflow"',
+            'id="features"',
             'id="client-process"',
             'id="coach-calendar"',
-            'id="workflow"',
             'id="pricing"',
+            'id="about"',
             'id="faq"',
             'class="section final-cta"',
         ], escape: false)
-        ->assertSee('Создайте аккаунт')
-        ->assertSee('Добавьте упражнения')
+        ->assertSee('Создайте библиотеку')
         ->assertSee('Соберите программу')
         ->assertSee('Пригласите клиента')
         ->assertSee('Проверяйте прогресс');
@@ -100,13 +99,13 @@ it('positions the landing page around trainer ownership and client workflow', fu
     $this->get(route('home', absolute: false))
         ->assertOk()
         ->assertSee('Ведите больше клиентов')
-        ->assertSee('без бесконечных таблиц и переписок.')
-        ->assertSee('Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении. Аккаунт тренера — 0 ₽.')
+        ->assertSee('Без бесконечных таблиц и переписок.')
+        ->assertSee('Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении.')
         ->assertSee('FitFreak Pro объединяет упражнения, программы, питание и прогресс клиента в одном приложении.')
-        ->assertSee('FitFreak Pro организует этот процесс, но не заменяет тренера.')
+        ->assertSee('FitFreak Pro помогает организовать вашу методику, но не заменяет тренера.')
         ->assertSeeInOrder([
             'Создайте собственную библиотеку упражнений',
-            'Назначайте персональные программы',
+            'Каждый клиент получает понятный персональный план',
             'Планируйте работу с клиентами',
         ])
         ->assertSee('Тренер работает бесплатно. Клиент оплачивает цифровое сопровождение.')
@@ -124,14 +123,14 @@ it('adds verifiable trust, seo, and role-specific conversion signals', function 
     $response
         ->assertOk()
         ->assertSee('<meta name="description" content="Создавайте планы тренировок, ведите клиентов, назначайте упражнения, отслеживайте прогресс и предоставляйте персональное сопровождение с FitFreak Pro.">', escape: false)
-        ->assertSee('Создано для персональных тренеров')
-        ->assertSee('FitFreak Pro организует этот процесс, но не заменяет тренера.')
+        ->assertSee('Приложение для персональных тренеров')
+        ->assertSee('Ваша методика остается основой работы.')
         ->assertSee('Аккаунт тренера — 0 ₽')
-        ->assertSee('Доступ клиента — 990 ₽ за 30 дней')
+        ->assertSee('990 ₽')
+        ->assertSee('за 30 дней')
         ->assertSee('Оплата через ЮKassa')
-        ->assertSee('FitFreak Pro доступен на iPhone и Android.')
-        ->assertSee('Готовы собрать упражнения, программы и прогресс клиентов в одном месте?')
-        ->assertSee('У вас уже есть тренер?')
+        ->assertSee('Доступно на iPhone и Android.')
+        ->assertSee('Соберите сопровождение клиентов в одном приложении.')
         ->assertSee('У меня есть код приглашения')
         ->assertSee(route('tutorial', absolute: false).'#client-guide', escape: false)
         ->assertDontSee('Stripe')
@@ -144,7 +143,8 @@ it('matches the shared English design structure while preserving Russian behavio
         ->assertOk()
         ->assertSee('<main id="main" class="home-page">', escape: false)
         ->assertSee('workflow-showcase', escape: false)
-        ->assertSee('feature-product-frame', escape: false)
+        ->assertSee('class="app-ui-frame"', escape: false)
+        ->assertSee('class="container split-panel"', escape: false)
         ->assertSee('class="faq-answer-inner"', escape: false)
         ->assertSee('role="region"', escape: false)
         ->assertSee('class="navigation-scrim"', escape: false);
@@ -201,14 +201,14 @@ it('keeps a single page heading and descriptive landing images', function () {
 
     $response
         ->assertOk()
-        ->assertSee('alt="Панель тренера с клиентами в FitFreak Pro"', escape: false)
-        ->assertSee('alt="Библиотека упражнений с собственными видео тренера в FitFreak Pro"', escape: false)
-        ->assertSee('alt="Персональный план клиента с тренировкой и целями питания в FitFreak Pro"', escape: false)
+        ->assertSee('alt="Панель тренера для управления клиентами, программами, питанием и прогрессом"', escape: false)
+        ->assertSee('alt="Библиотека собственных упражнений и видео тренера в FitFreak Pro"', escape: false)
+        ->assertSee('alt="Персональный план клиента с тренировкой и целями питания"', escape: false)
         ->assertSee('images/tutorial/coach/02-exercise-library.png', escape: false)
         ->assertSee('images/tutorial/client/04-client-dashboard.png', escape: false)
         ->assertDontSee('assets/img/app-screen-2.webp', escape: false)
         ->assertDontSee('assets/img/app-screen-3.webp', escape: false)
-        ->assertSee('alt="Календарь тренера с блоком работы с клиентом в FitFreak Pro"', escape: false);
+        ->assertSee('alt="Календарь тренера с блоками расписания в FitFreak Pro"', escape: false);
 
     expect(substr_count($content, '<h1'))->toBe(1);
 });
@@ -218,11 +218,11 @@ it('uses the consolidated homepage and categorized Russian footer', function () 
 
     $response
         ->assertOk()
-        ->assertSee('Вы определяете, как работать с клиентом.')
-        ->assertSee('Ваши упражнения и видео')
-        ->assertSee('Ваши персональные программы')
-        ->assertSee('Ваши решения по каждому клиенту')
-        ->assertSee('Ваши отношения с клиентами')
+        ->assertSee('Ваша методика остается основой работы.')
+        ->assertSee('Ваши упражнения')
+        ->assertSee('Собственные видео')
+        ->assertSee('Описания и инструкции')
+        ->assertSee('Ваша методика')
         ->assertDontSee('Ваш подход остается вашим.')
         ->assertDontSee('Вы управляете методикой. FitFreak Pro помогает организовать работу.')
         ->assertDontSee('Все необходимое для сопровождения клиента в одном приложении.')

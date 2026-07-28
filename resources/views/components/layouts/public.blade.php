@@ -1,55 +1,52 @@
-@props([
-    'title',
-    'description',
-    'canonicalPath' => '/',
-    'robots' => null,
-    'socialImageAlt' => 'FitFreak Pro — приложение для персональных тренеров',
-])
+@props(['page'])
 
-@php
-    $baseUrl = rtrim(config('app.url'), '/');
-    $canonicalUrl = $baseUrl.$canonicalPath;
-    $socialImageUrl = $baseUrl.'/assets/img/social-share-ru.png';
-@endphp
-
-<!DOCTYPE html>
-<html lang="ru-RU">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title }}</title>
-    <meta name="description" content="{{ $description }}">
-    @if ($robots)
-        <meta name="robots" content="{{ $robots }}">
-    @endif
-    <link rel="canonical" href="{{ $canonicalUrl }}">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="FitFreak Pro">
-    <meta property="og:title" content="{{ $title }}">
-    <meta property="og:description" content="{{ $description }}">
-    <meta property="og:url" content="{{ $canonicalUrl }}">
-    <meta property="og:image" content="{{ $socialImageUrl }}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="{{ $socialImageAlt }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $title }}">
-    <meta name="twitter:description" content="{{ $description }}">
-    <meta name="twitter:image" content="{{ $socialImageUrl }}">
-    <meta name="twitter:image:alt" content="{{ $socialImageAlt }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-@isset($schema)
-    {{ $schema }}
-@endisset
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ $page['title'] }}</title>
+  <meta name="description" content="{{ $page['description'] }}" />
+  @if (! empty($page['robots']))
+    <meta name="robots" content="{{ $page['robots'] }}" />
+  @endif
+  <link rel="canonical" href="{{ $page['canonical'] }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FitFreak Pro" />
+  <meta property="og:title" content="{{ $page['ogTitle'] }}" />
+  <meta property="og:description" content="{{ $page['ogDescription'] }}" />
+  <meta property="og:url" content="{{ $page['canonical'] }}" />
+  <meta property="og:image" content="{{ $page['ogImage'] }}" />
+  @if (! empty($page['ogImageWidth']))
+    <meta property="og:image:width" content="{{ $page['ogImageWidth'] }}" />
+  @endif
+  @if (! empty($page['ogImageHeight']))
+    <meta property="og:image:height" content="{{ $page['ogImageHeight'] }}" />
+  @endif
+  @if (! empty($page['ogImageAlt']))
+    <meta property="og:image:alt" content="{{ $page['ogImageAlt'] }}" />
+  @endif
+  <meta name="twitter:card" content="{{ $page['twitterCard'] ?? 'summary_large_image' }}" />
+  <meta name="twitter:title" content="{{ $page['twitterTitle'] }}" />
+  <meta name="twitter:description" content="{{ $page['twitterDescription'] }}" />
+  <meta name="twitter:image" content="{{ $page['twitterImage'] }}" />
+  @if (! empty($page['twitterImageAlt']))
+    <meta name="twitter:image:alt" content="{{ $page['twitterImageAlt'] }}" />
+  @endif
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}" />
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @if (! empty($page['schema']))
+    <script type="application/ld+json">{!! $page['schema'] !!}</script>
+  @endif
 </head>
 <body>
-    <a class="skip-link" href="#main">Перейти к содержимому</a>
-    <div class="page-shell">
-        <x-partials.header />
-        {{ $slot }}
-        <x-partials.footer />
-    </div>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <div class="page-shell">
+    <div class="glow-orb orb-one" aria-hidden="true"></div>
+    <div class="glow-orb orb-two" aria-hidden="true"></div>
+    <x-partials.header />
+    {{ $slot }}
+    <x-partials.footer />
+  </div>
 </body>
 </html>

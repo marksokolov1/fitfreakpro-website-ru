@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://fitfreakpro.ru/</loc>
-  </url>
-  <url>
-    <loc>https://fitfreakpro.ru/support/</loc>
-  </url>
-  <url>
-    <loc>https://fitfreakpro.ru/how-it-works/</loc>
-  </url>
-  <url>
-    <loc>https://fitfreakpro.ru/tutorial/</loc>
-  </url>
-  <url>
-    <loc>https://fitfreakpro.ru/for-personal-trainers/</loc>
-  </url>
-  <url>
-    <loc>https://fitfreakpro.ru/pricing/</loc>
-  </url>
-  <url>
-    <loc>https://fitfreakpro.ru/about/</loc>
-  </url>
+  <url><loc>https://fitfreakpro.ru/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://fitfreakpro.ru/support/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://fitfreakpro.ru/how-it-works/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://fitfreakpro.ru/for-personal-trainers/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://fitfreakpro.ru/pricing/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://fitfreakpro.ru/tutorial/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://fitfreakpro.ru/about/</loc><lastmod>2026-07-28</lastmod></url>
 </urlset>

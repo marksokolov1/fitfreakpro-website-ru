@@ -1,16 +1,13 @@
 {
-    "$schema": "https://www.schemastore.org/package.json",
     "private": true,
     "type": "module",
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "export:static": "npm run build && php artisan site:export",
-        "check:export": "npm run export:static && node scripts/verify-static-export.js"
+        "export:static": "npm run build && php scripts/export-static.php"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.7",
-        "concurrently": "^9.0.0",
         "laravel-vite-plugin": "^1.0",
         "tailwindcss": "^4.0.7",
         "vite": "^6.0"

@@ -1,268 +1,161 @@
 <?php
 
-use Illuminate\Support\Facades\File;
+beforeEach(function (): void {
+    $this->withoutVite();
+});
 
-dataset('public pages', [
-    'home' => ['home', 'FitFreak Pro — приложение для тренеров и работы с клиентами', '/'],
-    'how it works' => ['how-it-works', 'Как работает FitFreak Pro для персонального тренера', '/how-it-works/'],
-    'tutorial' => ['tutorial', 'Как пользоваться FitFreak Pro — инструкция для тренера и клиента', '/tutorial/'],
-    'for trainers' => ['for-personal-trainers', 'FitFreak Pro для персональных тренеров', '/for-personal-trainers/'],
-    'pricing' => ['pricing', 'Цены FitFreak Pro для тренеров и клиентов', '/pricing/'],
-    'about' => ['about', 'О FitFreak Pro — приложение для тренеров', '/about/'],
-    'support' => ['support', 'Поддержка FitFreak Pro для тренеров и клиентов', '/support/'],
-    'privacy' => ['privacy', 'Политика конфиденциальности FitFreak Pro', '/privacy/'],
-    'terms' => ['terms', 'Условия использования FitFreak Pro', '/terms/'],
-]);
-
-it('serves every public page with shared navigation and canonical metadata', function (
-    string $routeName,
+test('public pages render Russian titles and primary headings', function (
+    string $route,
     string $title,
-    string $canonicalPath,
-) {
-    $response = $this->get(route($routeName, absolute: false));
-
-    $response
+    string $heading
+): void {
+    $this->get(route($route))
         ->assertOk()
         ->assertSee("<title>{$title}</title>", escape: false)
-        ->assertSee('Инструкция')
-        ->assertSee('href="'.config('app.url').$canonicalPath.'"', escape: false)
-        ->assertSee('FitFreak Pro. Все права защищены.');
-})->with('public pages');
+        ->assertSee($heading)
+        ->assertSee('FitFreak Pro — главная')
+        ->assertSee('Основная навигация')
+        ->assertSee('Навигация в подвале')
+        ->assertDontSee('Struo');
+})->with([
+    'home' => ['home', 'FitFreak Pro — приложение для тренеров и работы с клиентами', 'Ведите больше клиентов.'],
+    'how it works' => ['how-it-works', 'Как работает FitFreak Pro для персональных тренеров', 'От вашей методики к понятному плану для клиента.'],
+    'personal trainers' => ['for-personal-trainers', 'Приложение для персональных тренеров | FitFreak Pro', 'Организуйте работу с клиентами без лишних инструментов.'],
+    'pricing' => ['pricing', 'Цены FitFreak Pro для тренеров и клиентов', 'Тренер работает бесплатно. Клиент оплачивает цифровое сопровождение.'],
+    'tutorial' => ['tutorial', 'Как пользоваться FitFreak Pro — инструкция для тренера и клиента', 'Начните пользоваться FitFreak Pro за несколько минут.'],
+    'about' => ['about', 'О FitFreak Pro | Приложение для персональных тренеров', 'Создано, чтобы упростить самостоятельную работу тренера.'],
+    'support' => ['support', 'Поддержка FitFreak Pro для тренеров и клиентов', 'Чем мы можем помочь?'],
+    'privacy' => ['privacy', 'Политика конфиденциальности | FitFreak Pro', 'Данные тренера и клиента в FitFreak Pro.'],
+    'terms' => ['terms', 'Условия использования | FitFreak Pro', 'Условия использования'],
+]);
 
-it('keeps the current client price everywhere', function () {
-    $this->get(route('pricing', absolute: false))
-        ->assertOk()
-        ->assertSee('Аккаунт тренера — 0 ₽')
-        ->assertSee('Доступ клиента — 990 ₽ за 30 дней')
-        ->assertSee('Оплата через ЮKassa')
-        ->assertDontSee('990 ₽ в месяц')
-        ->assertDontSee('YooKassa')
-        ->assertDontSee('1490')
-        ->assertDontSee('1 490')
-        ->assertDontSee('1&nbsp;490', escape: false);
+test('Russian pricing is consistent across pages and metadata', function (): void {
+    foreach (['home', 'pricing', 'support', 'terms'] as $route) {
+        $this->get(route($route))
+            ->assertOk()
+            ->assertSee('990 ₽')
+            ->assertDontSee('$12.99')
+            ->assertDontSee('990 ₽ в месяц')
+            ->assertDontSee('YooKassa');
+    }
 
-    $this->get(route('home', absolute: false))
-        ->assertOk()
+    $this->get(route('home'))
         ->assertSee('"price": "990"', escape: false)
-        ->assertSee('Доступ клиента — 990 ₽ за 30 дней')
+        ->assertSee('"priceCurrency": "RUB"', escape: false);
+
+    $this->get(route('pricing'))
+        ->assertSee('"price": "990"', escape: false)
         ->assertSee('Оплата через ЮKassa')
-        ->assertDontSee('990 ₽ в месяц')
-        ->assertDontSee('YooKassa')
-        ->assertDontSee('"price": "1490"', escape: false);
+        ->assertSee('Профессиональная услуга тренера оплачивается отдельно.');
 });
 
-it('uses a focused trainer conversion navigation', function () {
-    $response = $this->get(route('home', absolute: false));
-
-    $response
+test('pricing presents trainer and client access as one sequence', function (): void {
+    $this->get(route('pricing'))
         ->assertOk()
         ->assertSeeInOrder([
-            'Как работает',
-            'Возможности',
-            'Цены',
-            'Инструкция',
-            'О нас',
+            'Тренер создает бесплатный аккаунт',
+            'Приглашает клиента',
+            'Клиент активирует доступ',
+            'Аккаунт тренера',
+            'Цифровое сопровождение клиента',
         ])
-        ->assertSee('Создать аккаунт тренера')
-        ->assertSee('class="mobile-nav-cta"', escape: false)
-        ->assertSee('class="mobile-nav-client"', escape: false)
-        ->assertSee('У меня есть код приглашения')
-        ->assertDontSee('Скачать приложение</a>', escape: false);
+        ->assertSee('<span>0 ₽</span>', escape: false)
+        ->assertSee('<span>990 ₽</span><small>за 30 дней</small>', escape: false)
+        ->assertSee('Начать бесплатно как тренер')
+        ->assertSee('https://apps.apple.com/us/app/fit-freak-pro/id6742347988', escape: false)
+        ->assertSee('https://play.google.com/store/apps/details?id=com.duseca.fitfreak', escape: false);
 });
 
-it('keeps the trainer landing page conversion flow in order', function () {
-    $response = $this->get(route('home', absolute: false));
-
-    $response
+test('tutorial uses Russian guides, regional payment, and localized media', function (): void {
+    $this->get(route('tutorial'))
         ->assertOk()
+        ->assertSee('Навигация по инструкции')
+        ->assertSee('data-tutorial-nav="coach-guide"', escape: false)
+        ->assertSee('data-tutorial-nav="client-guide"', escape: false)
+        ->assertSeeInOrder(['Аккаунт', 'Библиотека', 'Программы', 'Приглашения', 'Прогресс'])
+        ->assertSeeInOrder(['Для тренера', 'Для клиента'])
         ->assertSeeInOrder([
-            'class="hero redesign-hero"',
-            'class="download-strip"',
-            'id="product"',
-            'id="trainer-problem"',
-            'id="workflow"',
-            'id="features"',
-            'id="client-process"',
-            'id="coach-calendar"',
-            'id="pricing"',
-            'id="about"',
-            'id="faq"',
-            'class="section final-cta"',
-        ], escape: false)
-        ->assertSee('Создайте библиотеку')
-        ->assertSee('Соберите программу')
-        ->assertSee('Пригласите клиента')
-        ->assertSee('Проверяйте прогресс');
-});
-
-it('positions the landing page around trainer ownership and client workflow', function () {
-    $this->get(route('home', absolute: false))
-        ->assertOk()
-        ->assertSee('Ведите больше клиентов')
-        ->assertSee('Без бесконечных таблиц и переписок.')
-        ->assertSee('Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении.')
-        ->assertSee('FitFreak Pro объединяет упражнения, программы, питание и прогресс клиента в одном приложении.')
-        ->assertSee('FitFreak Pro помогает организовать вашу методику, но не заменяет тренера.')
-        ->assertSeeInOrder([
-            'Создайте собственную библиотеку упражнений',
-            'Каждый клиент получает понятный персональный план',
-            'Планируйте работу с клиентами',
+            'Создайте аккаунт тренера',
+            'Соберите библиотеку упражнений',
+            'Создайте и назначьте программу',
+            'Пригласите клиента',
+            'Задайте цели питания и проверяйте прогресс',
         ])
-        ->assertSee('Тренер работает бесплатно. Клиент оплачивает цифровое сопровождение.')
-        ->assertSee('Профессиональная услуга тренера оплачивается отдельно.')
-        ->assertSee('Почему клиент оплачивает доступ отдельно?')
-        ->assertSee('Можно ли продолжать работать по своей методике?')
-        ->assertDontSee('1490')
-        ->assertDontSee('AI-powered')
-        ->assertDontSee('революцион');
-});
-
-it('adds verifiable trust, seo, and role-specific conversion signals', function () {
-    $response = $this->get(route('home', absolute: false));
-
-    $response
-        ->assertOk()
-        ->assertSee('<meta name="description" content="Создавайте планы тренировок, ведите клиентов, назначайте упражнения, отслеживайте прогресс и предоставляйте персональное сопровождение с FitFreak Pro.">', escape: false)
-        ->assertSee('Приложение для персональных тренеров')
-        ->assertSee('Ваша методика остается основой работы.')
-        ->assertSee('Аккаунт тренера — 0 ₽')
-        ->assertSee('990 ₽')
-        ->assertSee('за 30 дней')
+        ->assertSee('Доступно на iPhone и Android')
         ->assertSee('Оплата через ЮKassa')
-        ->assertSee('Доступно на iPhone и Android.')
-        ->assertSee('Соберите сопровождение клиентов в одном приложении.')
-        ->assertSee('У меня есть код приглашения')
-        ->assertSee(route('tutorial', absolute: false).'#client-guide', escape: false)
+        ->assertSee('Почему это важно:')
+        ->assertSee(asset('downloads/fitfreak-pro-coach-guide-ru.pdf'), escape: false)
+        ->assertSee(asset('downloads/fitfreak-pro-client-guide-ru.pdf'), escape: false)
+        ->assertSee(asset('images/tutorial/client/03-yookassa.png'), escape: false)
         ->assertDontSee('Stripe')
-        ->assertDontSee('testimonial')
-        ->assertDontSee('"aggregateRating"', escape: false);
+        ->assertDontSee('fitfreak-pro-coach-guide-en.pdf');
+
+    expect(public_path('downloads/fitfreak-pro-coach-guide-ru.pdf'))->toBeFile()
+        ->and(public_path('downloads/fitfreak-pro-client-guide-ru.pdf'))->toBeFile()
+        ->and(public_path('images/tutorial/client/03-yookassa.png'))->toBeFile();
 });
 
-it('matches the shared English design structure while preserving Russian behavior', function () {
-    $this->get(route('home', absolute: false))
+test('store, social, and support destinations remain unchanged', function (): void {
+    $this->get(route('home'))
         ->assertOk()
-        ->assertSee('<main id="main" class="home-page">', escape: false)
-        ->assertSee('workflow-showcase', escape: false)
-        ->assertSee('class="app-ui-frame"', escape: false)
-        ->assertSee('class="container split-panel"', escape: false)
-        ->assertSee('class="faq-answer-inner"', escape: false)
-        ->assertSee('role="region"', escape: false)
-        ->assertSee('class="navigation-scrim"', escape: false);
-
-    $this->get(route('how-it-works', absolute: false))
-        ->assertOk()
-        ->assertSee('class="how-it-works-page"', escape: false)
-        ->assertSee('class="workflow-timeline"', escape: false)
-        ->assertSee('workflow-app-shot', escape: false)
-        ->assertSee('990 ₽ за 30 дней')
-        ->assertSee('ЮKassa')
-        ->assertDontSee('YooKassa')
-        ->assertDontSee('Stripe');
-
-    $this->get(route('pricing', absolute: false))
-        ->assertOk()
-        ->assertSee('class="pricing-page"', escape: false)
-        ->assertSee('class="pricing-sequence"', escape: false)
-        ->assertSee('pricing-cta-panel', escape: false);
-
-    $this->get(route('tutorial', absolute: false))
-        ->assertOk()
-        ->assertSee('class="tutorial-page"', escape: false)
-        ->assertSee('class="tutorial-role-selector"', escape: false)
-        ->assertSee('class="tutorial-path-nav"', escape: false)
-        ->assertSee('data-tutorial-progress="coach-guide"', escape: false)
-        ->assertSee('data-tutorial-progress="client-guide"', escape: false)
-        ->assertSee('data-tutorial-step-section', escape: false)
-        ->assertSee('ЮKassa')
-        ->assertDontSee('YooKassa')
-        ->assertDontSee('Stripe');
-});
-
-it('publishes eight concise trainer faq questions with full-row controls', function () {
-    $response = $this->get(route('home', absolute: false));
-
-    $response
-        ->assertOk()
-        ->assertSee('Что важно знать тренеру')
-        ->assertSee('Сколько стоит доступ клиента?')
-        ->assertSee('Что видит клиент в приложении?')
-        ->assertSee('class="faq-question"', escape: false)
-        ->assertSee('aria-expanded="false"', escape: false)
-        ->assertSee('aria-controls="faq-', escape: false)
-        ->assertSee('role="region"', escape: false)
-        ->assertSee('hidden', escape: false);
-
-    expect(substr_count($response->getContent(), 'class="faq-item"'))->toBe(8);
-});
-
-it('keeps a single page heading and descriptive landing images', function () {
-    $response = $this->get(route('home', absolute: false));
-    $content = $response->getContent();
-
-    $response
-        ->assertOk()
-        ->assertSee('alt="Панель тренера для управления клиентами, программами, питанием и прогрессом"', escape: false)
-        ->assertSee('alt="Библиотека собственных упражнений и видео тренера в FitFreak Pro"', escape: false)
-        ->assertSee('alt="Персональный план клиента с тренировкой и целями питания"', escape: false)
-        ->assertSee('images/tutorial/coach/02-exercise-library.png', escape: false)
-        ->assertSee('images/tutorial/client/04-client-dashboard.png', escape: false)
-        ->assertDontSee('assets/img/app-screen-2.webp', escape: false)
-        ->assertDontSee('assets/img/app-screen-3.webp', escape: false)
-        ->assertSee('alt="Календарь тренера с блоками расписания в FitFreak Pro"', escape: false);
-
-    expect(substr_count($content, '<h1'))->toBe(1);
-});
-
-it('uses the consolidated homepage and categorized Russian footer', function () {
-    $response = $this->get(route('home', absolute: false));
-
-    $response
-        ->assertOk()
-        ->assertSee('Ваша методика остается основой работы.')
-        ->assertSee('Ваши упражнения')
-        ->assertSee('Собственные видео')
-        ->assertSee('Описания и инструкции')
-        ->assertSee('Ваша методика')
-        ->assertDontSee('Ваш подход остается вашим.')
-        ->assertDontSee('Вы управляете методикой. FitFreak Pro помогает организовать работу.')
-        ->assertDontSee('Все необходимое для сопровождения клиента в одном приложении.')
-        ->assertSeeInOrder(['Продукт', 'Ресурсы', 'Компания', 'Скачать', 'Соцсети'])
-        ->assertSee('Создано для тренеров, которые ведут клиентов в мобильном приложении.')
         ->assertSee('https://apps.apple.com/us/app/fit-freak-pro/id6742347988', escape: false)
         ->assertSee('https://play.google.com/store/apps/details?id=com.duseca.fitfreak', escape: false)
         ->assertSee('https://www.linkedin.com/company/fitfreak-pro/', escape: false)
-        ->assertSee('support@fitfreakpro.com')
-        ->assertDontSee('href="/for-personal-trainers"', escape: false);
+        ->assertSee('support@fitfreakpro.com');
 });
 
-it('publishes both current Russian manuals from the tutorial', function () {
-    $response = $this->get(route('tutorial', absolute: false));
-
-    $response
+test('footer preserves the English structure with Russian labels', function (): void {
+    $this->get(route('about'))
         ->assertOk()
-        ->assertSee(asset('downloads/fitfreak-pro-coach-guide-ru.pdf'), escape: false)
-        ->assertSee(asset('downloads/fitfreak-pro-client-guide-ru.pdf'), escape: false)
-        ->assertDontSee('images/tutorial/client/03-yookassa.png');
-
-    expect(File::exists(public_path('downloads/fitfreak-pro-coach-guide-ru.pdf')))->toBeTrue()
-        ->and(File::exists(public_path('downloads/fitfreak-pro-client-guide-ru.pdf')))->toBeTrue();
+        ->assertSeeInOrder([
+            'Готовы организовать работу с клиентами?',
+            'Создать бесплатный аккаунт',
+            'Продукт',
+            'Ресурсы',
+            'Компания',
+            'Скачать FitFreak Pro',
+            'FitFreak Pro в соцсетях',
+        ])
+        ->assertSeeInOrder(['Главная', 'Возможности', 'Цены'])
+        ->assertSeeInOrder(['Как работает', 'Инструкция', 'Вопросы', 'Поддержка'])
+        ->assertSeeInOrder(['О нас', 'Конфиденциальность', 'Условия'])
+        ->assertDontSee('>Для тренеров</a>', escape: false)
+        ->assertSee('support@fitfreakpro.com');
 });
 
-it('marks draft legal pages as noindex', function (string $routeName) {
-    $this->get(route($routeName, absolute: false))
+test('navigation renders current page state on the server', function (
+    string $route,
+    string $label
+): void {
+    $this->get(route($route))
         ->assertOk()
-        ->assertSee('<meta name="robots" content="noindex,follow">', escape: false);
-})->with(['privacy', 'terms']);
+        ->assertSee('aria-current="page"', escape: false)
+        ->assertSee($label);
+})->with([
+    'how it works' => ['how-it-works', 'Как работает'],
+    'tutorial' => ['tutorial', 'Инструкция'],
+    'privacy' => ['privacy', 'Конфиденциальность'],
+]);
 
-it('renders the branded 404 page for missing paths', function () {
-    $this->get('/not-a-real-fitfreak-page')
+test('faq controls render stable accessible relationships', function (): void {
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSee('aria-controls="faq-', escape: false)
+        ->assertSee('aria-labelledby="faq-', escape: false)
+        ->assertSee('Что такое FitFreak Pro?');
+});
+
+test('legal drafts are not indexable', function (): void {
+    foreach (['privacy', 'terms'] as $route) {
+        $this->get(route($route))
+            ->assertOk()
+            ->assertSee('<meta name="robots" content="noindex,follow" />', escape: false);
+    }
+});
+
+test('unknown public pages render the localized not found page', function (): void {
+    $this->get('/not-a-real-page')
         ->assertNotFound()
         ->assertSee('Страница не найдена.')
-        ->assertSee('<meta name="robots" content="noindex,follow">', escape: false);
-});
-
-it('keeps discovery files on the Russian domain', function () {
-    expect(File::get(public_path('CNAME')))->toContain('fitfreakpro.ru')
-        ->and(File::get(public_path('robots.txt')))->toContain('https://fitfreakpro.ru/sitemap.xml')
-        ->and(File::get(public_path('sitemap.xml')))->toContain('https://fitfreakpro.ru/tutorial/');
+        ->assertSee('Вернуться на главную');
 });

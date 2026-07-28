@@ -1,358 +1,220 @@
-<x-layouts.public
-    title="FitFreak Pro — приложение для тренеров и работы с клиентами"
-    description="Создавайте планы тренировок, ведите клиентов, назначайте упражнения, отслеживайте прогресс и предоставляйте персональное сопровождение с FitFreak Pro."
-    canonical-path="/"
-    social-image-alt="FitFreak Pro: профессиональная платформа для персональных тренеров"
->
-    <x-slot:schema>
-        <script type="application/ld+json">
+@php
+$page = json_decode(<<<'PAGE'
 {
-  "@@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://fitfreakpro.ru/#organization",
-      "name": "FitFreak Pro",
-      "url": "https://fitfreakpro.ru/",
-      "logo": "https://fitfreakpro.ru/assets/img/fitfreak-logo.png",
-      "sameAs": [
-        "https://www.linkedin.com/company/fitfreak-pro/"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://fitfreakpro.ru/#website",
-      "name": "FitFreak Pro",
-      "url": "https://fitfreakpro.ru/",
-      "inLanguage": "ru-RU",
-      "publisher": {
-        "@id": "https://fitfreakpro.ru/#organization"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://fitfreakpro.ru/#software",
-      "name": "FitFreak Pro",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": [
-        "iOS",
-        "Android"
-      ],
-      "description": "Профессиональная платформа для персональных тренеров: собственные упражнения, программы, назначения, питание и прогресс клиентов в одном рабочем процессе.",
-      "url": "https://fitfreakpro.ru/",
-      "downloadUrl": [
-        "https://apps.apple.com/us/app/fit-freak-pro/id6742347988",
-        "https://play.google.com/store/apps/details?id=com.duseca.fitfreak"
-      ],
-      "publisher": {
-        "@id": "https://fitfreakpro.ru/#organization"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Аккаунт тренера",
-          "price": "0",
-          "priceCurrency": "RUB"
-        },
-        {
-          "@type": "Offer",
-          "name": "Доступ приглашенного клиента",
-          "price": "990",
-          "priceCurrency": "RUB"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://fitfreakpro.ru/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Платит ли тренер за платформу?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Нет. Аккаунт тренера — 0 ₽. Тренер может добавлять упражнения и видео, создавать программы, задавать цели питания, приглашать клиентов и просматривать их прогресс."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Сколько стоит доступ клиента?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Доступ клиента — 990 ₽ за 30 дней. Оплата через ЮKassa."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Почему клиент оплачивает доступ отдельно?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Клиент оплачивает доступ к упражнениям, видео, программам, целям питания и передаче прогресса в приложении. Профессиональная услуга тренера оплачивается отдельно."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Можно ли использовать свои упражнения и видео?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да. Вы создаете собственную библиотеку и сами выбираете упражнения, видео и рекомендации для клиентов."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Можно ли продолжать работать по своей методике?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да. Вы сами выбираете упражнения, собираете программы, задаете цели питания и решаете, как корректировать работу с клиентом."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Что происходит после приглашения клиента?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Клиент вводит код приглашения, оплачивает доступ через ЮKassa и видит назначенные вами упражнения, видео, программу и цели питания."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Что видит клиент в приложении?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Клиент видит персональную программу, упражнения и видео тренера, цели питания и разделы для передачи данных прогресса."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Может ли клиент пользоваться FitFreak Pro на телефоне?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да. FitFreak Pro доступен на iPhone и Android."
-          }
-        }
-      ]
-    }
-  ]
+  "title": "FitFreak Pro — приложение для тренеров и работы с клиентами",
+  "description": "Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении. Аккаунт тренера — 0 ₽.",
+  "canonical": "https://fitfreakpro.ru/",
+  "ogTitle": "FitFreak Pro — приложение для тренеров и работы с клиентами",
+  "ogDescription": "Собственные упражнения, видео, программы, цели питания и прогресс клиентов в одном рабочем процессе. Аккаунт тренера — 0 ₽.",
+  "ogImage": "https://fitfreakpro.ru/assets/img/app-screen-1.webp",
+  "ogImageWidth": "619",
+  "ogImageHeight": "1100",
+  "ogImageAlt": "Панель тренера FitFreak Pro для управления клиентами",
+  "twitterCard": "summary_large_image",
+  "twitterTitle": "FitFreak Pro — приложение для персональных тренеров",
+  "twitterDescription": "Организуйте упражнения, программы, питание и прогресс клиентов в одном приложении.",
+  "twitterImage": "https://fitfreakpro.ru/assets/img/app-screen-1.webp",
+  "twitterImageAlt": "Панель тренера FitFreak Pro для управления клиентами",
+  "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Organization\",\n      \"@id\": \"https://fitfreakpro.ru/#organization\",\n      \"name\": \"FitFreak Pro\",\n      \"url\": \"https://fitfreakpro.ru/\",\n      \"logo\": \"https://fitfreakpro.ru/assets/img/fitfreak-logo.png\",\n      \"sameAs\": [\"https://www.linkedin.com/company/fitfreak-pro/\"],\n      \"contactPoint\": {\"@type\": \"ContactPoint\", \"email\": \"support@fitfreakpro.com\", \"contactType\": \"служба поддержки\"}\n    },\n    {\n      \"@type\": \"WebSite\",\n      \"@id\": \"https://fitfreakpro.ru/#website\",\n      \"name\": \"FitFreak Pro\",\n      \"url\": \"https://fitfreakpro.ru/\",\n      \"publisher\": {\"@id\": \"https://fitfreakpro.ru/#organization\"},\n      \"inLanguage\": \"ru-RU\"\n    },\n    {\n      \"@type\": \"SoftwareApplication\",\n      \"@id\": \"https://fitfreakpro.ru/#software\",\n      \"name\": \"FitFreak Pro\",\n      \"applicationCategory\": \"BusinessApplication\",\n      \"operatingSystem\": \"iOS, Android\",\n      \"description\": \"Приложение для персональных тренеров: собственные упражнения, видео, программы, цели питания и прогресс клиентов в одном рабочем процессе.\",\n      \"url\": \"https://fitfreakpro.ru/\",\n      \"publisher\": {\"@id\": \"https://fitfreakpro.ru/#organization\"},\n      \"downloadUrl\": [\"https://apps.apple.com/us/app/fit-freak-pro/id6742347988\", \"https://play.google.com/store/apps/details?id=com.duseca.fitfreak\"],\n      \"offers\": [\n        {\"@type\": \"Offer\", \"name\": \"Аккаунт тренера\", \"price\": \"0\", \"priceCurrency\": \"RUB\", \"description\": \"Тренер регистрируется бесплатно.\"},\n        {\"@type\": \"Offer\", \"name\": \"Доступ приглашенного клиента\", \"price\": \"990\", \"priceCurrency\": \"RUB\", \"description\": \"Доступ клиента стоит 990 ₽ за 30 дней после приглашения от тренера.\"}\n      ]\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"@id\": \"https://fitfreakpro.ru/#faq\",\n      \"mainEntity\": [\n        {\"@type\": \"Question\", \"name\": \"Что такое FitFreak Pro?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"FitFreak Pro — приложение для тренеров, в котором можно создавать библиотеку упражнений, использовать свои видео, назначать программы и цели питания, а также просматривать прогресс клиентов.\"}},\n        {\"@type\": \"Question\", \"name\": \"Для кого создан FitFreak Pro?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Для независимых персональных тренеров, онлайн-тренеров и специалистов, которые совмещают очную и дистанционную работу.\"}},\n        {\"@type\": \"Question\", \"name\": \"Платит ли тренер за платформу?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Нет. Аккаунт тренера — 0 ₽.\"}},\n        {\"@type\": \"Question\", \"name\": \"Сколько стоит доступ клиента?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Доступ приглашенного клиента стоит 990 ₽ за 30 дней. Оплата через ЮKassa. Профессиональная услуга тренера оплачивается отдельно.\"}},\n        {\"@type\": \"Question\", \"name\": \"Можно ли использовать свои упражнения и видео?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Да. Тренер создает собственную библиотеку и использует свои видео, описания и рекомендации.\"}},\n        {\"@type\": \"Question\", \"name\": \"Как клиент подключается к тренеру?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Клиент получает код приглашения от тренера, вводит его в приложении и активирует доступ.\"}},\n        {\"@type\": \"Question\", \"name\": \"Где скачать приложение?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"FitFreak Pro доступен в App Store и Google Play.\"}},\n        {\"@type\": \"Question\", \"name\": \"Является ли FitFreak Pro медицинским сервисом?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Нет. FitFreak Pro не является медицинской организацией, экстренной службой или заменой профессиональной медицинской консультации.\"}}\n      ]\n    }\n  ]\n}"
 }
-        </script>
-    </x-slot:schema>
+PAGE, true, 512, JSON_THROW_ON_ERROR);
+@endphp
 
-    <main id="main" class="home-page">
-        <section class="hero redesign-hero">
-            <div class="container hero-grid">
-                <div class="hero-copy-wrap">
-                    <div class="eyebrow">Приложение для персональных тренеров</div>
-                    <h1>Ведите больше клиентов. <span class="lime-text">Без бесконечных таблиц и переписок.</span></h1>
-                    <p class="hero-copy">Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении.</p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary hero-primary-cta" href="#download" data-track="trainer_account_click">Создать бесплатный аккаунт тренера</a>
-                        <a class="btn btn-secondary" href="#workflow" data-track="workflow_link_click">Посмотреть, как это работает</a>
-                    </div>
-                    <p class="download-label">Аккаунт тренера — 0 ₽. Доступно на iPhone и Android.</p>
-                    <p class="hero-differentiator">Ваша методика остается основой работы.</p>
-                </div>
-                <div class="product-shot-grid" aria-label="Скриншоты приложения FitFreak Pro">
-                    <figure class="phone-shot phone-shot-primary">
-                        <img src="{{ asset('assets/img/app-screen-1.webp') }}" width="619" height="1100" alt="Панель тренера для управления клиентами, программами, питанием и прогрессом" loading="eager" fetchpriority="high" />
-                    </figure>
-                    <figure class="phone-shot phone-shot-secondary">
-                        <img src="{{ asset('images/tutorial/coach/02-exercise-library.png') }}" width="1080" height="2400" alt="Библиотека упражнений тренера в FitFreak Pro" loading="eager" />
-                    </figure>
-                </div>
-            </div>
-        </section>
+<x-layouts.public :page="$page">
+<main id="main" class="home-page">
+  <section class="hero redesign-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy-wrap">
+        <div class="eyebrow">Приложение для персональных тренеров</div>
+        <h1>Ведите больше клиентов. <span class="lime-text">Без бесконечных таблиц и переписок.</span></h1>
+        <p class="hero-copy">Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary hero-primary-cta" href="#download" data-track="hero_app_download_cta">Создать бесплатный аккаунт тренера</a>
+          <a class="btn btn-secondary" href="#workflow" data-track="see_workflow_click">Посмотреть, как это работает</a>
+        </div>
+        <p class="download-label">Аккаунт тренера — 0 ₽. Доступно на iPhone и Android.</p>
+        <p class="hero-differentiator">Создано вокруг вашей методики, а не алгоритма.</p>
+      </div>
+      <div class="product-shot-grid" aria-label="Экраны приложения FitFreak Pro">
+        <figure class="phone-shot phone-shot-primary">
+          <img src="{{ asset('assets/img/app-screen-1.webp') }}" width="619" height="1100" alt="Панель тренера FitFreak Pro с клиентами, программами, питанием и прогрессом" loading="eager" />
+        </figure>
+        <figure class="phone-shot phone-shot-secondary">
+          <img src="{{ asset('images/tutorial/coach/02-exercise-library.png') }}" width="922" height="2000" alt="Собственная библиотека упражнений тренера в FitFreak Pro" loading="eager" />
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <section class="download-strip" id="download" aria-labelledby="download-heading">
-            <div class="container download-strip-inner">
-                <div>
-                    <h2 id="download-heading">Скачайте FitFreak Pro</h2>
-                    <p>Зарегистрируйтесь бесплатно как тренер или войдите по приглашению своего тренера.</p>
-                </div>
-                <div class="store-row" aria-label="Ссылки для скачивания приложения">
-                    <a class="store-badge" href="https://apps.apple.com/us/app/fit-freak-pro/id6742347988" target="_blank" rel="noopener noreferrer" data-track="app_store_click" aria-label="Скачать FitFreak Pro в App Store"><span>Скачать в<strong>App Store</strong></span></a>
-                    <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.duseca.fitfreak" target="_blank" rel="noopener noreferrer" data-track="google_play_click" aria-label="Скачать FitFreak Pro в Google Play"><span>Доступно в<strong>Google Play</strong></span></a>
-                </div>
-            </div>
-        </section>
+  <section class="download-strip" id="download" aria-labelledby="download-heading">
+    <div class="container download-strip-inner">
+      <div>
+        <h2 id="download-heading">Скачайте FitFreak Pro</h2>
+        <p>Зарегистрируйтесь бесплатно как тренер или подключитесь по приглашению своего тренера.</p>
+      </div>
+      <div class="store-row" aria-label="Ссылки для скачивания приложения">
+        <a class="store-badge" href="https://apps.apple.com/us/app/fit-freak-pro/id6742347988" target="_blank" rel="noopener noreferrer" data-track="app_store_click" aria-label="Скачать FitFreak Pro в App Store"><span>Скачать в<strong>App Store</strong></span></a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.duseca.fitfreak" target="_blank" rel="noopener noreferrer" data-track="google_play_click" aria-label="Скачать FitFreak Pro в Google Play"><span>Доступно в<strong>Google Play</strong></span></a>
+      </div>
+    </div>
+  </section>
 
-        <section class="section home-band home-band-muted" id="product">
-            <span id="trainer-problem" class="legacy-anchor" aria-hidden="true"></span>
-            <div class="container section-header">
-                <div>
-                    <div class="section-kicker">Проблема тренера</div>
-                    <h2 class="section-title">Сопровождение клиентов не должно быть разбросано по разным инструментам.</h2>
-                    <p class="section-copy">Telegram для сообщений, таблицы для программ, PDF для инструкций, отдельные ссылки на видео и ручные заметки о прогрессе. FitFreak Pro объединяет упражнения, программы, питание и прогресс клиента в одном приложении.</p>
-                </div>
-            </div>
-            <div class="container metrics-row">
-                <div class="metric-card"><strong>0 ₽</strong><span>аккаунт тренера</span></div>
-                <div class="metric-card"><strong>990 ₽</strong><span>доступ клиента на 30 дней</span></div>
-                <div class="metric-card"><strong>1</strong><span>приложение для сопровождения</span></div>
-            </div>
-        </section>
+  <section class="section home-band home-band-muted" id="product">
+    <div class="container section-header">
+      <div>
+        <div class="section-kicker">Продукт</div>
+        <h2 class="section-title">Работа тренера не должна быть разбросана по пяти разным инструментам.</h2>
+        <p class="section-copy">Программы в таблицах. Общение с клиентами в сообщениях. Видео упражнений в папках. Цели питания в заметках. FitFreak Pro объединяет основную работу тренера в одном приложении для вас и ваших клиентов.</p>
+      </div>
+    </div>
+    <div class="container metrics-row">
+      <div class="metric-card"><strong>0 ₽</strong><span>аккаунт тренера</span></div>
+      <div class="metric-card"><strong>990 ₽</strong><span>доступ клиента на 30 дней</span></div>
+      <div class="metric-card"><strong>1</strong><span>приложение для сопровождения</span></div>
+    </div>
+  </section>
 
-        <section class="section home-band home-band-primary" id="workflow">
-            <div class="container section-header">
-                <div>
-                    <div class="section-kicker">Рабочий процесс тренера</div>
-                    <h2 class="section-title">Один понятный процесс от настройки до проверки прогресса.</h2>
-                    <p class="section-copy">FitFreak Pro помогает организовать упражнения, видео, персональные программы, цели питания и данные прогресса в одном рабочем пространстве.</p>
-                </div>
-            </div>
-            <div class="container workflow-showcase">
-                <figure class="workflow-product-shot">
-                    <img src="{{ asset('images/tutorial/coach/04-create-program.png') }}" width="1080" height="2400" alt="Создание и назначение программы клиента в FitFreak Pro" loading="lazy" />
-                </figure>
-                <div class="workflow-flow" aria-label="Этапы работы тренера">
-                    <article class="workflow-card"><div class="feature-icon" aria-hidden="true">01</div><h3>Создайте библиотеку</h3><p>Добавьте свои упражнения, видео, описания и инструкции.</p></article>
-                    <article class="workflow-card"><div class="feature-icon" aria-hidden="true">02</div><h3>Соберите программу</h3><p>Настройте упражнения, подходы, нагрузку и цели питания.</p></article>
-                    <article class="workflow-card"><div class="feature-icon" aria-hidden="true">03</div><h3>Пригласите клиента</h3><p>Отправьте код и назначьте персональный план.</p></article>
-                    <article class="workflow-card"><div class="feature-icon" aria-hidden="true">04</div><h3>Проверяйте прогресс</h3><p>Просматривайте данные клиента и корректируйте сопровождение.</p></article>
-                </div>
-            </div>
-        </section>
+  <section class="section home-band home-band-primary" id="workflow">
+    <div class="container section-header">
+      <div>
+        <div class="section-kicker">Рабочий процесс тренера</div>
+        <h2 class="section-title">Один процесс от настройки до проверки прогресса.</h2>
+        <p class="section-copy">FitFreak Pro помогает организовать упражнения, видео, программы клиентов, цели питания и данные прогресса в одном рабочем пространстве.</p>
+      </div>
+    </div>
+    <div class="container workflow-showcase">
+      <figure class="workflow-product-shot">
+        <img src="{{ asset('images/tutorial/coach/04-create-program.png') }}" width="922" height="2000" alt="Создание и назначение программы клиента в FitFreak Pro" loading="lazy" />
+      </figure>
+      <div class="workflow-flow" aria-label="Этапы работы тренера">
+        <article class="workflow-card"><div class="feature-icon" aria-hidden="true">01</div><h3>Создайте библиотеку упражнений</h3><p>Добавьте свои упражнения, видео и тренерские заметки.</p></article>
+        <article class="workflow-card"><div class="feature-icon" aria-hidden="true">02</div><h3>Спланируйте работу</h3><p>Создавайте рабочие блоки в календаре тренера.</p></article>
+        <article class="workflow-card"><div class="feature-icon" aria-hidden="true">03</div><h3>Пригласите и назначьте</h3><p>Пригласите клиента и назначьте ему персональную программу.</p></article>
+        <article class="workflow-card"><div class="feature-icon" aria-hidden="true">04</div><h3>Проверяйте прогресс</h3><p>Просматривайте тренировки, питание и данные клиента.</p></article>
+      </div>
+    </div>
+  </section>
 
-        <section class="section feature-split home-feature home-feature-primary" id="features">
-            <span id="coach-library" class="legacy-anchor" aria-hidden="true"></span>
-            <div class="container split-panel">
-                <div>
-                    <div class="section-kicker">Работайте по-своему</div>
-                    <h2>Создайте собственную библиотеку упражнений.</h2>
-                    <p>Используйте свои упражнения, видео, объяснения и тренерские заметки. FitFreak Pro помогает организовать вашу методику, но не заменяет тренера.</p>
-                    <div class="pill-row">
-                        <span>Ваши упражнения</span>
-                        <span>Собственные видео</span>
-                        <span>Описания и инструкции</span>
-                        <span>Ваша методика</span>
-                    </div>
-                </div>
-                <figure class="app-ui-frame">
-                    <img src="{{ asset('images/tutorial/coach/02-exercise-library.png') }}" width="1080" height="2400" alt="Библиотека собственных упражнений и видео тренера в FitFreak Pro" loading="lazy" />
-                </figure>
-            </div>
-        </section>
+  <section class="section feature-split home-feature home-feature-primary" id="features">
+    <span id="coach-owned-content" class="legacy-anchor" aria-hidden="true"></span>
+    <div class="container split-panel">
+      <div>
+        <div class="section-kicker">Работайте по-своему</div>
+        <h2>Сохраняйте свой подход в центре работы.</h2>
+        <p>Клиенты выбрали вас, а не универсальную библиотеку. Используйте собственные видео упражнений, объяснения, заметки и программы, чтобы приложение поддерживало привычный формат вашей работы.</p>
+        <div class="pill-row"><span>Своя библиотека упражнений</span><span>Свои видео и демонстрации</span><span>Многоразовые разделы упражнений</span><span>Программа под каждого клиента</span></div>
+      </div>
+      <figure class="app-ui-frame">
+        <img src="{{ asset('images/tutorial/coach/02-exercise-library.png') }}" width="922" height="2000" alt="Библиотека упражнений тренера в FitFreak Pro" loading="lazy" />
+      </figure>
+    </div>
+  </section>
 
-        <section class="section feature-split home-feature home-feature-client" id="client-process">
-            <div class="container split-panel reverse">
-                <figure class="app-ui-frame">
-                    <img src="{{ asset('images/tutorial/client/04-client-dashboard.png') }}" width="1080" height="2400" alt="Персональный план клиента с тренировкой и целями питания" loading="lazy" />
-                </figure>
-                <div>
-                    <div class="section-kicker">Для ваших клиентов</div>
-                    <h2>Каждый клиент получает понятный персональный план.</h2>
-                    <p>Клиент видит созданные тренером тренировки, упражнения, видео, цели питания и данные, которые нужно передать для проверки прогресса.</p>
-                    <ul class="check-list">
-                        <li>Упражнения, подходы и нагрузка собраны в одном месте.</li>
-                        <li>Цели питания остаются понятными и доступными.</li>
-                        <li>Данные прогресса доступны тренеру для проверки.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <section class="section feature-split home-feature home-feature-client" id="client-experience">
+    <div class="container split-panel reverse">
+      <figure class="app-ui-frame">
+        <img src="{{ asset('images/tutorial/client/04-client-dashboard.png') }}" width="922" height="2000" alt="Панель клиента с назначенной тренировкой и целями питания" loading="lazy" />
+      </figure>
+      <div>
+        <div class="section-kicker">Для ваших клиентов</div>
+        <h2>Дайте каждому клиенту понятный план.</h2>
+        <p>Клиент видит назначенные тренировки, описания упражнений, цели питания и данные прогресса, которые ожидает получить тренер.</p>
+        <ul class="check-list">
+          <li>Тренировки, подходы, повторения и видео собраны вместе.</li>
+          <li>Цели питания легко понять и отслеживать.</li>
+          <li>Данные прогресса доступны тренеру для проверки.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <section class="section feature-split home-feature home-secondary-feature" id="coach-calendar">
-            <div class="container split-panel reverse">
-                <figure class="app-ui-frame app-ui-frame-compact">
-                    <img src="{{ asset('images/tutorial/coach/06-coach-calendar.png') }}" width="922" height="2000" alt="Календарь тренера с блоками расписания в FitFreak Pro" loading="lazy" />
-                </figure>
-                <div>
-                    <div class="section-kicker">Расписание тренера</div>
-                    <h2>Планируйте работу с клиентами.</h2>
-                    <p>Создавайте блоки расписания и держите календарь рядом с программами, питанием и данными прогресса.</p>
-                    <ul class="check-list">
-                        <li>Создавайте блоки для выбранных дней.</li>
-                        <li>Управляйте своим временем в одном приложении.</li>
-                        <li>Связывайте планирование с работой по клиентам.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <section class="section feature-split home-feature home-secondary-feature" id="coach-calendar">
+    <div class="container split-panel reverse">
+      <figure class="app-ui-frame app-ui-frame-compact"><img src="{{ asset('images/tutorial/coach/06-coach-calendar.png') }}" width="922" height="2000" alt="Календарь тренера с рабочими блоками в FitFreak Pro" loading="lazy" /></figure>
+      <div>
+        <div class="section-kicker">Расписание тренера</div>
+        <h2>Планируйте работу с клиентами.</h2>
+        <p>Календарь FitFreak Pro помогает держать расписание рядом с тренировками, целями питания и проверкой прогресса.</p>
+        <ul class="check-list">
+          <li>Создавайте рабочие блоки на выбранные дни.</li>
+          <li>Управляйте временем в том же рабочем пространстве.</li>
+          <li>Связывайте планирование с назначениями клиентов.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <section class="section pricing-section home-band home-band-pricing" id="pricing">
-            <div class="container">
-                <div class="section-kicker">Цены</div>
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Тренер работает бесплатно. Клиент оплачивает цифровое сопровождение.</h2>
-                        <p class="section-copy">Тренер создает упражнения, программы и цели питания без ежемесячной платы за платформу. Приглашенный клиент оплачивает доступ к цифровому сопровождению.</p>
-                    </div>
-                </div>
-                <div class="pricing-grid">
-                    <article class="pricing-card featured">
-                        <p class="pricing-label">Аккаунт тренера</p>
-                        <div class="price">0 ₽</div>
-                        <p>Создавайте библиотеку упражнений, приглашайте клиентов и управляйте их сопровождением бесплатно.</p>
-                        <ul>
-                            <li>Собственные упражнения и видео</li>
-                            <li>Персональные программы</li>
-                            <li>Цели питания</li>
-                            <li>Проверка данных прогресса</li>
-                            <li>Без ежемесячной платы для тренера</li>
-                        </ul>
-                        <a class="btn btn-primary pricing-card-cta" href="#download" data-track="trainer_account_click">Создать бесплатный аккаунт тренера</a>
-                    </article>
-                    <article class="pricing-card">
-                        <p class="pricing-label">Доступ клиента</p>
-                        <div class="price">990 ₽ <small>за 30 дней</small></div>
-                        <p>Клиент получает доступ после приглашения от своего тренера.</p>
-                        <ul>
-                            <li>Персональная программа тренера</li>
-                            <li>Упражнения, инструкции и видео</li>
-                            <li>Назначенные цели питания</li>
-                            <li>Передача данных прогресса</li>
-                            <li>Оплата через ЮKassa</li>
-                        </ul>
-                        <a class="btn btn-secondary pricing-card-cta" href="{{ route('tutorial', absolute: false) }}#client-guide" data-track="invitation_code_help_click">У меня есть код приглашения</a>
-                    </article>
-                </div>
-                <div class="content-note">
-                    <h3>Почему клиент оплачивает доступ?</h3>
-                    <p>Оплата дает клиенту доступ к сопровождению, которое тренер предоставляет через FitFreak Pro: программам, упражнениям, видео, целям питания и передаче прогресса. Профессиональная услуга тренера оплачивается отдельно.</p>
-                </div>
-            </div>
-        </section>
+  <section class="section pricing-section home-band home-band-pricing" id="pricing">
+    <div class="container">
+      <div class="section-kicker">Цены</div>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Тренер работает бесплатно. Клиент оплачивает цифровое сопровождение.</h2>
+          <p class="section-copy">Тренер начинает без ежемесячной платы за платформу. Приглашенный клиент активирует доступ к материалам и назначениям своего тренера.</p>
+        </div>
+      </div>
+      <div class="pricing-grid">
+        <article class="pricing-card featured">
+          <p class="pricing-label">Аккаунт тренера</p>
+          <div class="price">0 ₽</div>
+          <p>Создавайте библиотеку упражнений, приглашайте клиентов и ведите их без ежемесячной платы за аккаунт тренера.</p>
+          <ul><li>Создание библиотеки упражнений</li><li>Собственные видео</li><li>Приглашение клиентов</li><li>Назначение тренировок</li><li>Цели питания</li><li>Проверка прогресса</li><li>Без ежемесячной платы тренера</li></ul>
+        </article>
+        <article class="pricing-card">
+          <p class="pricing-label">Доступ приглашенного клиента</p>
+          <div class="price">990 ₽ <small>за 30 дней</small></div>
+          <p>Клиент активирует доступ после приглашения от своего тренера. Оплата через ЮKassa.</p>
+          <ul><li>Назначенные тренировки</li><li>Инструкции и видео упражнений</li><li>Цели питания</li><li>Передача данных прогресса</li><li>План, созданный тренером</li></ul>
+        </article>
+      </div>
+      <div class="content-note">
+        <h3>Почему клиент оплачивает доступ?</h3>
+        <p>Оплата открывает клиенту цифровое сопровождение в FitFreak Pro: назначенные тренировки, видео, цели питания и инструменты прогресса. Профессиональная услуга тренера оплачивается отдельно.</p>
+      </div>
+    </div>
+  </section>
 
-        <section class="section founder-section" id="about">
-            <div class="container split-panel compact">
-                <div>
-                    <div class="section-kicker">Знакомство с продуктом</div>
-                    <h2 class="section-title">Посмотрите, как FitFreak Pro работает на практике.</h2>
-                    <p class="section-copy">Изучите рабочий процесс тренера и клиента, задайте вопросы и оцените, подходит ли приложение для вашей методики.</p>
-                </div>
-                <div class="founder-card">
-                    <h3>Запросить обзор продукта</h3>
-                    <p>Посмотрите, как организовать работу, которую вы сейчас ведете через таблицы, заметки, ссылки на видео и сообщения.</p>
-                    <a class="btn btn-primary" href="mailto:support@fitfreakpro.com?subject=Обзор%20FitFreak%20Pro" data-track="product_walkthrough_click">Запросить обзор FitFreak Pro</a>
-                </div>
-            </div>
-        </section>
+  <section class="section founder-section" id="about">
+    <div class="container split-panel compact">
+      <div>
+        <div class="section-kicker">Демонстрация продукта</div>
+        <h2 class="section-title">Поговорите с командой FitFreak Pro.</h2>
+        <p class="section-copy">Посмотрите рабочий процесс тренера и клиента, задайте вопросы и оцените, подходит ли FitFreak Pro вашему формату работы.</p>
+      </div>
+      <div class="founder-card">
+        <h3>Запросите демонстрацию продукта.</h3>
+        <p>Узнайте, как объединить таблицы, заметки, видео и сообщения в одном рабочем процессе.</p>
+        <a class="btn btn-primary" href="mailto:support@fitfreakpro.com?subject=Демонстрация%20FitFreak%20Pro" data-track="founder_walkthrough_click">Запросить демонстрацию</a>
+      </div>
+    </div>
+  </section>
 
-        <section class="section faq-section" id="faq">
-            <div class="container">
-                <div class="section-kicker">Вопросы</div>
-                <h2 class="section-title">Что важно знать тренеру.</h2>
-                <div class="faq-list">
-                    <x-ui.faq-item question="Платит ли тренер за платформу?">Нет. Аккаунт тренера — 0 ₽. Тренер может добавлять упражнения и видео, создавать программы, задавать цели питания, приглашать клиентов и просматривать их прогресс.</x-ui.faq-item>
-                    <x-ui.faq-item question="Сколько стоит доступ клиента?">Доступ клиента — 990 ₽ за 30 дней. Оплата через ЮKassa.</x-ui.faq-item>
-                    <x-ui.faq-item question="Почему клиент оплачивает доступ отдельно?">Клиент оплачивает доступ к упражнениям, видео, программам, целям питания и передаче прогресса в приложении. Профессиональная услуга тренера оплачивается отдельно.</x-ui.faq-item>
-                    <x-ui.faq-item question="Можно ли использовать свои упражнения и видео?">Да. Вы создаете собственную библиотеку и сами выбираете упражнения, видео и рекомендации для клиентов.</x-ui.faq-item>
-                    <x-ui.faq-item question="Можно ли продолжать работать по своей методике?">Да. Вы сами выбираете упражнения, собираете программы, задаете цели питания и решаете, как корректировать работу с клиентом.</x-ui.faq-item>
-                    <x-ui.faq-item question="Что происходит после приглашения клиента?">Клиент вводит код приглашения, оплачивает доступ через ЮKassa и видит назначенные вами упражнения, видео, программу и цели питания.</x-ui.faq-item>
-                    <x-ui.faq-item question="Что видит клиент в приложении?">Клиент видит персональную программу, упражнения и видео тренера, цели питания и разделы для передачи данных прогресса.</x-ui.faq-item>
-                    <x-ui.faq-item question="Может ли клиент пользоваться FitFreak Pro на телефоне?">Да. FitFreak Pro доступен на iPhone и Android.</x-ui.faq-item>
-                </div>
-            </div>
-        </section>
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-kicker">Вопросы</div>
+      <h2 class="section-title">Что важно знать тренеру.</h2>
+      <div class="faq-list">
+        <x-ui.faq-item question="Что такое FitFreak Pro?">FitFreak Pro — приложение для тренеров: собственная библиотека упражнений, видео, персональные программы, цели питания и проверка прогресса клиентов.</x-ui.faq-item>
+        <x-ui.faq-item question="Для кого создан FitFreak Pro?">Для независимых персональных тренеров, онлайн-тренеров и специалистов, которые совмещают очную и дистанционную работу.</x-ui.faq-item>
+        <x-ui.faq-item question="Платит ли тренер за платформу?">Нет. Аккаунт тренера — 0 ₽. Ежемесячной платы за аккаунт тренера нет.</x-ui.faq-item>
+        <x-ui.faq-item question="Сколько стоит доступ клиента?">990 ₽ за 30 дней после приглашения от тренера. Оплата через ЮKassa. Профессиональная услуга тренера оплачивается отдельно.</x-ui.faq-item>
+        <x-ui.faq-item question="Можно ли использовать свои упражнения и видео?">Да. Вы создаете собственную библиотеку и используете свои видео, инструкции и тренерские заметки.</x-ui.faq-item>
+        <x-ui.faq-item question="Можно ли работать онлайн и очно?">Да. FitFreak Pro подходит для онлайн-, очного и смешанного формата работы.</x-ui.faq-item>
+        <x-ui.faq-item question="Как клиент подключается?">Клиент получает приглашение от тренера, вводит код и активирует доступ в приложении.</x-ui.faq-item>
+        <x-ui.faq-item question="Где скачать приложение?">FitFreak Pro доступен в App Store и Google Play.</x-ui.faq-item>
+      </div>
+    </div>
+  </section>
 
-        <section class="section final-cta">
-            <div class="container cta-panel">
-                <h2>Соберите сопровождение клиентов в одном приложении.</h2>
-                <p>Создавайте свои упражнения, назначайте персональные программы и проверяйте прогресс без бесконечных таблиц и переписок.</p>
-                <div class="cta-actions">
-                    <a class="btn btn-primary" href="#download" data-track="trainer_account_click">Создать бесплатный аккаунт тренера</a>
-                    <a class="btn btn-secondary" href="{{ route('tutorial', absolute: false) }}#client-guide" data-track="invitation_code_help_click">У меня есть код приглашения</a>
-                </div>
-            </div>
-        </section>
-    </main>
+  <section class="section final-cta">
+    <div class="container cta-panel">
+      <h2>Соберите работу с клиентами в одном приложении.</h2>
+      <p>Организуйте упражнения, программы, цели питания и данные прогресса без разрозненных таблиц, ссылок и сообщений.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="#download" data-track="hero_app_download_cta">Начать бесплатно</a>
+        <a class="btn btn-secondary" href="mailto:support@fitfreakpro.com?subject=Демонстрация%20FitFreak%20Pro" data-track="founder_walkthrough_click">Запросить демонстрацию</a>
+      </div>
+    </div>
+  </section>
+</main>
 </x-layouts.public>

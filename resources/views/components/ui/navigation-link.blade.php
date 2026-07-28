@@ -1,6 +1,12 @@
 @props([
-    'active' => false,
-    'href',
+  'active' => false,
+  'href',
 ])
 
-<a href="{{ $href }}" @if ($active) aria-current="page" @endif {{ $attributes }}>{{ $slot }}</a>
+<a
+  href="{{ $href }}"
+  @if ($active) aria-current="page" @endif
+  {{ $attributes }}
+>
+  {{ $slot }}
+</a>

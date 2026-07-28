@@ -181,27 +181,7 @@ if (tutorialGuideSections.length) {
 }
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closeNavigation();
-    return;
-  }
-
-  if (event.key !== 'Tab' || !header || !header.classList.contains('nav-open')) return;
-
-  const focusableElements = [...header.querySelectorAll('a[href], button:not([disabled])')]
-    .filter((element) => !element.matches('[data-navigation-close]') && element.getClientRects().length);
-  const firstFocusable = focusableElements[0];
-  const lastFocusable = focusableElements.at(-1);
-
-  if (!firstFocusable || !lastFocusable) return;
-
-  if (event.shiftKey && document.activeElement === firstFocusable) {
-    event.preventDefault();
-    lastFocusable.focus();
-  } else if (!event.shiftKey && document.activeElement === lastFocusable) {
-    event.preventDefault();
-    firstFocusable.focus();
-  }
+  if (event.key === 'Escape') closeNavigation();
 });
 
 document.addEventListener('focusin', (event) => {
@@ -226,7 +206,6 @@ document.querySelectorAll('.faq-question').forEach((button, index) => {
     if (!item) return;
     const isOpen = item.classList.toggle('open');
     button.setAttribute('aria-expanded', String(isOpen));
-    if (answer) answer.hidden = !isOpen;
     if (isOpen) {
       trackEvent('faq_expand', { question: button.textContent.trim().replace(/\+$/, '').trim() });
     }

@@ -1,49 +1,28 @@
 <header class="site-header">
-    <div class="container header-inner">
-        <x-partials.brand />
+  <div class="container header-inner">
+    <x-partials.brand />
 
-        <nav id="primary-navigation" class="main-nav" aria-label="Основная навигация">
-            <x-ui.navigation-link :href="route('how-it-works', absolute: false)" :active="request()->routeIs('how-it-works')">
-                {{ __('navigation.how_it_works') }}
-            </x-ui.navigation-link>
-            <span class="nav-desktop-only">
-                <x-ui.navigation-link :href="route('home', absolute: false).'#features'" data-section-nav="features">
-                    {{ __('navigation.features') }}
-                </x-ui.navigation-link>
-            </span>
-            <x-ui.navigation-link :href="route('pricing', absolute: false)" :active="request()->routeIs('pricing')">
-                {{ __('navigation.pricing') }}
-            </x-ui.navigation-link>
-            <x-ui.navigation-link :href="route('tutorial', absolute: false)" :active="request()->routeIs('tutorial')">
-                {{ __('navigation.tutorial') }}
-            </x-ui.navigation-link>
-            <span class="nav-desktop-only">
-                <x-ui.navigation-link :href="route('about', absolute: false)" :active="request()->routeIs('about')">
-                    {{ __('navigation.about') }}
-                </x-ui.navigation-link>
-            </span>
-            <a class="mobile-nav-client" href="{{ route('tutorial', absolute: false) }}#client-guide" data-track="invitation_code_help_click">
-                У меня есть код приглашения
-            </a>
-            <a class="mobile-nav-cta" href="{{ route('home', absolute: false) }}#download" data-track="trainer_account_click">
-                {{ __('navigation.create_trainer_account') }}
-            </a>
-        </nav>
+    <nav id="primary-navigation" class="main-nav" aria-label="Основная навигация">
+      <a href="{{ route('how-it-works') }}" @if (request()->routeIs('how-it-works')) aria-current="page" @endif>Как работает</a>
+      <a href="{{ route('home') }}#features" data-section-nav="features">Возможности</a>
+      <a href="{{ route('pricing') }}" @if (request()->routeIs('pricing')) aria-current="page" @endif>Цены</a>
+      <a href="{{ route('tutorial') }}" @if (request()->routeIs('tutorial')) aria-current="page" @endif>Инструкция</a>
+      <a href="{{ route('home') }}#faq" data-section-nav="faq">Вопросы</a>
+      <a class="mobile-nav-cta" href="{{ route('home') }}#download" data-track="header_app_download_cta">Начать бесплатно</a>
+    </nav>
 
-        <div class="header-actions">
-            <a class="btn btn-primary" href="{{ route('home', absolute: false) }}#download" data-track="trainer_account_click">
-                {{ __('navigation.create_trainer_account') }}
-            </a>
-            <button
-                class="mobile-toggle"
-                type="button"
-                aria-label="Открыть меню"
-                aria-controls="primary-navigation"
-                aria-expanded="false"
-            >
-                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-            </button>
-        </div>
+    <div class="header-actions">
+      <a class="btn btn-primary" href="{{ route('home') }}#download" data-track="header_app_download_cta">Начать бесплатно</a>
+      <button
+        class="mobile-toggle"
+        type="button"
+        aria-label="Открыть меню"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="navigation-scrim" type="button" aria-label="Закрыть меню" data-navigation-close></button>
+  </div>
+  <button class="navigation-scrim" type="button" aria-label="Закрыть меню" data-navigation-close></button>
 </header>

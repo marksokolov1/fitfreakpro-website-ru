@@ -2722,20 +2722,3 @@
     letter-spacing: 0;
   }
 }
-
-/* Russian navigation includes a client invitation path inside the mobile menu. */
-.mobile-nav-client {
-  display: none;
-}
-
-@media (max-width: 1040px) {
-  .site-header.nav-open .main-nav .mobile-nav-client {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    margin-top: 0.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0;
-    color: var(--lime);
-  }
-}

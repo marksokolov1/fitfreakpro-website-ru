@@ -1,37 +1,37 @@
-# Чеклист проверки раскрытия данных и конфиденциальности
+# Privacy Disclosure Audit Checklist
 
-Используйте этот чеклист перед изменением публичной политики конфиденциальности, раскрытий Apple App Store, Google Play Data Safety или текста об удалении аккаунта.
+Use this checklist before changing the public Privacy Policy, Apple App Store privacy disclosures, Google Play Data Safety disclosures, or account deletion language.
 
-## Проверка потоков данных
+## Data Flow Verification
 
-- [ ] Подтвердить, какие данные аккаунта приложение собирает у тренеров.
-- [ ] Подтвердить, какие данные аккаунта приложение собирает у клиентов.
-- [ ] Подтвердить, какие профильные данные, параметры, тренировки, данные питания и прогресса клиенты могут отправлять.
-- [ ] Подтвердить, какую информацию тренеры могут создавать, загружать, просматривать, редактировать или удалять.
-- [ ] Подтвердить, как хранятся видео упражнений, фото или ссылки на видео, загруженные тренером.
-- [ ] Подтвердить, собирает ли приложение данные устройства, диагностики, аналитики, отчетов об ошибках или использования.
+- [ ] Confirm what account data the application collects from coaches.
+- [ ] Confirm what account data the application collects from clients.
+- [ ] Confirm what profile, parameter, workout, nutrition, and progress information clients can submit.
+- [ ] Confirm what information coaches can create, upload, view, edit, or delete.
+- [ ] Confirm how coach-uploaded exercise videos, photos, or video links are stored.
+- [ ] Confirm whether the app collects device, diagnostics, analytics, crash-reporting, or usage data.
 
-## Согласованность политики и магазинов приложений
+## Policy and Store Disclosure Consistency
 
-- [ ] Сравнить реальные потоки данных приложения с политикой конфиденциальности сайта.
-- [ ] Сравнить реальные потоки данных приложения с раскрытиями Apple App Store.
-- [ ] Сравнить реальные потоки данных приложения с раскрытиями Google Play Data Safety.
-- [ ] Подтвердить поведение удаления аккаунта и ожидаемые сроки удаления.
-- [ ] Подтвердить, удаляются или сохраняются при удалении аккаунта библиотека тренера, отправленные клиентами данные, подписки и записи поддержки.
+- [ ] Compare actual application data flows against the website Privacy Policy.
+- [ ] Compare actual application data flows against Apple App Store privacy disclosures.
+- [ ] Compare actual application data flows against Google Play Data Safety disclosures.
+- [ ] Confirm account deletion behavior and expected deletion timelines.
+- [ ] Confirm whether account deletion removes or preserves coach-created library content, client submissions, subscriptions, and support records.
 
-## Безопасность и обработчики
+## Security and Processor Review
 
-- [ ] Проверить шифрование при передаче данных перед любым публичным заявлением об этом.
-- [ ] Проверить шифрование при хранении данных перед любым публичным заявлением об этом.
-- [ ] Определить сторонних провайдеров хостинга, базы данных, хранения файлов, email, аналитики, отчетов об ошибках и поддержки.
-- [ ] Определить провайдеров подписок и платежей, используемых приложением.
-- [ ] Подтвердить, Apple, Google или другой провайдер обрабатывает оплату клиентских подписок.
-- [ ] Подтвердить, что медицинские, HIPAA или иные compliance-заявления не используются без проверки.
+- [ ] Verify encryption in transit before making any public encryption claim.
+- [ ] Verify encryption at rest before making any public encryption claim.
+- [ ] Identify third-party hosting, database, storage, email, analytics, crash-reporting, and support processors.
+- [ ] Identify subscription and payment processors used by the application.
+- [ ] Confirm whether Apple, Google, or another processor handles client subscription billing.
+- [ ] Confirm whether any health, medical, HIPAA, or compliance framework claims are unsupported and should be avoided.
 
-## Проверка перед публикацией
+## Publication Review
 
-- [ ] Подтвердить, что политика конфиденциальности сайта не заявляет об отсутствии сбора данных без проверки.
-- [ ] Подтвердить, что политика конфиденциальности сайта не заявляет о конкретном compliance-фреймворке без проверки.
-- [ ] Подтвердить, что раскрытия App Store и Google Play соответствуют текущему production-приложению.
-- [ ] Подтвердить, что support@fitfreakpro.com — правильный контакт для запросов по конфиденциальности и удалению аккаунта.
-- [ ] Перед финальной публикацией передать тексты конфиденциальности, условий, подписок и удаления аккаунта квалифицированному юристу.
+- [ ] Confirm the website Privacy Policy does not claim the application collects no data unless verified.
+- [ ] Confirm the website Privacy Policy does not claim a specific compliance framework unless verified.
+- [ ] Confirm App Store and Google Play disclosures match the current production application.
+- [ ] Confirm support@fitfreakpro.com is the correct contact for privacy and account deletion requests.
+- [ ] Have qualified counsel review privacy, terms, subscription, and account deletion language before treating it as final.

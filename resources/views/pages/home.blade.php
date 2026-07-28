@@ -142,16 +142,28 @@
       <section class="hero redesign-hero">
         <div class="container hero-grid">
           <div class="hero-copy-wrap">
+            <div class="eyebrow">Приложение для персональных тренеров</div>
             <h1>Ведите больше клиентов <span class="lime-text">без бесконечных таблиц и переписок.</span></h1>
             <p class="hero-copy">Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении. Аккаунт тренера — 0 ₽.</p>
             <div class="hero-actions">
               <a class="btn btn-primary hero-primary-cta" href="#download" data-track="app_download_click">Создать бесплатный аккаунт тренера</a>
               <a class="btn btn-secondary" href="#workflow" data-track="workflow_link_click">Посмотреть, как это работает</a>
             </div>
+            <p class="download-label">Аккаунт тренера — 0 ₽. Доступно на iPhone и Android.</p>
           </div>
           <div class="product-shot-grid" aria-label="Скриншоты приложения FitFreak Pro">
             <figure class="phone-shot phone-shot-primary"><img src="{{ asset('assets/img/app-screen-1.webp') }}" width="619" height="1100" alt="Панель тренера с клиентами в FitFreak Pro" loading="eager" fetchpriority="high" /></figure>
-            <figure class="phone-shot phone-shot-secondary"><img src="{{ asset('assets/img/app-screen-7.webp') }}" width="619" height="1100" alt="Персональный план клиента в приложении FitFreak Pro" loading="eager" /></figure>
+            <figure class="phone-shot phone-shot-secondary"><img src="{{ asset('images/tutorial/coach/02-exercise-library.png') }}" width="1080" height="2400" alt="Библиотека упражнений тренера в FitFreak Pro" loading="eager" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="download-strip" id="download" aria-labelledby="download-heading">
+        <div class="container download-strip-inner">
+          <div><h2 id="download-heading">Создайте бесплатный аккаунт тренера</h2><p>Скачайте FitFreak Pro, зарегистрируйтесь как тренер бесплатно и начните создавать собственную систему работы с клиентами.</p></div>
+          <div class="store-row" aria-label="Ссылки для скачивания приложения">
+            <a class="store-badge" href="https://apps.apple.com/us/app/fit-freak-pro/id6742347988" target="_blank" rel="noopener noreferrer" data-track="app_store_click" aria-label="Скачать FitFreak Pro в App Store"><span>Скачать в<strong>App Store</strong></span></a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.duseca.fitfreak" target="_blank" rel="noopener noreferrer" data-track="google_play_click" aria-label="Скачать FitFreak Pro в Google Play"><span>Доступно в<strong>Google Play</strong></span></a>
           </div>
         </div>
       </section>
@@ -211,7 +223,7 @@
             </ul>
           </div>
           <figure class="feature-product-frame">
-            <img src="{{ asset('assets/img/app-screen-2.webp') }}" width="619" height="1100" alt="Библиотека упражнений с собственными видео тренера в FitFreak Pro" loading="lazy" />
+            <img src="{{ asset('images/tutorial/coach/02-exercise-library.png') }}" width="1080" height="2400" alt="Библиотека упражнений с собственными видео тренера в FitFreak Pro" loading="lazy" />
           </figure>
         </div>
       </section>
@@ -219,7 +231,7 @@
       <section class="section feature-showcase feature-showcase-reverse home-feature home-feature-client home-band" id="client-process">
         <div class="container feature-showcase-grid">
           <figure class="feature-product-frame">
-            <img src="{{ asset('assets/img/app-screen-3.webp') }}" width="619" height="1100" alt="Назначение персональной программы клиенту в FitFreak Pro" loading="lazy" />
+            <img src="{{ asset('images/tutorial/client/04-client-dashboard.png') }}" width="1080" height="2400" alt="Персональный план клиента с тренировкой и целями питания в FitFreak Pro" loading="lazy" />
           </figure>
           <div class="feature-showcase-copy">
             <div class="section-kicker">02 · Персональный план</div>
@@ -288,16 +300,6 @@
             <li>Доступ клиента — 990 ₽ за 30 дней</li>
             <li>Оплата через ЮKassa</li>
           </ul>
-        </div>
-      </section>
-
-      <section class="download-strip" id="download" aria-labelledby="download-heading">
-        <div class="container download-strip-inner">
-          <div><h2 id="download-heading">Создайте бесплатный аккаунт тренера</h2><p>Скачайте FitFreak Pro, зарегистрируйтесь как тренер бесплатно и начните создавать собственную систему работы с клиентами.</p></div>
-          <div class="store-row" aria-label="Ссылки для скачивания приложения">
-      <a class="store-badge" href="https://apps.apple.com/us/app/fit-freak-pro/id6742347988" target="_blank" rel="noopener noreferrer" data-track="app_store_click" aria-label="Скачать FitFreak Pro в App Store"><span>Скачать в<strong>App Store</strong></span></a>
-      <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.duseca.fitfreak" target="_blank" rel="noopener noreferrer" data-track="google_play_click" aria-label="Скачать FitFreak Pro в Google Play"><span>Доступно в<strong>Google Play</strong></span></a>
-    </div>
         </div>
       </section>
 

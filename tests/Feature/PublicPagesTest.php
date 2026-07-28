@@ -203,6 +203,11 @@ it('keeps a single page heading and descriptive landing images', function () {
         ->assertOk()
         ->assertSee('alt="Панель тренера с клиентами в FitFreak Pro"', escape: false)
         ->assertSee('alt="Библиотека упражнений с собственными видео тренера в FitFreak Pro"', escape: false)
+        ->assertSee('alt="Персональный план клиента с тренировкой и целями питания в FitFreak Pro"', escape: false)
+        ->assertSee('images/tutorial/coach/02-exercise-library.png', escape: false)
+        ->assertSee('images/tutorial/client/04-client-dashboard.png', escape: false)
+        ->assertDontSee('assets/img/app-screen-2.webp', escape: false)
+        ->assertDontSee('assets/img/app-screen-3.webp', escape: false)
         ->assertSee('alt="Календарь тренера с блоком работы с клиентом в FitFreak Pro"', escape: false);
 
     expect(substr_count($content, '<h1'))->toBe(1);

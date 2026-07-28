@@ -4226,3 +4226,155 @@ button:focus-visible,
     padding: 1.75rem 1.25rem;
   }
 }
+
+/* Russian copy needs a calmer display scale and a slightly wider reading measure. */
+.home-page .redesign-hero .hero-grid {
+  grid-template-columns: minmax(0, 1.06fr) minmax(27rem, 0.94fr);
+  gap: clamp(2.75rem, 5vw, 5rem);
+}
+
+.home-page .redesign-hero .hero-copy-wrap {
+  max-width: 46rem;
+}
+
+.home-page .redesign-hero .eyebrow {
+  width: fit-content;
+  margin-bottom: 1.25rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgba(201, 255, 31, 0.24);
+  border-radius: 999px;
+  background: rgba(201, 255, 31, 0.055);
+  color: var(--lime);
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.home-page .redesign-hero h1 {
+  max-width: 12.5ch;
+  font-size: clamp(3rem, 3.85vw, 4.2rem);
+  line-height: 1.015;
+  text-wrap: balance;
+}
+
+.home-page .redesign-hero .download-label {
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.home-page .redesign-hero .product-shot-grid {
+  min-height: 36rem;
+}
+
+.home-page .redesign-hero .phone-shot-primary {
+  width: min(86%, 28rem);
+}
+
+.home-page .download-strip {
+  border-block: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.home-page .download-strip-inner {
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.home-page .download-strip h2 {
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  line-height: 1.25;
+}
+
+.home-page .download-strip p {
+  max-width: 48rem;
+  margin-top: 0.35rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.home-page .trainer-problem .section-title,
+.home-page .trainer-trust .section-title {
+  max-width: 16ch;
+  font-size: clamp(2.5rem, 3.4vw, 3.65rem);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.home-page .feature-showcase-copy h2 {
+  max-width: 15ch;
+  font-size: clamp(2.35rem, 3.15vw, 3.55rem);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.home-page .feature-product-frame img {
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.home-page #workflow .section-title,
+.home-page #pricing .section-title {
+  max-width: 18ch;
+  font-size: clamp(2.45rem, 3.4vw, 3.7rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+@media (max-width: 1040px) {
+  .home-page .redesign-hero .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(23rem, 0.82fr);
+    gap: 2.5rem;
+  }
+
+  .home-page .redesign-hero h1 {
+    font-size: clamp(2.85rem, 5vw, 3.75rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .home-page .redesign-hero .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .redesign-hero .hero-copy-wrap {
+    max-width: 42rem;
+  }
+
+  .home-page .redesign-hero .product-shot-grid {
+    min-height: 32rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-page .redesign-hero .eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+  }
+
+  .home-page .redesign-hero h1 {
+    max-width: 17ch;
+    font-size: clamp(2.5rem, 11vw, 3rem);
+    line-height: 1.05;
+  }
+
+  .home-page .redesign-hero .download-label {
+    font-size: 0.8rem;
+  }
+
+  .home-page .redesign-hero .product-shot-grid {
+    min-height: 31rem;
+  }
+
+  .home-page .trainer-problem .section-title,
+  .home-page .trainer-trust .section-title,
+  .home-page .feature-showcase-copy h2,
+  .home-page #workflow .section-title,
+  .home-page #pricing .section-title {
+    max-width: 18ch;
+    font-size: clamp(2rem, 8.6vw, 2.375rem);
+    line-height: 1.09;
+  }
+}

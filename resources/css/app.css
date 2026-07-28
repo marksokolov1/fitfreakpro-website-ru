@@ -2722,3 +2722,40 @@
     letter-spacing: 0;
   }
 }
+
+/* The Russian YuKassa screen is a landscape payment selector, not a phone capture. */
+.tutorial-page .tutorial-step-payment {
+  min-height: 27rem;
+  grid-template-columns: minmax(0, 1fr) minmax(24rem, 32rem);
+}
+
+.tutorial-page .tutorial-media-payment {
+  width: min(100%, 32rem);
+  height: auto;
+  aspect-ratio: 1080 / 545;
+  border-radius: 1.25rem;
+}
+
+.tutorial-page .tutorial-media-payment img {
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 1040px) {
+  .tutorial-page .tutorial-step-payment {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-page .tutorial-media-payment {
+    width: min(100%, 32rem);
+    height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .tutorial-page .tutorial-media-payment {
+    width: 100%;
+    border-radius: 1rem;
+  }
+}

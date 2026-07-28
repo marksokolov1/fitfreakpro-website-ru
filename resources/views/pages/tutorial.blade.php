@@ -100,9 +100,9 @@ PAGE, true, 512, JSON_THROW_ON_ERROR);
         <div class="tutorial-step-copy"><span class="tutorial-step-number">02</span><h3>Введите код приглашения тренера</h3><p>Введите код, полученный от тренера. Он связывает ваш аккаунт с тренером, который назначает тренировки и цели питания.</p><p class="tutorial-step-why"><strong>Почему это важно:</strong> Код подключает вас к нужному тренеру и его рекомендациям.</p></div>
         <figure class="tutorial-media"><img src="{{ asset('images/tutorial/client/02-enter-coach-code.png') }}" width="1242" height="2688" alt="Экран ввода кода приглашения тренера" loading="lazy" /></figure>
       </article>
-      <article class="tutorial-step" id="client-subscription" data-tutorial-step-section>
+      <article class="tutorial-step tutorial-step-payment" id="client-subscription" data-tutorial-step-section>
         <div class="tutorial-step-copy"><span class="tutorial-step-number">03</span><h3>Активируйте доступ через ЮKassa</h3><p>Проверьте условия в приложении и оплатите 990 ₽ за 30 дней через ЮKassa. После активации откроется цифровое сопровождение от вашего тренера.</p><p class="tutorial-step-why"><strong>Почему это важно:</strong> Активация открывает назначения и материалы вашего тренера.</p></div>
-        <figure class="tutorial-media"><img src="{{ asset('images/tutorial/client/03-yookassa.png') }}?v=20260721-price" width="798" height="1727" alt="Экран ЮKassa для оплаты 990 ₽ за 30 дней доступа FitFreak Pro" loading="lazy" /></figure>
+        <figure class="tutorial-media tutorial-media-payment"><img src="{{ asset('images/tutorial/client/03-yookassa.png') }}?v=20260728-layout" width="1080" height="545" alt="Экран ЮKassa для оплаты 990 ₽ за 30 дней доступа FitFreak Pro" loading="lazy" /></figure>
       </article>
       <article class="tutorial-step is-reverse" id="client-plan" data-tutorial-step-section>
         <div class="tutorial-step-copy"><span class="tutorial-step-number">04</span><h3>Откройте назначенный план</h3><p>После активации откройте панель, чтобы увидеть текущую тренировку и цели питания от своего тренера.</p><p class="tutorial-step-why"><strong>Почему это важно:</strong> Актуальные тренировки и цели остаются в одном месте.</p></div>

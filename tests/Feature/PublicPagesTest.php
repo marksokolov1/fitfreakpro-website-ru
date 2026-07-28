@@ -49,7 +49,6 @@ it('uses a focused trainer conversion navigation', function () {
     $response
         ->assertOk()
         ->assertSeeInOrder([
-            'Для тренеров',
             'Как работает',
             'Возможности',
             'Цены',
@@ -90,9 +89,17 @@ it('keeps the trainer landing page conversion flow in order', function () {
 it('positions the landing page around trainer ownership and client workflow', function () {
     $this->get(route('home', absolute: false))
         ->assertOk()
-        ->assertSee('Ваша методика. Ваши упражнения. Ваши клиенты.')
+        ->assertSee('Ведите больше клиентов')
+        ->assertSee('без бесконечных таблиц и переписок.')
+        ->assertSee('Создавайте собственные упражнения и программы, назначайте питание и отслеживайте прогресс клиентов в одном приложении. Аккаунт тренера — 0 ₽.')
         ->assertSee('Все необходимое для сопровождения клиента в одном приложении.')
-        ->assertSee('FitFreak Pro не заменяет тренера')
+        ->assertSee('FitFreak Pro поддерживает работу тренера, а не заменяет ее.')
+        ->assertSeeInOrder([
+            'Создайте собственную библиотеку упражнений',
+            'Назначайте персональные программы',
+            'Устанавливайте цели питания',
+            'Отслеживайте прогресс клиента',
+        ])
         ->assertSee('Создайте аккаунт тренера, добавляйте упражнения, создавайте программы и приглашайте клиентов.')
         ->assertSee('Клиент оплачивает доступ к цифровому сопровождению, которое предоставляет его тренер.')
         ->assertSee('Почему клиент оплачивает подписку?')
@@ -127,7 +134,7 @@ it('matches the shared English design structure while preserving Russian behavio
         ->assertOk()
         ->assertSee('<main id="main" class="home-page">', escape: false)
         ->assertSee('workflow-showcase', escape: false)
-        ->assertSee('app-ui-frame', escape: false)
+        ->assertSee('feature-product-frame', escape: false)
         ->assertSee('class="faq-answer-inner"', escape: false)
         ->assertSee('role="region"', escape: false)
         ->assertSee('class="navigation-scrim"', escape: false);

@@ -3,11 +3,6 @@
         <x-partials.brand />
 
         <nav id="primary-navigation" class="main-nav" aria-label="Основная навигация">
-            <span class="nav-desktop-only">
-                <x-ui.navigation-link :href="route('for-personal-trainers', absolute: false)" :active="request()->routeIs('for-personal-trainers')">
-                    {{ __('navigation.for_trainers') }}
-                </x-ui.navigation-link>
-            </span>
             <x-ui.navigation-link :href="route('how-it-works', absolute: false)" :active="request()->routeIs('how-it-works')">
                 {{ __('navigation.how_it_works') }}
             </x-ui.navigation-link>

@@ -226,7 +226,8 @@ it('uses the consolidated homepage and categorized Russian footer', function () 
         ->assertSee('https://apps.apple.com/us/app/fit-freak-pro/id6742347988', escape: false)
         ->assertSee('https://play.google.com/store/apps/details?id=com.duseca.fitfreak', escape: false)
         ->assertSee('https://www.linkedin.com/company/fitfreak-pro/', escape: false)
-        ->assertSee('support@fitfreakpro.com');
+        ->assertSee('support@fitfreakpro.com')
+        ->assertDontSee('href="/for-personal-trainers"', escape: false);
 });
 
 it('publishes both current Russian manuals from the tutorial', function () {

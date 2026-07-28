@@ -18,7 +18,6 @@
                     <p class="footer-heading">Ресурсы</p>
                     <div class="footer-links">
                         <x-ui.navigation-link :href="route('tutorial', absolute: false)" :active="request()->routeIs('tutorial')">{{ __('navigation.tutorial') }}</x-ui.navigation-link>
-                        <x-ui.navigation-link :href="route('for-personal-trainers', absolute: false)" :active="request()->routeIs('for-personal-trainers')">{{ __('navigation.for_trainers') }}</x-ui.navigation-link>
                         <x-ui.navigation-link :href="route('support', absolute: false)" :active="request()->routeIs('support')">{{ __('navigation.support') }}</x-ui.navigation-link>
                     </div>
                 </div>

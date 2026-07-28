@@ -94,7 +94,7 @@
           <figure><img src="{{ asset('assets/img/app-screen-9.webp') }}" width="619" height="1100" alt="Экран отслеживания целей по питанию" loading="lazy" /><figcaption>Цели по питанию</figcaption></figure>
         </div>
       </section>
-      <section class="section"><div class="container cta-panel"><h2>Стройте работу вокруг своего подхода.</h2><p>Скачайте FitFreak Pro, чтобы начать с бесплатного аккаунта тренера.</p><div class="cta-actions"><a class="btn btn-primary" href="/#download" data-track="app_download_click">Скачать приложение для тренера</a><a class="btn btn-secondary" href="/pricing/">Посмотреть цены</a></div></div></section>
+      <section class="section"><div class="container cta-panel"><h2>Добавьте свои упражнения, видео и программы в один рабочий процесс.</h2><p>Создавайте назначения, задавайте цели питания и проверяйте прогресс клиентов с бесплатного аккаунта тренера.</p><div class="cta-actions"><a class="btn btn-primary" href="/#download" data-track="app_download_click">Создать бесплатный аккаунт тренера</a><a class="btn btn-secondary" href="{{ route('how-it-works', absolute: false) }}">Посмотреть, как это работает</a></div></div></section>
 
     </main>
 </x-layouts.public>

@@ -58,7 +58,7 @@
             </nav>
             <ul class="tutorial-trust-list" aria-label="Доступность и оплата FitFreak Pro">
               <li>Доступно на iPhone и Android</li>
-              <li>Безопасная активация подписки через YooKassa</li>
+              <li>Оплата через ЮKassa</li>
               <li>Программы и рекомендации определяет тренер</li>
             </ul>
           </div>

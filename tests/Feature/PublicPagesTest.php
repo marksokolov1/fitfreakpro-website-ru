@@ -32,7 +32,11 @@ it('serves every public page with shared navigation and canonical metadata', fun
 it('keeps the current client price everywhere', function () {
     $this->get(route('pricing', absolute: false))
         ->assertOk()
-        ->assertSee('990 ₽')
+        ->assertSee('Аккаунт тренера — 0 ₽')
+        ->assertSee('Доступ клиента — 990 ₽ за 30 дней')
+        ->assertSee('Оплата через ЮKassa')
+        ->assertDontSee('990 ₽ в месяц')
+        ->assertDontSee('YooKassa')
         ->assertDontSee('1490')
         ->assertDontSee('1 490')
         ->assertDontSee('1&nbsp;490', escape: false);
@@ -40,6 +44,10 @@ it('keeps the current client price everywhere', function () {
     $this->get(route('home', absolute: false))
         ->assertOk()
         ->assertSee('"price": "990"', escape: false)
+        ->assertSee('Доступ клиента — 990 ₽ за 30 дней')
+        ->assertSee('Оплата через ЮKassa')
+        ->assertDontSee('990 ₽ в месяц')
+        ->assertDontSee('YooKassa')
         ->assertDontSee('"price": "1490"', escape: false);
 });
 
@@ -57,6 +65,8 @@ it('uses a focused trainer conversion navigation', function () {
         ])
         ->assertSee('Создать аккаунт тренера')
         ->assertSee('class="mobile-nav-cta"', escape: false)
+        ->assertSee('class="mobile-nav-client"', escape: false)
+        ->assertSee('У меня есть код приглашения')
         ->assertDontSee('Скачать приложение</a>', escape: false);
 });
 
@@ -100,9 +110,9 @@ it('positions the landing page around trainer ownership and client workflow', fu
             'Устанавливайте цели питания',
             'Отслеживайте прогресс клиента',
         ])
-        ->assertSee('Создайте аккаунт тренера, добавляйте упражнения, создавайте программы и приглашайте клиентов.')
-        ->assertSee('Клиент оплачивает доступ к цифровому сопровождению, которое предоставляет его тренер.')
-        ->assertSee('Почему клиент оплачивает подписку?')
+        ->assertSee('Тренер работает бесплатно. Клиент оплачивает цифровое сопровождение.')
+        ->assertSee('Профессиональная услуга тренера оплачивается отдельно.')
+        ->assertSee('Почему клиент оплачивает доступ отдельно?')
         ->assertSee('Можно ли продолжать работать по своей методике?')
         ->assertDontSee('1490')
         ->assertDontSee('AI-powered')
@@ -117,12 +127,13 @@ it('adds verifiable trust, seo, and role-specific conversion signals', function 
         ->assertSee('<meta name="description" content="Создавайте планы тренировок, ведите клиентов, назначайте упражнения, отслеживайте прогресс и предоставляйте персональное сопровождение с FitFreak Pro.">', escape: false)
         ->assertSee('Создано для персональных тренеров')
         ->assertSee('FitFreak Pro поддерживает работу тренера, а не заменяет ее.')
-        ->assertSee('Без ежемесячной платы для тренера')
-        ->assertSee('Оплата клиента через YooKassa')
+        ->assertSee('Аккаунт тренера — 0 ₽')
+        ->assertSee('Доступ клиента — 990 ₽ за 30 дней')
+        ->assertSee('Оплата через ЮKassa')
         ->assertSee('FitFreak Pro доступен на iPhone и Android.')
-        ->assertSee('Готовы выстроить свой рабочий процесс?')
+        ->assertSee('Готовы собрать упражнения, программы и прогресс клиентов в одном месте?')
         ->assertSee('У вас уже есть тренер?')
-        ->assertSee('Ввести код приглашения')
+        ->assertSee('У меня есть код приглашения')
         ->assertSee(route('tutorial', absolute: false).'#client-guide', escape: false)
         ->assertDontSee('Stripe')
         ->assertDontSee('testimonial')
@@ -144,8 +155,9 @@ it('matches the shared English design structure while preserving Russian behavio
         ->assertSee('class="how-it-works-page"', escape: false)
         ->assertSee('class="workflow-timeline"', escape: false)
         ->assertSee('workflow-app-shot', escape: false)
-        ->assertSee('990 ₽')
-        ->assertSee('YooKassa')
+        ->assertSee('990 ₽ за 30 дней')
+        ->assertSee('ЮKassa')
+        ->assertDontSee('YooKassa')
         ->assertDontSee('Stripe');
 
     $this->get(route('pricing', absolute: false))
@@ -162,8 +174,39 @@ it('matches the shared English design structure while preserving Russian behavio
         ->assertSee('data-tutorial-progress="coach-guide"', escape: false)
         ->assertSee('data-tutorial-progress="client-guide"', escape: false)
         ->assertSee('data-tutorial-step-section', escape: false)
-        ->assertSee('YooKassa')
+        ->assertSee('ЮKassa')
+        ->assertDontSee('YooKassa')
         ->assertDontSee('Stripe');
+});
+
+it('publishes eight concise trainer faq questions with full-row controls', function () {
+    $response = $this->get(route('home', absolute: false));
+
+    $response
+        ->assertOk()
+        ->assertSee('Что важно знать тренеру')
+        ->assertSee('Сколько стоит доступ клиента?')
+        ->assertSee('Что видит клиент в приложении?')
+        ->assertSee('class="faq-question"', escape: false)
+        ->assertSee('aria-expanded="false"', escape: false)
+        ->assertSee('aria-controls="faq-', escape: false)
+        ->assertSee('role="region"', escape: false)
+        ->assertSee('hidden', escape: false);
+
+    expect(substr_count($response->getContent(), 'class="faq-item"'))->toBe(8);
+});
+
+it('keeps a single page heading and descriptive landing images', function () {
+    $response = $this->get(route('home', absolute: false));
+    $content = $response->getContent();
+
+    $response
+        ->assertOk()
+        ->assertSee('alt="Панель тренера с клиентами в FitFreak Pro"', escape: false)
+        ->assertSee('alt="Библиотека упражнений с собственными видео тренера в FitFreak Pro"', escape: false)
+        ->assertSee('alt="Данные, цель и уровень активности клиента в FitFreak Pro"', escape: false);
+
+    expect(substr_count($content, '<h1'))->toBe(1);
 });
 
 it('publishes both current Russian manuals from the tutorial', function () {

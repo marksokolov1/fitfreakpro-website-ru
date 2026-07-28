@@ -22,6 +22,9 @@
                     {{ __('navigation.about') }}
                 </x-ui.navigation-link>
             </span>
+            <a class="mobile-nav-client" href="{{ route('tutorial', absolute: false) }}#client-guide" data-track="invitation_code_help_click">
+                У меня есть код приглашения
+            </a>
             <a class="mobile-nav-cta" href="{{ route('home', absolute: false) }}#download" data-track="trainer_account_click">
                 {{ __('navigation.create_trainer_account') }}
             </a>
@@ -38,7 +41,7 @@
                 aria-controls="primary-navigation"
                 aria-expanded="false"
             >
-                <span></span><span></span><span></span>
+                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
             </button>
         </div>
     </div>

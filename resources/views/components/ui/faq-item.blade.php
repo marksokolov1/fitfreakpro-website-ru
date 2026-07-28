@@ -20,6 +20,7 @@
         class="faq-answer"
         role="region"
         aria-labelledby="{{ $faqId }}-button"
+        hidden
     >
         <div class="faq-answer-inner">{{ $slot }}</div>
     </div>

@@ -73,10 +73,10 @@
               <div><span>Шаг 5</span><h2>Проверяйте и корректируйте</h2><p>Просматривайте тренировки, питание и данные прогресса клиента, затем обновляйте план по мере необходимости.</p></div>
             </article>
           </div>
-          <p class="workflow-price-note">Приглашенный клиент активирует доступ за 990 ₽ в месяц через YooKassa.</p>
+          <p class="workflow-price-note">Аккаунт тренера — 0 ₽. Доступ клиента — 990 ₽ за 30 дней. Оплата через ЮKassa.</p>
         </div>
       </section>
-      <section class="section how-it-works-cta-section"><div class="container cta-panel"><h2>Посмотрите, подойдет ли FitFreak Pro для вашей работы с клиентами.</h2><p>Узнайте, как организовать в одном приложении работу, которую вы сейчас ведете в таблицах, заметках, видео и переписках.</p><div class="cta-actions"><a class="btn btn-primary" href="/#download" data-track="app_download_click">Начать бесплатно как тренер</a><a class="btn btn-secondary" href="mailto:support@fitfreakpro.com?subject=Демо%20FitFreak%20Pro" data-track="demo_request_click">Запросить демонстрацию</a></div></div></section>
+      <section class="section how-it-works-cta-section"><div class="container cta-panel"><h2>Соберите упражнения, видео, программы, питание и прогресс в одном рабочем процессе.</h2><p>Создайте библиотеку, назначьте клиенту программу и проверяйте его результаты в приложении.</p><div class="cta-actions"><a class="btn btn-primary" href="/#download" data-track="app_download_click">Создать бесплатный аккаунт тренера</a><a class="btn btn-secondary" href="/#workflow">Посмотреть, как это работает</a></div></div></section>
 
     </main>
 </x-layouts.public>

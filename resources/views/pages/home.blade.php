@@ -196,7 +196,7 @@
         </div>
       </section>
 
-      <section class="section feature-showcase home-band" id="core-features">
+      <section class="section feature-showcase home-feature home-feature-primary home-band" id="core-features">
         <span id="features" class="legacy-anchor" aria-hidden="true"></span>
         <span id="coach-library" class="legacy-anchor" aria-hidden="true"></span>
         <div class="container feature-showcase-grid">
@@ -216,7 +216,7 @@
         </div>
       </section>
 
-      <section class="section feature-showcase feature-showcase-reverse home-band" id="client-process">
+      <section class="section feature-showcase feature-showcase-reverse home-feature home-feature-client home-band" id="client-process">
         <div class="container feature-showcase-grid">
           <figure class="feature-product-frame">
             <img src="{{ asset('assets/img/app-screen-3.webp') }}" width="619" height="1100" alt="Назначение персональной программы клиенту в FitFreak Pro" loading="lazy" />
@@ -234,7 +234,7 @@
         </div>
       </section>
 
-      <section class="section feature-showcase feature-showcase-compact home-band" id="coach-calendar">
+      <section class="section feature-showcase feature-showcase-compact home-secondary-feature home-band" id="coach-calendar">
         <div class="container feature-showcase-grid">
           <figure class="feature-product-frame feature-product-frame-calendar">
             <img src="{{ asset('images/tutorial/coach/06-coach-calendar.png') }}" width="922" height="2000" alt="Календарь тренера с блоком работы с клиентом в FitFreak Pro" loading="lazy" />

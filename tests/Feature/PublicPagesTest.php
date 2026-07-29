@@ -101,6 +101,7 @@ test('store, social, and support destinations remain unchanged', function (): vo
         ->assertSee('https://apps.apple.com/us/app/fit-freak-pro/id6742347988', escape: false)
         ->assertSee('https://play.google.com/store/apps/details?id=com.duseca.fitfreak', escape: false)
         ->assertSee('https://www.linkedin.com/company/fitfreak-pro/', escape: false)
+        ->assertSee('https://www.instagram.com/fitfreak.pro/', escape: false)
         ->assertSee('support@fitfreakpro.com');
 });
 

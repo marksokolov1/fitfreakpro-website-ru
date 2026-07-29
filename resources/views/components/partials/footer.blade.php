@@ -59,6 +59,7 @@
       <div class="footer-social">
         <p class="footer-heading footer-social-heading">FitFreak Pro в соцсетях</p>
         <a class="social-link" href="https://www.linkedin.com/company/fitfreak-pro/" target="_blank" rel="noopener noreferrer" data-track="linkedin_click" aria-label="FitFreak Pro в LinkedIn">LinkedIn</a>
+        <a class="social-link" href="https://www.instagram.com/fitfreak.pro/" target="_blank" rel="noopener noreferrer" data-track="instagram_click" aria-label="FitFreak Pro в Instagram">Instagram</a>
       </div>
     </div>
   </div>

@@ -291,7 +291,14 @@
 }
 
 .footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
   margin-top: 1.75rem;
+}
+
+.footer-social-heading {
+  flex-basis: 100%;
 }
 
 .site-footer .social-link {

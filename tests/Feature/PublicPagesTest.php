@@ -146,6 +146,26 @@ test('faq controls render stable accessible relationships', function (): void {
         ->assertSee('Что такое FitFreak Pro?');
 });
 
+test('homepage presents verified partners and trainer testimonial', function (): void {
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSeeInOrder([
+            'Партнерства и практика',
+            'Федерация массового спорта ДНР',
+            'Fitness Pride',
+            'Игорь Майструк',
+            'Цены',
+        ])
+        ->assertSee('Читать отзыв полностью')
+        ->assertSee(asset('images/partners/federation-mass-sport-dnr.webp'), escape: false)
+        ->assertSee(asset('images/partners/fitness-pride.webp'), escape: false)
+        ->assertSee(asset('images/partners/igor-maistruk.webp'), escape: false);
+
+    expect(public_path('images/partners/federation-mass-sport-dnr.webp'))->toBeFile()
+        ->and(public_path('images/partners/fitness-pride.webp'))->toBeFile()
+        ->and(public_path('images/partners/igor-maistruk.webp'))->toBeFile();
+});
+
 test('legal drafts are not indexable', function (): void {
     foreach (['privacy', 'terms'] as $route) {
         $this->get(route($route))

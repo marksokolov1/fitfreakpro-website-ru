@@ -144,6 +144,64 @@ PAGE, true, 512, JSON_THROW_ON_ERROR);
     </div>
   </section>
 
+  <section class="section proof-section home-band" id="partners" aria-labelledby="partners-heading">
+    <div class="container proof-header">
+      <div class="section-kicker">Партнерства и практика</div>
+      <h2 class="section-title" id="partners-heading">FitFreak Pro используют в обучении тренеров и работе с клиентами.</h2>
+      <p class="section-copy">Мы развиваем продукт вместе с организациями и специалистами, которым важно сохранить ведущую роль тренера и сделать сопровождение клиентов более системным.</p>
+    </div>
+
+    <div class="container partner-grid" aria-label="Партнеры FitFreak Pro">
+      <article class="partner-card">
+        <div class="partner-logo-stage partner-logo-stage-light">
+          <img src="{{ asset('images/partners/federation-mass-sport-dnr.webp') }}" width="960" height="540" alt="Логотип Федерации массового спорта Донецкой Народной Республики" loading="lazy" />
+        </div>
+        <div class="partner-card-copy">
+          <p class="partner-label">Партнер FitFreak Pro</p>
+          <h3>Федерация массового спорта ДНР</h3>
+          <p>Федерация развивает массовый спорт и оздоровительные программы для детей и взрослых в Донецке. FitFreak Pro внедряется как цифровой инструмент для более системной работы тренеров с клиентами.</p>
+        </div>
+      </article>
+
+      <article class="partner-card">
+        <div class="partner-logo-stage partner-logo-stage-dark">
+          <img src="{{ asset('images/partners/fitness-pride.webp') }}" width="720" height="720" alt="Логотип школы обучения фитнесу Fitness Pride" loading="lazy" />
+        </div>
+        <div class="partner-card-copy">
+          <p class="partner-label">Партнер FitFreak Pro</p>
+          <h3>Fitness Pride</h3>
+          <p>Школа готовит персональных тренеров и инструкторов фитнес-программ. FitFreak Pro используется в практике Игоря Майструка и интегрируется в подготовку тренеров Fitness Pride.</p>
+        </div>
+      </article>
+    </div>
+
+    <figure class="container testimonial-panel">
+      <div class="testimonial-photo">
+        <img src="{{ asset('images/partners/igor-maistruk.webp') }}" width="720" height="960" alt="Игорь Майструк в тренажерном зале" loading="lazy" />
+      </div>
+      <div class="testimonial-body">
+        <blockquote class="testimonial-quote">
+          <p class="testimonial-eyebrow">Опыт тренера</p>
+          <p class="testimonial-lead">«Для меня особенно важно, чтобы технология не пыталась заменить специалиста, а помогала ему качественнее выстраивать работу с клиентом.</p>
+          <p class="testimonial-lead">Именно это я вижу в FitFreak Pro. Я могу использовать собственную методику, упражнения и видео, назначать персональные программы, работать с целями по питанию и отслеживать прогресс клиента в одном понятном пространстве».</p>
+          <details class="testimonial-more">
+            <summary>Читать отзыв полностью</summary>
+            <div>
+              <p>Как тренеру мне важно, что профессиональные знания и решения остаются за специалистом, а приложение помогает организовать их и сделать сопровождение клиента более системным и удобным — в том числе между личными тренировками.</p>
+              <p>Я считаю, что за такими инструментами большое будущее, особенно для тренеров, которые хотят развивать онлайн- и гибридный формат работы, сохраняя при этом индивидуальный подход к каждому человеку.</p>
+            </div>
+          </details>
+        </blockquote>
+        <figcaption>
+          <strong>Игорь Майструк</strong>
+          <span>Президент Федерации массового спорта ДНР</span>
+          <span>Основатель и генеральный директор школы Fitness Pride</span>
+          <span>Фитнес-тренер и нутрициолог · более 15 лет опыта</span>
+        </figcaption>
+      </div>
+    </figure>
+  </section>
+
   <section class="section pricing-section home-band home-band-pricing" id="pricing">
     <div class="container">
       <div class="section-kicker">Цены</div>
